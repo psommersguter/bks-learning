@@ -1,15 +1,19 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { DEFAULT_LOCALE, type Locale } from "../i18n/locales";
+import type { ThemePreference } from "./theme";
 
 interface SettingsState {
   locale: Locale;
+  /** Light/dark design. Default "system" follows the device setting. */
+  theme: ThemePreference;
   /**
    * Whether to show the bar with Croatian special characters below typed answers.
    * `null` means "not chosen": on by default on desktop, off on touch devices.
    */
   diacriticsBar: boolean | null;
   setLocale: (locale: Locale) => void;
+  setTheme: (theme: ThemePreference) => void;
   setDiacriticsBar: (enabled: boolean) => void;
 }
 
@@ -23,8 +27,10 @@ export const useSettingsStore = create<SettingsState>()(
   persist(
     (set) => ({
       locale: DEFAULT_LOCALE,
+      theme: "system",
       diacriticsBar: null,
       setLocale: (locale) => set({ locale }),
+      setTheme: (theme) => set({ theme }),
       setDiacriticsBar: (enabled) => set({ diacriticsBar: enabled }),
     }),
     { name: "bks-learning.settings", version: 1 },

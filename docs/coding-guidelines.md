@@ -51,7 +51,9 @@ These apply to humans and coding agents alike.
 - Mobile-first: base styles target phones, `@media (min-width: …)` adds desktop refinements.
 - Use the design tokens (`var(--space-4)`, `var(--color-accent)`, …) instead of raw values.
   Add a token if a value is used in more than one place.
-- Dark mode works through the tokens (`prefers-color-scheme`). Don't hard-code colours in modules.
+- Dark mode works through the tokens: `global.css` redefines them for
+  `:root[data-theme="dark"]`. Don't hard-code colours in modules, and don't use
+  `prefers-color-scheme` in CSS (the user can override the device setting).
 - Touch targets are at least ~44px high. Respect `env(safe-area-inset-*)` on edges.
 
 ## Accessibility

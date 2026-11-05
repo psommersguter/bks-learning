@@ -3,8 +3,12 @@
  * Component styles live next to their component as *.module.css and use these tokens.
  */
 
+/*
+ * Light is the default. Dark applies via <html data-theme="dark">, which is set from the user's
+ * choice or the device setting (see src/settings/theme.ts and the inline script in index.html).
+ */
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   /* Colors */
   --color-background: #f6f6f8;
@@ -46,21 +50,21 @@
   --content-max-width: 40rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-background: #121215;
-    --color-surface: #1c1c21;
-    --color-border: #2e2e36;
-    --color-text: #ececf1;
-    --color-text-muted: #a0a0ad;
-    --color-accent: #e5384f;
-    --color-accent-hover: #f05a6e;
-    --color-success: #4cc27e;
-    --color-warning: #f0b84c;
-    --color-warning-surface: #4a3510;
-    --color-danger: #f0705f;
-    --shadow-sm: none;
-  }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-background: #121215;
+  --color-surface: #1c1c21;
+  --color-border: #2e2e36;
+  --color-text: #ececf1;
+  --color-text-muted: #a0a0ad;
+  --color-accent: #e5384f;
+  --color-accent-hover: #f05a6e;
+  --color-success: #4cc27e;
+  --color-warning: #f0b84c;
+  --color-warning-surface: #4a3510;
+  --color-danger: #f0705f;
+  --shadow-sm: none;
 }
 
 *,

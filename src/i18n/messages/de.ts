@@ -12,6 +12,10 @@ export const de = {
       label: "Sprache",
     },
     settingsLink: "Einstellungen",
+    themeToggle: {
+      toDark: "Zum dunklen Design wechseln",
+      toLight: "Zum hellen Design wechseln",
+    },
   },
   common: {
     loading: "Lädt …",
@@ -29,6 +33,12 @@ export const de = {
   },
   settings: {
     heading: "Einstellungen",
+    theme: {
+      label: "Design",
+      system: "Wie Gerät",
+      light: "Hell",
+      dark: "Dunkel",
+    },
     diacriticsBar: {
       label: "Sonderzeichen-Leiste beim Tippen anzeigen",
       hint: "Knöpfe für č, ć, đ, š und ž unter dem Eingabefeld. Standard: am Computer an, am Handy aus. Gilt nur für dieses Gerät.",

@@ -18,8 +18,10 @@ Read [docs/README.md](docs/README.md), especially [docs/coding-guidelines.md](do
 ## Troubleshooting
 
 - **Dev server serves an empty/broken module** ("does not provide an export named …") after an
-  edit: Vite read the file while it was being rewritten and cached the empty version. `touch`
-  the file and reload. Prefer the Edit tool over scripts that truncate and rewrite files.
+  edit, or an error that only fits a half-done change (e.g. "X is not defined" right after adding
+  its import): Vite cached an intermediate version of the file. This happens when a file is
+  rewritten or edited several times in quick succession. `touch` the changed files and reload
+  the page before checking the result in the browser.
 
 ## Working with the owner
 

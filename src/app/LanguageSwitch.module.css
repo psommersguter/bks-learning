@@ -20,6 +20,13 @@
   cursor: pointer;
 }
 
+/* Small phones: make room for the app title in the header. */
+@media (max-width: 400px) {
+  .option {
+    min-width: 2.25rem;
+  }
+}
+
 .option[aria-pressed="true"] {
   background: var(--color-accent);
   color: var(--color-on-accent);

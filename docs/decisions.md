@@ -2,6 +2,16 @@
 
 Newest first. One short entry per decision: what was decided, and why.
 
+## 2026-11-05: Manual light/dark theme
+
+- **A sun/moon toggle in the header** switches between light and dark. The settings page also
+  offers "Wie Gerät" (follow the device), which is the default.
+- **The theme is applied as `data-theme` on `<html>`**, and CSS only reacts to that attribute.
+  Doing it in JS keeps the dark tokens in one place (CSS can't combine "media query OR
+  attribute" without duplicating the block).
+- **An inline script in index.html** sets the attribute before React loads, to avoid a flash of
+  the wrong theme.
+
 ## 2026-11-05: Keyboard shortcut for special letters
 
 - **One toggle shortcut, Alt+.**, instead of one shortcut per letter. You type the base letter

@@ -8,6 +8,20 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>BKS Vokabeltrainer</title>
+    <script>
+      // Set the light/dark theme before the first paint, so the page doesn't flash in the wrong
+      // theme. Mirrors resolveTheme() in src/settings/theme.ts; React keeps it in sync afterwards.
+      (() => {
+        let preference = "system";
+        try {
+          preference = JSON.parse(localStorage.getItem("bks-learning.settings"))?.state?.theme ?? preference;
+        } catch {}
+        const dark =
+          preference === "dark" ||
+          (preference !== "light" && matchMedia("(prefers-color-scheme: dark)").matches);
+        document.documentElement.dataset.theme = dark ? "dark" : "light";
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

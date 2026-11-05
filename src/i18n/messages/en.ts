@@ -7,6 +7,10 @@ export const en: Messages = {
       label: "Language",
     },
     settingsLink: "Settings",
+    themeToggle: {
+      toDark: "Switch to dark theme",
+      toLight: "Switch to light theme",
+    },
   },
   common: {
     loading: "Loading …",
@@ -24,6 +28,12 @@ export const en: Messages = {
   },
   settings: {
     heading: "Settings",
+    theme: {
+      label: "Theme",
+      system: "Like device",
+      light: "Light",
+      dark: "Dark",
+    },
     diacriticsBar: {
       label: "Show special-character bar when typing",
       hint: "Buttons for č, ć, đ, š and ž below the input field. Default: on for computers, off for phones. Applies to this device only.",

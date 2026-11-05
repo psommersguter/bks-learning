@@ -7,6 +7,7 @@
 
 - [x] Special-character bar for typed answers (on by default on desktop, optional on phones),
   a settings page, and the Alt+. shortcut to toggle c/s/z/d into č/ć/š/ž/đ.
+- [x] Manual light/dark theme toggle (header + settings, default follows the device).
 
 ## Next (Phase 1)
 

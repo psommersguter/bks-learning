@@ -16,29 +16,51 @@
 }
 
 .title {
+  min-width: 0;
+  overflow: hidden;
   color: inherit;
   font-size: var(--font-size-lg);
   font-weight: 700;
   text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Small phones: keep the title on one line next to the header buttons. */
+@media (max-width: 400px) {
+  .header {
+    padding-right: var(--space-3);
+    padding-left: var(--space-3);
+  }
+
+  .title {
+    font-size: var(--font-size-md);
+  }
 }
 
 .headerActions {
   display: flex;
+  flex: none;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-1);
 }
 
-.iconLink {
+/* Round icon-only button or link in the header. */
+.iconButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   width: 2.75rem;
   height: 2.75rem;
+  padding: 0;
+  border: 0;
   border-radius: var(--radius-full);
+  background: transparent;
   color: var(--color-text-muted);
+  cursor: pointer;
 }
 
-.iconLink:hover {
+.iconButton:hover {
   background: var(--color-background);
   color: var(--color-text);
 }

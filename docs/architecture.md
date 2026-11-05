@@ -26,6 +26,17 @@ moving progress between devices                ──►  manual JSON export / i
   `useDiacriticsBarEnabled()` then falls back to the device default (on for desktop, off for
   touch devices, detected once via `(hover: none) and (pointer: coarse)`).
 
+### Light/dark theme
+
+- Setting `theme`: `"system"` (default, follows the device), `"light"` or `"dark"`. It's changed
+  by the sun/moon button in the header or on the settings page.
+- `src/settings/theme.ts` resolves it (`useResolvedTheme`, which listens live to
+  `prefers-color-scheme`) and writes `data-theme="light|dark"` on `<html>`. `global.css` only
+  reacts to that attribute.
+- An inline script in `index.html` sets the attribute before the first paint (reading the
+  persisted settings directly), so there's no flash of the wrong theme. Keep it in sync with
+  `resolveTheme()` and the storage key.
+
 ## Scheduling and progress
 
 - `src/domain/scheduling.ts` wraps **ts-fsrs** (FSRS-7). Each word has two cards, `hr-de` and

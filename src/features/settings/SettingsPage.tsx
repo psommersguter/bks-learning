@@ -3,10 +3,13 @@ import { useTranslation } from "react-i18next";
 import { Link } from "wouter";
 import { ROUTES } from "../../app/routes";
 import { useDiacriticsBarEnabled, useSettingsStore } from "../../settings/settingsStore";
+import { THEME_PREFERENCES } from "../../settings/theme";
 import styles from "./SettingsPage.module.css";
 
 export function SettingsPage() {
   const { t } = useTranslation();
+  const theme = useSettingsStore((state) => state.theme);
+  const setTheme = useSettingsStore((state) => state.setTheme);
   const diacriticsBarEnabled = useDiacriticsBarEnabled();
   const setDiacriticsBar = useSettingsStore((state) => state.setDiacriticsBar);
   const hintId = useId();
@@ -14,6 +17,24 @@ export function SettingsPage() {
   return (
     <section className={styles.card}>
       <h1 className={styles.heading}>{t("settings.heading")}</h1>
+
+      <fieldset className={styles.choice}>
+        <legend className={styles.legend}>{t("settings.theme.label")}</legend>
+        <div className={styles.options}>
+          {THEME_PREFERENCES.map((option) => (
+            <label key={option} className={styles.option}>
+              <input
+                type="radio"
+                name="theme"
+                value={option}
+                checked={theme === option}
+                onChange={() => setTheme(option)}
+              />
+              <span>{t(`settings.theme.${option}`)}</span>
+            </label>
+          ))}
+        </div>
+      </fieldset>
 
       <div className={styles.setting}>
         <label className={styles.toggle}>
