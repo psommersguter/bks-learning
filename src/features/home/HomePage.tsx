@@ -1,5 +1,5 @@
+import { useTranslation } from "react-i18next";
 import { vocabulary } from "../../data/vocabulary";
-import { useTranslation } from "../../i18n/useTranslation";
 import styles from "./HomePage.module.css";
 
 export function HomePage() {

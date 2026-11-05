@@ -1,11 +1,13 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { HomePage } from "../features/home/HomePage";
-import { useTranslation } from "../i18n/useTranslation";
+import { useSettingsStore } from "../settings/settingsStore";
 import styles from "./App.module.css";
 import { LanguageSwitch } from "./LanguageSwitch";
 
 export function App() {
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
+  const locale = useSettingsStore((state) => state.locale);
 
   useEffect(() => {
     document.documentElement.lang = locale;

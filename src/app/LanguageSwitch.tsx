@@ -1,10 +1,11 @@
+import { useTranslation } from "react-i18next";
 import { LOCALES } from "../i18n/locales";
-import { useTranslation } from "../i18n/useTranslation";
 import { useSettingsStore } from "../settings/settingsStore";
 import styles from "./LanguageSwitch.module.css";
 
 export function LanguageSwitch() {
-  const { t, locale } = useTranslation();
+  const { t } = useTranslation();
+  const locale = useSettingsStore((state) => state.locale);
   const setLocale = useSettingsStore((state) => state.setLocale);
 
   return (

@@ -1099,6 +1099,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.29.7":
+  version: 7.29.10
+  resolution: "@babel/runtime@npm:7.29.10"
+  checksum: 10c0/32f975da8e9c2cae6b33e1a477f8fe8bbff6722c982b5ce35f99affaf3a7a1b612c8272b43afa0e51d3000928d6f3ba38f9296301115db5640264907c027b0cd
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.29.7":
   version: 7.29.7
   resolution: "@babel/template@npm:7.29.7"
@@ -2114,8 +2121,10 @@ __metadata:
     "@types/react": "npm:^19.3.0"
     "@types/react-dom": "npm:^19.3.0"
     "@vitejs/plugin-react": "npm:^6.2.1"
+    i18next: "npm:^26.7.1"
     react: "npm:^19.3.1"
     react-dom: "npm:^19.3.1"
+    react-i18next: "npm:^17.1.12"
     typescript: "npm:^7.0.2"
     vite: "npm:^8.3.6"
     vite-plugin-pwa: "npm:^2.0.0"
@@ -2840,6 +2849,25 @@ __metadata:
   dependencies:
     function-bind: "npm:^1.1.2"
   checksum: 10c0/2d8de939e270b70618f8cebb69746620db10617dbb495bc66ddad326955ea24d3ca4af133aff3eb7c1853e0218f867bc2b050ec26fe02e3aea58f880ffc5e506
+  languageName: node
+  linkType: hard
+
+"html-parse-stringify@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "html-parse-stringify@npm:4.0.1"
+  checksum: 10c0/8d7267acbc8b70a50096176e28ba491af89fb31613b6a062bce4b8201b2703fd652bedfbe0db6efe90145379c89524a3319b1b58b8c96a72779b0f49e4c2c180
+  languageName: node
+  linkType: hard
+
+"i18next@npm:^26.7.1":
+  version: 26.7.1
+  resolution: "i18next@npm:26.7.1"
+  peerDependencies:
+    typescript: ^5 || ^6 || ^7
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  checksum: 10c0/742c0d5ea25a68e0380de3be5c4b7d1f2a9ab9da81d5f2a85ea2892a500f60ba1a87a2c1fd6e0cd16588f37175dc88da817d3b26dda1963044f045bd86202960
   languageName: node
   linkType: hard
 
@@ -3605,6 +3633,28 @@ __metadata:
   peerDependencies:
     react: ^19.3.1
   checksum: 10c0/382700916313b2ebc46acee80642f300bb8601eac6a9e7fefade5b8b30e66b05bf3aaa56a3c964589fcd578d27b486e847470c2697d879264e766661ff49fac7
+  languageName: node
+  linkType: hard
+
+"react-i18next@npm:^17.1.12":
+  version: 17.1.12
+  resolution: "react-i18next@npm:17.1.12"
+  dependencies:
+    "@babel/runtime": "npm:^7.29.7"
+    html-parse-stringify: "npm:^4.0.1"
+    use-sync-external-store: "npm:^1.6.0"
+  peerDependencies:
+    i18next: ">= 26.2.0"
+    react: ">= 16.8.0"
+    typescript: ^5 || ^6 || ^7
+  peerDependenciesMeta:
+    react-dom:
+      optional: true
+    react-native:
+      optional: true
+    typescript:
+      optional: true
+  checksum: 10c0/92b9bb4261420575e3d5c619474f6b855fac12c285f8ca797c8b2b9e0322ec9464ca778786c98cbe2a51e57af4bc25f0675a45aa9f58dc0c315650a1ce8afe85
   languageName: node
   linkType: hard
 
@@ -4548,6 +4598,15 @@ __metadata:
   bin:
     update-browserslist-db: cli.js
   checksum: 10c0/5c0769472715b57371208c3146cc07a4f0917c1d18cc34f60325bc4234f4a28f332e50b99f675999ff311315231ff19beb22a815dfe04ccc1e798e1d389514d7
+  languageName: node
+  linkType: hard
+
+"use-sync-external-store@npm:^1.6.0":
+  version: 1.7.0
+  resolution: "use-sync-external-store@npm:1.7.0"
+  peerDependencies:
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+  checksum: 10c0/6bae7cb778ce611131ec830c4e469fbc2872acefc25d2e4cf1c28b8628690689770742a9f2f0642c95134f9c77041fee60f0352f81ca43f96643b0ed01774726
   languageName: node
   linkType: hard
 

@@ -4,10 +4,11 @@ These apply to humans and coding agents alike.
 
 ## Guardrails
 
-- **Minimal dependencies.** Runtime dependencies are `react`, `react-dom` and `zustand`. Do not add
-  a new dependency (runtime _or_ dev) without the owner's explicit approval. Prefer browser-native
-  APIs (IndexedDB, `Intl`, Web Speech, `crypto.randomUUID`, …) and small hand-written helpers.
-  Record every approved addition in [decisions.md](decisions.md).
+- **Minimal dependencies, owner decides.** Do not add a dependency (runtime _or_ dev) without the
+  owner's explicit approval. Conversely, don't hand-roll something a well-known library covers
+  without asking either: whenever both options exist, present them with pros and cons and let
+  the owner choose. Prefer browser-native APIs (IndexedDB, `Intl`, Web Speech,
+  `crypto.randomUUID`, …) where they fit. Record every decision in [decisions.md](decisions.md).
 - **No Tailwind, no CSS-in-JS, no UI component libraries.** Styling is plain CSS Modules plus the
   tokens in `src/styles/global.css`.
 - **No router library** for now (see [architecture.md](architecture.md#navigation)).
@@ -73,5 +74,7 @@ These apply to humans and coding agents alike.
 
 ## Git
 
+- **Never commit without the owner's OK.** Present the finished change for review first. The
+  owner decides whether the agent commits or they commit themselves.
 - Small, focused commits with imperative messages ("Add review session screen").
 - `main` deploys automatically; keep it green.

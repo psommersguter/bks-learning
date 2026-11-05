@@ -14,7 +14,10 @@
       "de": "das Haus",
       "pos": "noun",
       "gender": "f",
-      "example": { "hr": "Ovo je moja kuća.", "de": "Das ist mein Haus." },
+      "example": {
+        "hr": "Ovo je moja kuća.",
+        "de": "Das ist mein Haus."
+      },
       "tags": ["Beispiel"]
     },
     {

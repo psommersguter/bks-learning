@@ -15,6 +15,13 @@ Read [docs/README.md](docs/README.md), especially [docs/coding-guidelines.md](do
 - `yarn lint:fix`: format the code and apply safe lint fixes (Biome)
 - `yarn build`: production build into `dist/`
 
+## Working with the owner
+
+- **Build vs. library: ask.** Whenever something could be written by hand or taken from a
+  library, present the options with pros and cons and let the owner decide. Don't pick on your own.
+- **Never commit on your own.** When a change is ready, summarise it and ask the owner to review.
+  They decide whether you commit, they commit themselves, or changes are needed first.
+
 ## Hard rules
 
 - Don't add dependencies without the owner's explicit approval.
