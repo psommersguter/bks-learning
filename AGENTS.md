@@ -34,6 +34,8 @@ Read [docs/README.md](docs/README.md), especially [docs/coding-guidelines.md](do
 
 - Don't add dependencies without the owner's explicit approval.
 - No Tailwind, CSS-in-JS or UI kits. Routing is `wouter` with hash URLs.
+- React Compiler is on: no manual `useMemo`/`useCallback`/`memo()`, and follow the Rules of React
+  (see docs/coding-guidelines.md for the patterns it can't compile).
 - All UI strings go through i18n (`src/i18n/messages/de.ts` + `en.ts`).
 - Never write to the vocabulary file (`src/data/vocabulary.json`, see docs/vocabulary-format.md) from
   app code, and never change existing word ids. Never break stored progress without a migration.

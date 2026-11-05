@@ -1,5 +1,6 @@
 /// <reference types="vitest/config" />
-import react from "@vitejs/plugin-react";
+import babel from "@rolldown/plugin-babel";
+import react, { reactCompilerPreset } from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { VitePWA } from "vite-plugin-pwa";
 
@@ -13,6 +14,9 @@ export default defineConfig({
   base: BASE_PATH,
   plugins: [
     react(),
+    // React Compiler: memoizes components and hooks automatically, so manual
+    // useMemo/useCallback/memo are not needed (see docs/coding-guidelines.md).
+    babel({ presets: [reactCompilerPreset()] }),
     VitePWA({
       registerType: "autoUpdate",
       injectRegister: "script-defer",

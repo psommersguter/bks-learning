@@ -42,9 +42,9 @@ export function StudySession({ queue }: StudySessionProps) {
     } catch (error) {
       console.error("Failed to save answer", error);
       setSaveFailed(true);
-    } finally {
-      setSaving(false);
     }
+    // Not in a `finally` block: React Compiler doesn't support `try … finally` yet.
+    setSaving(false);
   }
 
   const handleKeyDown = useEffectEvent((event: KeyboardEvent) => {

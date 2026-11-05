@@ -13,7 +13,20 @@ import { LanguageSwitch } from "./LanguageSwitch";
 import { ROUTES } from "./routes";
 import { ThemeToggle } from "./ThemeToggle";
 
+/**
+ * Sets up hash-based routing. Kept separate from the shell because wouter takes the location
+ * hook as a prop, which React Compiler rejects ("hooks must be called") and therefore leaves
+ * uncompiled. That way only this tiny component is skipped; `AppShell` is still optimised.
+ */
 export function App() {
+  return (
+    <Router hook={useHashLocation}>
+      <AppShell />
+    </Router>
+  );
+}
+
+function AppShell() {
   const { t } = useTranslation();
   const locale = useSettingsStore((state) => state.locale);
   useApplyTheme();
@@ -24,33 +37,31 @@ export function App() {
   }, [locale, t]);
 
   return (
-    <Router hook={useHashLocation}>
-      <div className={styles.shell}>
-        <header className={styles.header}>
-          <Link href={ROUTES.home} className={styles.title}>
-            {t("app.title")}
+    <div className={styles.shell}>
+      <header className={styles.header}>
+        <Link href={ROUTES.home} className={styles.title}>
+          {t("app.title")}
+        </Link>
+        <div className={styles.headerActions}>
+          <LanguageSwitch />
+          <ThemeToggle />
+          <Link
+            href={ROUTES.settings}
+            className={styles.iconButton}
+            aria-label={t("app.settingsLink")}
+            title={t("app.settingsLink")}
+          >
+            <SettingsIcon />
           </Link>
-          <div className={styles.headerActions}>
-            <LanguageSwitch />
-            <ThemeToggle />
-            <Link
-              href={ROUTES.settings}
-              className={styles.iconButton}
-              aria-label={t("app.settingsLink")}
-              title={t("app.settingsLink")}
-            >
-              <SettingsIcon />
-            </Link>
-          </div>
-        </header>
-        <main className={styles.main}>
-          <Switch>
-            <Route path={ROUTES.learn} component={LearnPage} />
-            <Route path={ROUTES.settings} component={SettingsPage} />
-            <Route component={HomePage} />
-          </Switch>
-        </main>
-      </div>
-    </Router>
+        </div>
+      </header>
+      <main className={styles.main}>
+        <Switch>
+          <Route path={ROUTES.learn} component={LearnPage} />
+          <Route path={ROUTES.settings} component={SettingsPage} />
+          <Route component={HomePage} />
+        </Switch>
+      </main>
+    </div>
   );
 }

@@ -46,6 +46,21 @@ These apply to humans and coding agents alike.
   slices: `useStore((s) => s.value)`, never the whole store.
 - Effects are for synchronising with the outside world (DOM, storage), not for deriving state.
 
+### React Compiler
+
+The build runs the [React Compiler](https://react.dev/learn/react-compiler), which memoises
+components and hooks automatically.
+
+- **Don't add `useMemo`, `useCallback` or `memo()`** for performance. The compiler does that.
+- Follow the [Rules of React](https://react.dev/reference/rules) (pure render, no mutating props
+  or state, hooks only called). Code that breaks them is silently left uncompiled.
+- Patterns the current compiler can't compile, so they also leave the component unoptimised:
+  `try … finally` (put the cleanup after `try/catch`) and default values in destructured props
+  (use `value ?? default`).
+- Known exception: `App` in `src/app/App.tsx` passes wouter's location hook as a prop and is
+  intentionally left uncompiled. Everything else should compile.
+- To check a component: React DevTools shows a "Memo ✨" badge on compiled components.
+
 ## CSS
 
 - Mobile-first: base styles target phones, `@media (min-width: …)` adds desktop refinements.

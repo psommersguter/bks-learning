@@ -2,6 +2,18 @@
 
 Newest first. One short entry per decision: what was decided, and why.
 
+## 2026-11-05: React Compiler
+
+- **React Compiler via Babel** (`babel-plugin-react-compiler` 1.0 with `@rolldown/plugin-babel`
+  and `@babel/core`, all dev-only), using `reactCompilerPreset()` from `@vitejs/plugin-react`.
+  The owner chose it over the Rust port (`oxc-transform-react`), which plugin-react marks as
+  experimental and which only supports a narrow version range.
+- **`rolldown` peer marked optional** via `packageExtensions` in `.yarnrc.yml`:
+  `@rolldown/plugin-babel` runs inside Vite, which ships rolldown itself.
+- **No manual memoisation** from now on (see coding guidelines). Three components needed small
+  changes to compile (`try … finally`, a destructuring default, and wouter's hook-as-prop in
+  `App`, which was split off into a wrapper).
+
 ## 2026-11-05: Manual light/dark theme
 
 - **A sun/moon toggle in the header** switches between light and dark. The settings page also

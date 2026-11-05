@@ -12,6 +12,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
 }
 
-export function Button({ variant, className, type = "button", ...props }: ButtonProps) {
-  return <button type={type} className={buttonClassName(variant, className)} {...props} />;
+export function Button({ variant, className, type, ...props }: ButtonProps) {
+  // `type ?? "button"` instead of a destructuring default: React Compiler can't compile those.
+  return (
+    <button type={type ?? "button"} className={buttonClassName(variant, className)} {...props} />
+  );
 }
