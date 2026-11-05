@@ -5,7 +5,7 @@ desktop and phone, offline-capable, and is hosted on GitHub Pages.
 
 ## Getting started
 
-Requires Node ≥ 22 (see `.nvmrc`) and Yarn 4. Yarn is provided by Corepack using the version
+Requires Node ≥ 24 (see `.nvmrc`) and Yarn 4. Yarn is provided by Corepack using the version
 pinned in `package.json`:
 
 ```bash

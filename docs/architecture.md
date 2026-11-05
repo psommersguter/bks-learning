@@ -23,6 +23,25 @@ moving progress between devices                ──►  manual JSON export / i
 - **Preferences** (UI language etc.) are tiny and live in localStorage through Zustand's
   `persist` middleware. Never put progress into localStorage.
 
+## Scheduling and progress
+
+- `src/domain/scheduling.ts` wraps **ts-fsrs** (FSRS-7). Each word has two cards, `hr-de` and
+  `de-hr`, scheduled independently.
+- A card has no stored progress until its first review; until then it is "new".
+  `buildStudyQueue()` returns the due cards (most overdue first) and the new cards (file order).
+- `reviewCard()` returns the card's new FSRS state and a history entry. Both are saved together
+  by `saveReview()` in `src/storage/progressRepository.ts`.
+- IndexedDB database `bks-learning` (`src/storage/database.ts`):
+
+  | Store      | Key                   | Value                                            |
+  | ---------- | --------------------- | ------------------------------------------------ |
+  | `progress` | `[wordId, direction]` | `CardProgress`: current ts-fsrs card             |
+  | `reviews`  | auto-increment        | `ReviewRecord`: rating, time, ts-fsrs review log |
+
+  Dates are stored as `Date` objects (IndexedDB clones them natively).
+- The ts-fsrs card object is stored as-is. Upgrading ts-fsrs to a version with a different card
+  shape needs a database migration.
+
 ## Folder layout
 
 ```
@@ -32,7 +51,7 @@ src/
   features/<name>/    one folder per feature (home, learn, words, …): components + CSS modules
   domain/             pure TypeScript logic, no React, no browser APIs → unit tested
   data/               vocabulary.json (hand-maintained), its JSON schema, and the loader
-  storage/            IndexedDB access (thin wrapper around the native API)             (planned)
+  storage/            IndexedDB access via `idb` (database schema, repositories)
   i18n/               i18next setup, UI translations (de = source of truth, en), key typing
   settings/           Zustand store for user preferences
   styles/global.css   design tokens (CSS custom properties) + minimal reset

@@ -2,6 +2,21 @@
 
 Newest first. One short entry per decision: what was decided, and why.
 
+## 2026-11-05: Scheduling and progress storage
+
+- **ts-fsrs 6 with FSRS-7** and its default settings: 90% desired retention, fuzz on, learning
+  steps 1m/10m, relearning step 10m. FSRS-7 may skip learning steps when it's confident, e.g. a
+  new card rated _Good_ goes straight to a few days.
+- **Two cards per word** (`hr-de`, `de-hr`), scheduled independently. Both directions of a new
+  word may be studied on the same day.
+- **No daily limit for new words.** The owner wants to study as much or as little as they like.
+- **`idb`** (thin promise wrapper with a typed schema) instead of a hand-written IndexedDB
+  wrapper. The owner chose it.
+- **`fake-indexeddb`** (dev only) so the storage code is covered by real tests in Node.
+- **Every answer is kept** in a `reviews` store, for statistics and a possible later FSRS
+  parameter optimisation.
+- **Node ≥ 24** required (ts-fsrs's engine requirement; CI already uses Node 24).
+
 ## 2026-11-05: i18next instead of hand-written i18n
 
 - **i18next + react-i18next** replace the small hand-written translation helper. The owner

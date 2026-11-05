@@ -31,8 +31,9 @@ These apply to humans and coding agents alike.
 - No `any`; use `unknown` and narrow it. Avoid non-null assertions (`!`); handle the missing case.
 - Prefer `type`/`interface` + plain functions over classes.
 - Named exports only (no default exports), so a component's name is the same everywhere.
-- Validate data at the boundaries (JSON import, IndexedDB reads, the vocabulary file) and trust
-  the types inside the app.
+- Validate data at the boundaries (the vocabulary file, imported backup files) and trust the
+  types inside the app. IndexedDB data is only written by the app through a versioned schema,
+  so reads from it aren't validated again.
 - Use `import type` for type-only imports (enforced by Biome).
 
 ## React

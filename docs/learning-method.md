@@ -14,8 +14,9 @@ The techniques the app is built on, in rough order of importance.
 4. **Typed answers for production.** Typing the Croatian word trains spelling, including the
    diacritics č ć đ š ž. Answer checking should treat a missing diacritic as "almost right" and
    show the correct form, rather than counting it as a plain error.
-5. **Small daily batches.** A limited number of new words per day, mixed with due reviews. New
-   words are introduced in file order, i.e. roughly in the order they came up in class.
+5. **The learner sets the pace.** There's no daily limit for new words: due reviews come first,
+   then new words in file order (roughly the order they came up in class), for as long as the
+   learner wants. Both directions of a new word may come up on the same day.
 
 Ideas for later: multiple choice for brand-new words, cloze sentences (practising cases in
 context), gender drills for nouns, aspect-pair drills for verbs, audio via the Web Speech API
