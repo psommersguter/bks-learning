@@ -8,7 +8,7 @@ Static React + TypeScript SPA built with Vite and hosted on GitHub Pages. There 
 Read [docs/README.md](docs/README.md), especially [docs/coding-guidelines.md](docs/coding-guidelines.md)
 (guardrails) and [docs/architecture.md](docs/architecture.md).
 
-## Commands (Yarn classic)
+## Commands (Yarn 4 via Corepack, `nodeLinker: node-modules`)
 
 - `yarn dev`: dev server at http://localhost:5173/bks-learning/
 - `yarn check`: typecheck + lint + tests. **Must pass before committing.**

@@ -33,16 +33,21 @@ Proposed location: `src/data/vocabulary.json`
 
 ## Fields
 
-| Field | Required | Meaning |
-|---|---|---|
-| `id` | yes | Stable identifier that is unique across the whole file. Learning progress is attached to it, so **never change it** once the word has been learned. Fix typos in `hr`/`de` instead. |
-| `hr` | yes | Croatian term. A string, or an array of accepted variants (the first one is shown). |
-| `de` | yes | German term. A string, or an array of accepted variants (the first one is shown). |
-| `pos` | no | Part of speech: `noun`, `verb`, `adj`, `adv`, `phrase`, `other`. |
-| `gender` | no | Nouns: `m`, `f`, `n`. |
-| `aspect` | no | Verbs: `ipf` (imperfective) or `pf` (perfective). |
-| `note` | no | Free-text hint shown after answering. |
-| `example` | no | `{ "hr": "...", "de": "..." }`, an example sentence (for a later cloze mode). |
+| Field     | Required | Meaning                                                                             |
+| --------- | -------- | ----------------------------------------------------------------------------------- |
+| `id`      | yes      | Stable identifier, unique across the whole file (see below).                        |
+| `hr`      | yes      | Croatian term. A string, or an array of accepted variants (the first one is shown). |
+| `de`      | yes      | German term. A string, or an array of accepted variants (the first one is shown).   |
+| `pos`     | no       | Part of speech: `noun`, `verb`, `adj`, `adv`, `phrase`, `other`.                    |
+| `gender`  | no       | Nouns: `m`, `f`, `n`.                                                               |
+| `aspect`  | no       | Verbs: `ipf` (imperfective) or `pf` (perfective).                                   |
+| `note`    | no       | Free-text hint shown after answering.                                               |
+| `example` | no       | `{ "hr": "...", "de": "..." }`, an example sentence (for a later cloze mode).       |
+
+### Why ids must stay stable
+
+Learning progress is stored per `id`. **Never change the id** of a word you have already
+learned, or its progress is lost. To fix a typo, edit `hr`/`de` and keep the id.
 
 ## Open questions
 

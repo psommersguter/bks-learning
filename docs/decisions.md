@@ -2,6 +2,16 @@
 
 Newest first. One short entry per decision: what was decided, and why.
 
+## 2026-11-05: Yarn 4 instead of Yarn 1
+
+- **Yarn 4 (modern), pinned via `packageManager` and provided by Corepack.** The owner wants
+  current tooling. Yarn 1 is in maintenance mode.
+- **`nodeLinker: node-modules`** instead of Plug'n'Play. PnP needs editor SDKs and causes friction
+  with tools such as TypeScript and Biome. A normal `node_modules` folder just works.
+- **Yarn's security defaults are kept**: dependency install scripts are disabled and packages
+  must be at least one day old (`npmMinimalAgeGate`). If a future dependency really needs a
+  postinstall script, allow it only for that package via `dependenciesMeta`.
+
 ## 2026-11-05: Initial scaffold
 
 - **React 19 + TypeScript + Vite.** The owner knows React; Vite was a requirement.
@@ -10,8 +20,6 @@ Newest first. One short entry per decision: what was decided, and why.
   Oxlint alone would still need a separate formatter.
 - **Vitest** for unit tests. It shares Vite's config and needs no extra setup.
 - **vite-plugin-pwa** for offline support and installation on the phone.
-- **Yarn (classic, 1.22).** The owner uses it. pnpm would be faster and stricter, but that
-  doesn't matter for a project this small.
 - **No router.** There are only a few screens. If one is added later, it must be hash-based
   (GitHub Pages has no SPA fallback).
 - **Native IndexedDB instead of Dexie.** This keeps dependencies to a minimum. A small typed

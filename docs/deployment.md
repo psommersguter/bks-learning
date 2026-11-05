@@ -6,14 +6,14 @@ The app is hosted on GitHub Pages at `https://<user>.github.io/bks-learning/`.
 
 `.github/workflows/ci.yml` runs on every push and pull request:
 
-1. `yarn install --frozen-lockfile`
+1. `corepack enable` + `yarn install --immutable`
 2. `yarn typecheck`, `yarn lint`, `yarn test`
 3. `yarn build` → `dist/`
 4. On `main` only: upload `dist/` and deploy it to GitHub Pages.
 
 ## One-time setup in GitHub
 
-Repository → *Settings* → *Pages* → *Build and deployment* → Source: **GitHub Actions**.
+Repository → _Settings_ → _Pages_ → _Build and deployment_ → Source: **GitHub Actions**.
 
 ## Base path
 

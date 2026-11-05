@@ -19,11 +19,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
+      # Corepack provides the Yarn version pinned in package.json ("packageManager").
+      # It must be enabled before setup-node so that the yarn cache detection works.
+      - run: corepack enable
       - uses: actions/setup-node@v5
         with:
           node-version-file: .nvmrc
           cache: yarn
-      - run: yarn install --frozen-lockfile
+      - run: yarn install --immutable
       - run: yarn typecheck
       - run: yarn lint
       - run: yarn test

@@ -5,7 +5,7 @@ These apply to humans and coding agents alike.
 ## Guardrails
 
 - **Minimal dependencies.** Runtime dependencies are `react`, `react-dom` and `zustand`. Do not add
-  a new dependency (runtime *or* dev) without the owner's explicit approval. Prefer browser-native
+  a new dependency (runtime _or_ dev) without the owner's explicit approval. Prefer browser-native
   APIs (IndexedDB, `Intl`, Web Speech, `crypto.randomUUID`, …) and small hand-written helpers.
   Record every approved addition in [decisions.md](decisions.md).
 - **No Tailwind, no CSS-in-JS, no UI component libraries.** Styling is plain CSS Modules plus the
