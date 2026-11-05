@@ -69,10 +69,12 @@ export interface StudyQueue {
   due: StudyItem[];
   /** Never reviewed, in vocabulary-file order (per word: `hr-de` before `de-hr`). */
   new: StudyItem[];
+  /** Reviewed before but not due yet, soonest due first (for reviewing ahead / free practice). */
+  upcoming: StudyItem[];
 }
 
 /**
- * Splits all cards into what's due now and what's new.
+ * Splits all cards into due, new and upcoming.
  * Progress of words that no longer exist in the vocabulary is ignored.
  */
 export function buildStudyQueue(
@@ -83,6 +85,7 @@ export function buildStudyQueue(
   const progressByKey = new Map(progress.map((entry) => [cardKeyString(entry), entry.fsrs]));
   const due: StudyItem[] = [];
   const fresh: StudyItem[] = [];
+  const upcoming: StudyItem[] = [];
 
   for (const word of words) {
     for (const direction of DIRECTIONS) {
@@ -91,12 +94,16 @@ export function buildStudyQueue(
         fresh.push({ wordId: word.id, direction, word });
       } else if (fsrs.dueAt.getTime() <= now.getTime()) {
         due.push({ wordId: word.id, direction, word, fsrs });
+      } else {
+        upcoming.push({ wordId: word.id, direction, word, fsrs });
       }
     }
   }
 
-  due.sort((a, b) => dueTime(a) - dueTime(b));
-  return { due, new: fresh };
+  const byDueTime = (a: StudyItem, b: StudyItem) => dueTime(a) - dueTime(b);
+  due.sort(byDueTime);
+  upcoming.sort(byDueTime);
+  return { due, new: fresh, upcoming };
 }
 
 /** Applies an answer to a card and returns the new progress plus the history entry to store. */

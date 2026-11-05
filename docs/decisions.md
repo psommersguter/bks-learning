@@ -2,6 +2,15 @@
 
 Newest first. One short entry per decision: what was decided, and why.
 
+## 2026-11-05: Keep learning after a session
+
+- **Two extra modes**, both chosen by the owner: _Vorlernen_ (review ahead: the cards due
+  soonest, answers saved) and _Freies Üben_ (random learned cards, nothing saved).
+- **Rounds of 20 cards**, after each round you can start another one.
+- Free practice still runs the scheduler in memory, so a forgotten card comes back within the
+  round, but nothing reaches IndexedDB.
+- Offered on the session summary and in a "Mehr üben" section on the home page.
+
 ## 2026-11-05: React Compiler
 
 - **React Compiler via Babel** (`babel-plugin-react-compiler` 1.0 with `@rolldown/plugin-babel`

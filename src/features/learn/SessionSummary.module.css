@@ -18,3 +18,9 @@
   margin: 0;
   font-size: var(--font-size-xl);
 }
+
+.back {
+  padding: var(--space-2);
+  color: var(--color-text-muted);
+  font-weight: 600;
+}

@@ -58,11 +58,23 @@ moving progress between devices                ──►  manual JSON export / i
 
 ## Study session
 
-- `src/features/learn/learningService.ts` is the UI's single entry point: `loadStudyQueue()`
-  and `recordAnswer()` (schedules, saves, returns the new progress). It keeps one shared
-  scheduler, created while the queue loads.
+- `src/features/learn/learningService.ts` is the UI's single entry point: `loadStudyQueue()`,
+  `recordAnswer()` (schedules, saves, returns the new progress) and `practiceAnswer()` (same,
+  but saves nothing). It keeps one shared scheduler, created while the queue loads.
+- `buildStudyQueue()` splits all cards into `due`, `new` and `upcoming` (learned, not due yet).
+- Three session modes (`SessionMode`, cards chosen by `sessionCards()`):
+
+  | Mode       | Route             | Cards                                    | Saved? |
+  | ---------- | ----------------- | ---------------------------------------- | ------ |
+  | `regular`  | `/learn`          | all due, then all new                    | yes    |
+  | `ahead`    | `/learn/ahead`    | next 20 upcoming, soonest due first      | yes    |
+  | `practice` | `/learn/practice` | 20 random learned cards (due + upcoming) | no     |
+
+  The session summary and the home page offer the modes that have cards (`StudyOptions`).
+  `LearnPage` counts rounds: continuing in the same mode remounts the round (fresh data, new
+  random selection), another mode switches the route.
 - `src/domain/studySession.ts` is the session state machine used with `useReducer`:
-  - Order: due cards first, then new words in groups of 5 (hr-de of the group, then de-hr).
+  - Regular order: due cards first, then new words in groups of 5 (hr-de, then de-hr).
   - Phases: `question` → `revealed` (hr-de, self-rated) or `checked` (de-hr, typed).
   - A card that is due again within 20 minutes (e.g. after _Again_) is appended to the queue.
   - `ratingOptions()` decides which rating buttons are shown and which is the default.
@@ -108,11 +120,12 @@ Routing uses **wouter** with `useHashLocation` (URLs like `#/learn`), because Gi
 serve an SPA fallback for path URLs. Real history entries make the phone's back button work.
 Paths live in `src/app/routes.ts`; the routes are declared in `App.tsx`.
 
-| Route       | Screen                                      |
-| ----------- | ------------------------------------------- |
-| `/`         | Home: due/new counts, start button          |
-| `/learn`    | Study session (`features/learn/LearnPage`)  |
-| `/settings` | Settings (`features/settings/SettingsPage`) |
+| Route                             | Screen                                               |
+| --------------------------------- | ---------------------------------------------------- |
+| `/`                               | Home: due/new counts, start button                   |
+| `/learn`                          | Study session (`features/learn/LearnPage`)           |
+| `/learn/ahead`, `/learn/practice` | Review ahead / free practice (same page, other mode) |
+| `/settings`                       | Settings (`features/settings/SettingsPage`)          |
 
 Leaving a session ("Beenden", "Zur Startseite") uses `replace`, so going back from the start
 page doesn't return to an ended session.

@@ -6,25 +6,33 @@ import type { Grade, StudyQueue } from "../../domain/scheduling";
 import {
   currentCard,
   ratingOptions,
+  type SessionMode,
+  sessionCards,
   sessionReducer,
   startSession,
 } from "../../domain/studySession";
 import { Button } from "../../ui/Button";
 import { AnswerFeedback } from "./AnswerFeedback";
 import { AnswerForm } from "./AnswerForm";
-import { recordAnswer } from "./learningService";
+import { practiceAnswer, recordAnswer } from "./learningService";
 import { RatingButtons } from "./RatingButtons";
 import { SessionSummary } from "./SessionSummary";
 import styles from "./StudySession.module.css";
 import { WordDetails } from "./WordDetails";
 
 interface StudySessionProps {
+  mode: SessionMode;
   queue: StudyQueue;
+  /** Starts another round, in the same or a different mode. */
+  onContinue: (mode: SessionMode) => void;
 }
 
-export function StudySession({ queue }: StudySessionProps) {
+export function StudySession({ mode, queue, onContinue }: StudySessionProps) {
   const { t } = useTranslation();
-  const [state, dispatch] = useReducer(sessionReducer, queue, startSession);
+  // The initializer runs once, so a practice round keeps its random selection across renders.
+  const [state, dispatch] = useReducer(sessionReducer, undefined, () =>
+    startSession(sessionCards(mode, queue)),
+  );
   const [saving, setSaving] = useState(false);
   const [saveFailed, setSaveFailed] = useState(false);
 
@@ -35,9 +43,11 @@ export function StudySession({ queue }: StudySessionProps) {
     if (!card || saving) return;
     setSaving(true);
     setSaveFailed(false);
+    // Outside the `try`: React Compiler doesn't support conditionals inside try/catch yet.
+    const answer = mode === "practice" ? practiceAnswer : recordAnswer;
     try {
       const now = new Date();
-      const progress = await recordAnswer(card, rating, now);
+      const progress = await answer(card, rating, now);
       dispatch({ type: "answered", progress, now });
     } catch (error) {
       console.error("Failed to save answer", error);
@@ -81,7 +91,9 @@ export function StudySession({ queue }: StudySessionProps) {
   }, []);
 
   if (!card) {
-    return <SessionSummary reviewedCount={state.reviewedCount} />;
+    return (
+      <SessionSummary mode={mode} reviewedCount={state.reviewedCount} onContinue={onContinue} />
+    );
   }
 
   const isRecognition = card.direction === "hr-de";
@@ -89,6 +101,7 @@ export function StudySession({ queue }: StudySessionProps) {
 
   return (
     <section className={styles.session}>
+      {mode !== "regular" && <p className={styles.mode}>{t(`learn.mode.${mode}`)}</p>}
       <div className={styles.toolbar}>
         <span>
           {t("learn.progress", { done: state.reviewedCount, remaining: state.queue.length })}

@@ -30,6 +30,10 @@ export const de = {
     new: "Neu",
     start: "Lernen starten",
     nothingToStudy: "Gerade gibt es nichts zu lernen.",
+    more: {
+      heading: "Mehr üben",
+      hint: "Vorlernen zählt für deinen Lernplan, Freies Üben wird nicht gespeichert.",
+    },
   },
   settings: {
     heading: "Einstellungen",
@@ -86,8 +90,20 @@ export const de = {
       ipf: "imperfektiv",
       pf: "perfektiv",
     },
+    mode: {
+      ahead: "Vorlernen",
+      practice: "Freies Üben · wird nicht gespeichert",
+    },
+    continue: {
+      regular: "Weiter lernen",
+      ahead_one: "{{count}} Karte vorlernen",
+      ahead_other: "{{count}} Karten vorlernen",
+      practice: "Freies Üben",
+    },
     done: {
       heading: "Geschafft!",
+      practiced_one: "Du hast {{count}} Antwort geübt.",
+      practiced_other: "Du hast {{count}} Antworten geübt.",
       summary_one: "Du hast {{count}} Antwort gegeben.",
       summary_other: "Du hast {{count}} Antworten gegeben.",
       empty: "Gerade gibt es nichts zu lernen.",

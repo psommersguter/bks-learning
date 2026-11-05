@@ -15,6 +15,18 @@ import {
   type StudyQueue,
 } from "./scheduling";
 
+/**
+ * - `regular`: everything due now plus all new words. Answers are saved.
+ * - `ahead`: the next cards that will be due ("review ahead"). Answers are saved; FSRS accounts
+ *   for the early review.
+ * - `practice`: random learned cards. Answers are NOT saved, the schedule stays untouched.
+ */
+export const SESSION_MODES = ["regular", "ahead", "practice"] as const;
+export type SessionMode = (typeof SESSION_MODES)[number];
+
+/** Number of cards in one "ahead" or "practice" round. */
+export const EXTRA_ROUND_SIZE = 20;
+
 /** New words are introduced in groups: first all of a group in hr-de, then the same in de-hr. */
 export const NEW_WORD_GROUP_SIZE = 5;
 
@@ -44,15 +56,49 @@ export type SessionAction =
   | { type: "submit"; input: string }
   | { type: "answered"; progress: CardProgress; now: Date };
 
-export function startSession(
+export interface SessionCardsOptions {
+  groupSize?: number;
+  roundSize?: number;
+  /** Source of randomness for `practice`; returns a number in [0, 1). */
+  random?: () => number;
+}
+
+/** The cards a session of the given mode consists of, in study order. */
+export function sessionCards(
+  mode: SessionMode,
   queue: StudyQueue,
-  groupSize: number = NEW_WORD_GROUP_SIZE,
-): SessionState {
-  return {
-    queue: [...queue.due, ...groupNewCards(queue.new, groupSize)],
-    phase: { kind: "question" },
-    reviewedCount: 0,
-  };
+  options: SessionCardsOptions = {},
+): StudyItem[] {
+  const {
+    groupSize = NEW_WORD_GROUP_SIZE,
+    roundSize = EXTRA_ROUND_SIZE,
+    random = Math.random,
+  } = options;
+
+  switch (mode) {
+    case "regular":
+      return [...queue.due, ...groupNewCards(queue.new, groupSize)];
+    case "ahead":
+      return queue.upcoming.slice(0, roundSize);
+    case "practice":
+      return shuffle([...queue.due, ...queue.upcoming], random).slice(0, roundSize);
+  }
+}
+
+/** Whether a session of this mode would have any cards. */
+export function hasSessionCards(mode: SessionMode, queue: StudyQueue): boolean {
+  switch (mode) {
+    case "regular":
+      return queue.due.length + queue.new.length > 0;
+    case "ahead":
+      return queue.upcoming.length > 0;
+    case "practice":
+      return queue.due.length + queue.upcoming.length > 0;
+  }
+}
+
+export function startSession(cards: readonly StudyItem[]): SessionState {
+  return { queue: cards, phase: { kind: "question" }, reviewedCount: 0 };
 }
 
 export function currentCard(state: SessionState): StudyItem | undefined {
@@ -143,4 +189,15 @@ function groupNewCards(items: readonly StudyItem[], groupSize: number): StudyIte
     }
   }
   return ordered;
+}
+
+/** Fisher–Yates shuffle, in place. */
+function shuffle<T>(items: T[], random: () => number): T[] {
+  for (let index = items.length - 1; index > 0; index--) {
+    const other = Math.floor(random() * (index + 1));
+    const current = items[index] as T;
+    items[index] = items[other] as T;
+    items[other] = current;
+  }
+  return items;
 }

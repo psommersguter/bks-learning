@@ -25,6 +25,10 @@ export const en: Messages = {
     new: "New",
     start: "Start learning",
     nothingToStudy: "There's nothing to study right now.",
+    more: {
+      heading: "Practise more",
+      hint: "Reviewing ahead counts towards your schedule, Free practice isn't saved.",
+    },
   },
   settings: {
     heading: "Settings",
@@ -81,8 +85,20 @@ export const en: Messages = {
       ipf: "imperfective",
       pf: "perfective",
     },
+    mode: {
+      ahead: "Reviewing ahead",
+      practice: "Free practice · not saved",
+    },
+    continue: {
+      regular: "Continue learning",
+      ahead_one: "Review {{count}} card ahead",
+      ahead_other: "Review {{count}} cards ahead",
+      practice: "Free practice",
+    },
     done: {
       heading: "Well done!",
+      practiced_one: "You practised {{count}} answer.",
+      practiced_other: "You practised {{count}} answers.",
       summary_one: "You gave {{count}} answer.",
       summary_other: "You gave {{count}} answers.",
       empty: "There's nothing to study right now.",

@@ -6,11 +6,14 @@ import {
   reviewCard,
   type Scheduler,
   type StudyItem,
+  type StudyQueue,
 } from "./scheduling";
 import {
   currentCard,
+  hasSessionCards,
   ratingOptions,
   type SessionState,
+  sessionCards,
   sessionReducer,
   startSession,
 } from "./studySession";
@@ -32,8 +35,16 @@ function item(w: Word, direction: Direction): StudyItem {
   return { wordId: w.id, direction, word: w };
 }
 
+function queue(parts: Partial<StudyQueue>): StudyQueue {
+  return { due: [], new: [], upcoming: [], ...parts };
+}
+
+function cardKeys(cards: readonly StudyItem[]): string[] {
+  return cards.map((entry) => `${entry.wordId}:${entry.direction}`);
+}
+
 function keys(state: SessionState): string[] {
-  return state.queue.map((entry) => `${entry.wordId}:${entry.direction}`);
+  return cardKeys(state.queue);
 }
 
 function answer(state: SessionState, rating: Parameters<typeof reviewCard>[2]): SessionState {
@@ -43,30 +54,100 @@ function answer(state: SessionState, rating: Parameters<typeof reviewCard>[2]): 
   return sessionReducer(state, { type: "answered", progress, now: NOW });
 }
 
+describe("sessionCards", () => {
+  describe("regular", () => {
+    it("puts due cards before new ones and leaves out upcoming ones", () => {
+      const [a, b, c] = [word("a"), word("b"), word("c")];
+      const cards = sessionCards(
+        "regular",
+        queue({ due: [item(a, "de-hr")], new: [item(b, "hr-de")], upcoming: [item(c, "hr-de")] }),
+      );
+      expect(cardKeys(cards)).toEqual(["a:de-hr", "b:hr-de"]);
+    });
+
+    it("introduces new words in groups: hr-de first, then de-hr", () => {
+      const words = ["a", "b", "c"].map((id) => word(id));
+      const fresh = words.flatMap((w) => [item(w, "hr-de"), item(w, "de-hr")]);
+
+      const cards = sessionCards("regular", queue({ new: fresh }), { groupSize: 2 });
+
+      expect(cardKeys(cards)).toEqual([
+        "a:hr-de",
+        "b:hr-de",
+        "a:de-hr",
+        "b:de-hr",
+        "c:hr-de",
+        "c:de-hr",
+      ]);
+    });
+
+    it("handles words with only one new direction", () => {
+      const [a, b] = [word("a"), word("b")];
+      const cards = sessionCards("regular", queue({ new: [item(a, "de-hr"), item(b, "hr-de")] }));
+      expect(cardKeys(cards)).toEqual(["b:hr-de", "a:de-hr"]);
+    });
+  });
+
+  describe("ahead", () => {
+    it("takes the upcoming cards in their order (soonest due first), up to the round size", () => {
+      const upcoming = ["a", "b", "c"].map((id) => item(word(id), "hr-de"));
+      const cards = sessionCards("ahead", queue({ upcoming }), { roundSize: 2 });
+      expect(cardKeys(cards)).toEqual(["a:hr-de", "b:hr-de"]);
+    });
+
+    it("ignores due and new cards", () => {
+      const cards = sessionCards(
+        "ahead",
+        queue({ due: [item(word("a"), "hr-de")], new: [item(word("b"), "hr-de")] }),
+      );
+      expect(cards).toEqual([]);
+    });
+  });
+
+  describe("practice", () => {
+    it("picks a random selection of learned cards (due and upcoming), never new ones", () => {
+      const due = [item(word("a"), "hr-de")];
+      const upcoming = ["b", "c", "d"].map((id) => item(word(id), "de-hr"));
+      const fresh = [item(word("e"), "hr-de")];
+
+      const cards = sessionCards("practice", queue({ due, upcoming, new: fresh }), {
+        roundSize: 3,
+        random: () => 0,
+      });
+
+      expect(cards).toHaveLength(3);
+      expect(cardKeys(cards)).not.toContain("e:hr-de");
+      // With random() = 0 every element swaps with the first one: a deterministic shuffle.
+      expect(cardKeys(cards)).toEqual(["b:de-hr", "c:de-hr", "d:de-hr"]);
+    });
+
+    it("contains every learned card at most once", () => {
+      const upcoming = ["a", "b", "c", "d", "e"].map((id) => item(word(id), "hr-de"));
+      const cards = sessionCards("practice", queue({ upcoming }));
+      expect(new Set(cardKeys(cards)).size).toBe(5);
+    });
+  });
+});
+
+describe("hasSessionCards", () => {
+  const learned = item(word("a"), "hr-de");
+  const fresh = item(word("b"), "hr-de");
+
+  it.each([
+    ["regular", queue({ new: [fresh] }), true],
+    ["regular", queue({ upcoming: [learned] }), false],
+    ["ahead", queue({ upcoming: [learned] }), true],
+    ["ahead", queue({ due: [learned] }), false],
+    ["practice", queue({ due: [learned] }), true],
+    ["practice", queue({ new: [fresh] }), false],
+  ] as const)("%s with %o → %s", (mode, studyQueue, expected) => {
+    expect(hasSessionCards(mode, studyQueue)).toBe(expected);
+  });
+});
+
 describe("startSession", () => {
-  it("puts due cards before new ones", () => {
-    const [a, b] = [word("a"), word("b")];
-    const state = startSession({ due: [item(a, "de-hr")], new: [item(b, "hr-de")] });
-    expect(keys(state)).toEqual(["a:de-hr", "b:hr-de"]);
-  });
-
-  it("introduces new words in groups: hr-de first, then de-hr", () => {
-    const words = ["a", "b", "c"].map((id) => word(id));
-    const fresh = words.flatMap((w) => [item(w, "hr-de"), item(w, "de-hr")]);
-
-    const state = startSession({ due: [], new: fresh }, 2);
-
-    expect(keys(state)).toEqual(["a:hr-de", "b:hr-de", "a:de-hr", "b:de-hr", "c:hr-de", "c:de-hr"]);
-  });
-
-  it("handles words with only one new direction", () => {
-    const [a, b] = [word("a"), word("b")];
-    const state = startSession({ due: [], new: [item(a, "de-hr"), item(b, "hr-de")] }, 5);
-    expect(keys(state)).toEqual(["b:hr-de", "a:de-hr"]);
-  });
-
   it("starts with the first card's question and no reviews", () => {
-    const state = startSession({ due: [], new: [item(word("a"), "hr-de")] });
+    const state = startSession([item(word("a"), "hr-de")]);
     expect(state.phase).toEqual({ kind: "question" });
     expect(state.reviewedCount).toBe(0);
   });
@@ -74,12 +155,12 @@ describe("startSession", () => {
 
 describe("sessionReducer", () => {
   it("reveals hr-de cards", () => {
-    const state = startSession({ due: [], new: [item(word("a"), "hr-de")] });
+    const state = startSession([item(word("a"), "hr-de")]);
     expect(sessionReducer(state, { type: "reveal" }).phase).toEqual({ kind: "revealed" });
   });
 
   it("checks typed answers of de-hr cards against the Croatian terms", () => {
-    const state = startSession({ due: [], new: [item(word("a", "kuća"), "de-hr")] });
+    const state = startSession([item(word("a", "kuća"), "de-hr")]);
 
     const next = sessionReducer(state, { type: "submit", input: "kuca" });
 
@@ -91,10 +172,10 @@ describe("sessionReducer", () => {
   });
 
   it("ignores actions that don't fit the card or phase", () => {
-    const hrDe = startSession({ due: [], new: [item(word("a"), "hr-de")] });
+    const hrDe = startSession([item(word("a"), "hr-de")]);
     expect(sessionReducer(hrDe, { type: "submit", input: "x" })).toBe(hrDe);
 
-    const deHr = startSession({ due: [], new: [item(word("a"), "de-hr")] });
+    const deHr = startSession([item(word("a"), "de-hr")]);
     expect(sessionReducer(deHr, { type: "reveal" })).toBe(deHr);
 
     const revealed = sessionReducer(hrDe, { type: "reveal" });
@@ -103,7 +184,7 @@ describe("sessionReducer", () => {
 
   it("moves to the next card after a remembered answer", () => {
     const [a, b] = [word("a"), word("b")];
-    const state = startSession({ due: [], new: [item(a, "hr-de"), item(b, "hr-de")] });
+    const state = startSession([item(a, "hr-de"), item(b, "hr-de")]);
 
     const next = answer(state, Rating.Good);
 
@@ -114,7 +195,7 @@ describe("sessionReducer", () => {
 
   it("repeats a forgotten card at the end of the session, with its new progress", () => {
     const [a, b] = [word("a"), word("b")];
-    const state = startSession({ due: [], new: [item(a, "hr-de"), item(b, "hr-de")] });
+    const state = startSession([item(a, "hr-de"), item(b, "hr-de")]);
 
     const next = answer(state, Rating.Again);
 
@@ -123,7 +204,7 @@ describe("sessionReducer", () => {
   });
 
   it("ends when the queue is empty", () => {
-    const state = startSession({ due: [], new: [item(word("a"), "hr-de")] });
+    const state = startSession([item(word("a"), "hr-de")]);
     const done = answer(state, Rating.Good);
 
     expect(currentCard(done)).toBeUndefined();
@@ -132,7 +213,7 @@ describe("sessionReducer", () => {
 
   it("ignores progress that belongs to another card", () => {
     const [a, b] = [word("a"), word("b")];
-    const state = startSession({ due: [], new: [item(a, "hr-de")] });
+    const state = startSession([item(a, "hr-de")]);
     const { progress } = reviewCard(scheduler, item(b, "hr-de"), Rating.Good, NOW);
 
     expect(sessionReducer(state, { type: "answered", progress, now: NOW })).toBe(state);

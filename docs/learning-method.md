@@ -18,6 +18,10 @@ The techniques the app is built on, in rough order of importance.
 5. **The learner sets the pace.** There's no daily limit for new words: due reviews come first,
    then new words in file order (roughly the order they came up in class), for as long as the
    learner wants. Both directions of a new word may come up on the same day.
+6. **More practice on demand.** After a session you can keep going in rounds of 20:
+   _review ahead_ studies the cards due soonest and counts normally (FSRS accounts for the early
+   review, so they're pushed out less than on-time reviews), and _free practice_ drills random
+   learned cards without changing the schedule.
 
 Ideas for later: multiple choice for brand-new words, cloze sentences (practising cases in
 context), gender drills for nouns, aspect-pair drills for verbs, audio via the Web Speech API

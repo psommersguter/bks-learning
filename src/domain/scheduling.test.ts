@@ -128,6 +128,23 @@ describe("buildStudyQueue", () => {
     expect(queue.new).toEqual([]);
   });
 
+  it("lists learned cards that aren't due yet as upcoming, soonest first", () => {
+    const progress = [
+      progressDueAt(kuca, "hr-de", new Date(NOW.getTime() + 3 * DAY)),
+      progressDueAt(kuca, "de-hr", new Date(NOW.getTime() + MINUTE)),
+      progressDueAt(pas, "hr-de", new Date(NOW.getTime() - DAY)),
+    ];
+
+    const queue = buildStudyQueue([kuca, pas], progress, NOW);
+
+    expect(queue.upcoming.map((item) => [item.wordId, item.direction])).toEqual([
+      [kuca.id, "de-hr"],
+      [kuca.id, "hr-de"],
+    ]);
+    expect(queue.due.map((item) => item.wordId)).toEqual([pas.id]);
+    expect(queue.new.map((item) => [item.wordId, item.direction])).toEqual([[pas.id, "de-hr"]]);
+  });
+
   it("attaches the word and progress to each item", () => {
     const progress = [progressDueAt(kuca, "hr-de", NOW)];
     const [item] = buildStudyQueue([kuca], progress, NOW).due;

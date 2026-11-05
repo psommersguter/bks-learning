@@ -42,3 +42,16 @@ export async function recordAnswer(
   await saveReview(database, progress, review);
   return progress;
 }
+
+/**
+ * Like `recordAnswer`, but nothing is stored (free practice). The returned progress only lives
+ * in the session, e.g. to repeat a forgotten card within it.
+ */
+export async function practiceAnswer(
+  card: CardKey & { fsrs?: FsrsCard | undefined },
+  rating: Grade,
+  now: Date,
+): Promise<CardProgress> {
+  const scheduler = await getScheduler();
+  return reviewCard(scheduler, card, rating, now).progress;
+}

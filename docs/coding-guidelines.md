@@ -55,8 +55,9 @@ components and hooks automatically.
 - Follow the [Rules of React](https://react.dev/reference/rules) (pure render, no mutating props
   or state, hooks only called). Code that breaks them is silently left uncompiled.
 - Patterns the current compiler can't compile, so they also leave the component unoptimised:
-  `try … finally` (put the cleanup after `try/catch`) and default values in destructured props
-  (use `value ?? default`).
+  `try … finally` (put the cleanup after `try/catch`), conditionals (`?:`, `&&`, `?.`) inside a
+  `try` block (compute them before the `try`), and default values in destructured props (use
+  `value ?? default`).
 - Known exception: `App` in `src/app/App.tsx` passes wouter's location hook as a prop and is
   intentionally left uncompiled. Everything else should compile.
 - To check a component: React DevTools shows a "Memo ✨" badge on compiled components.

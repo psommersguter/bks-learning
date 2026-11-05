@@ -57,7 +57,16 @@ function AppShell() {
       </header>
       <main className={styles.main}>
         <Switch>
-          <Route path={ROUTES.learn} component={LearnPage} />
+          {/* The keys make switching between modes start a fresh page instead of reusing one. */}
+          <Route path={ROUTES.learn}>
+            <LearnPage key="regular" mode="regular" />
+          </Route>
+          <Route path={ROUTES.learnAhead}>
+            <LearnPage key="ahead" mode="ahead" />
+          </Route>
+          <Route path={ROUTES.practice}>
+            <LearnPage key="practice" mode="practice" />
+          </Route>
           <Route path={ROUTES.settings} component={SettingsPage} />
           <Route component={HomePage} />
         </Switch>
