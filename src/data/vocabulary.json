@@ -1,0 +1,30 @@
+{
+  "$schema": "./vocabulary.schema.json",
+  "words": [
+    {
+      "id": "6d45605e-21cf-447d-9539-2c8202307c01",
+      "hr": "dobar dan",
+      "de": "guten Tag",
+      "pos": "phrase",
+      "tags": ["Beispiel"]
+    },
+    {
+      "id": "28cb71a9-51d9-4166-a528-fdbcff856e9b",
+      "hr": "kuća",
+      "de": "das Haus",
+      "pos": "noun",
+      "gender": "f",
+      "example": { "hr": "Ovo je moja kuća.", "de": "Das ist mein Haus." },
+      "tags": ["Beispiel"]
+    },
+    {
+      "id": "3ccf1885-9ae7-4cf8-91ef-1bb2cb3ab09f",
+      "hr": "pisati",
+      "de": "schreiben",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Perfektiv: napisati",
+      "tags": ["Beispiel"]
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "vocabulary.schema.json",
+  "title": "BKS vocabulary",
+  "description": "Hand-maintained Croatian/German vocabulary. See docs/vocabulary-format.md. Keep in sync with src/domain/vocabulary.ts.",
+  "type": "object",
+  "required": ["words"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "words": {
+      "description": "All words. The order is the order in which new words are introduced, so append new words at the end.",
+      "type": "array",
+      "items": { "$ref": "#/definitions/word" }
+    }
+  },
+  "definitions": {
+    "text": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "terms": {
+      "oneOf": [
+        { "$ref": "#/definitions/text" },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/definitions/text" }
+        }
+      ]
+    },
+    "word": {
+      "type": "object",
+      "required": ["id", "hr", "de"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "description": "UUID. Learning progress is stored under this id: never change it once the word has been learned.",
+          "type": "string",
+          "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
+        },
+        "hr": {
+          "description": "Croatian term, or several accepted variants (the first one is shown).",
+          "$ref": "#/definitions/terms"
+        },
+        "de": {
+          "description": "German term, or several accepted variants (the first one is shown).",
+          "$ref": "#/definitions/terms"
+        },
+        "pos": {
+          "description": "Part of speech.",
+          "enum": ["noun", "verb", "adj", "adv", "phrase", "other"]
+        },
+        "gender": {
+          "description": "Grammatical gender (nouns only): m, f or n.",
+          "enum": ["m", "f", "n"]
+        },
+        "aspect": {
+          "description": "Verb aspect (verbs only): ipf = imperfective, pf = perfective.",
+          "enum": ["ipf", "pf"]
+        },
+        "note": {
+          "description": "Free-text hint shown after answering.",
+          "$ref": "#/definitions/text"
+        },
+        "example": {
+          "description": "Example sentence.",
+          "type": "object",
+          "required": ["hr", "de"],
+          "additionalProperties": false,
+          "properties": {
+            "hr": { "$ref": "#/definitions/text" },
+            "de": { "$ref": "#/definitions/text" }
+          }
+        },
+        "tags": {
+          "description": "Free-form tags for filtering, e.g. a lesson (\"L05\") or a topic (\"Essen\").",
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/definitions/text" }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "required": ["gender"] },
+          "then": { "required": ["pos"], "properties": { "pos": { "const": "noun" } } }
+        },
+        {
+          "if": { "required": ["aspect"] },
+          "then": { "required": ["pos"], "properties": { "pos": { "const": "verb" } } }
+        }
+      ]
+    }
+  }
+}

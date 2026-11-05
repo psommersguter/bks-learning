@@ -9,6 +9,7 @@ export const de = {
   "app.languageSwitch.label": "Sprache",
   "home.heading": "Dobrodošli!",
   "home.intro": "Hier entsteht dein Vokabeltrainer für Kroatisch.",
+  "home.wordCount": "Vokabeln in deiner Sammlung: {count}",
   "home.comingSoon": "Lernmodus und Vokabelliste folgen in Kürze.",
 } as const satisfies Record<string, string>;
 

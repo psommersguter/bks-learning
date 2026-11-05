@@ -1,0 +1,12 @@
+# Basic editor settings (IntelliJ supports this natively). They match the Biome config, which
+# remains the source of truth for the formatting of TS/JS/JSON/CSS/Markdown.
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+indent_style = space
+indent_size = 2
+trim_trailing_whitespace = true
+max_line_length = 100

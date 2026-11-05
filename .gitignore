@@ -21,9 +21,7 @@ coverage/
 # Editors / OS
 .DS_Store
 .idea/
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
+.vscode/
 
 # Local agent settings
 .claude/settings.local.json

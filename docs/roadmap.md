@@ -7,14 +7,13 @@
 
 ## Next (Phase 1)
 
-1. [ ] Agree on the vocabulary format ([vocabulary-format.md](vocabulary-format.md)), then add the
-   file, its types and a validation test.
-2. [ ] Vocabulary list screen: browse and filter by lesson.
-3. [ ] Decide on the scheduling algorithm (own Leitner/SM-2 vs. `ts-fsrs`).
-4. [ ] Progress storage in IndexedDB (`src/storage/`).
+1. [x] Vocabulary format: `src/data/vocabulary.json`, JSON schema, types, validator and tests.
+2. [ ] Vocabulary list screen: browse and filter by tag.
+3. [x] Decide on the scheduling algorithm → `ts-fsrs` (FSRS), approved by the owner.
+4. [ ] Add `ts-fsrs` and the progress storage in IndexedDB (`src/storage/`).
 5. [ ] Learning session: flip cards (HR → DE) and typed answers (DE → HR), with lenient
    diacritic checking.
-6. [ ] Home dashboard: due today, new words available, choice of lessons.
+6. [ ] Home dashboard: due today, new words available, optional tag filter.
 7. [ ] Export / import of progress as a JSON file.
 
 ## Later / ideas

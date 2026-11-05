@@ -20,7 +20,8 @@ Read [docs/README.md](docs/README.md), especially [docs/coding-guidelines.md](do
 - Don't add dependencies without the owner's explicit approval.
 - No Tailwind, CSS-in-JS, UI kits or router libraries.
 - All UI strings go through i18n (`src/i18n/messages/de.ts` + `en.ts`).
-- Never write to the vocabulary file from app code. Never break stored progress without a migration.
+- Never write to the vocabulary file (`src/data/vocabulary.json`, see docs/vocabulary-format.md) from
+  app code, and never change existing word ids. Never break stored progress without a migration.
 - Code and docs in English, UI in German/English, vocabulary in Croatian/German.
 - When you make a decision or learn something future sessions should know, update the relevant
   file in `docs/` (decisions go in `docs/decisions.md`, progress in `docs/roadmap.md`).

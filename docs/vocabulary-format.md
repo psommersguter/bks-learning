@@ -1,31 +1,35 @@
-# Vocabulary format (draft)
+# Vocabulary format
 
-> Status: **proposal, not implemented yet.** To be confirmed with the owner before the
-> vocabulary loader is built.
+The vocabulary is one hand-maintained JSON file: [`src/data/vocabulary.json`](../src/data/vocabulary.json).
 
-The vocabulary is a single JSON file maintained by hand, grouped by course lesson. It is
-imported (and validated) at build time, so a typo fails CI instead of breaking the app.
-
-Proposed location: `src/data/vocabulary.json`
+- **Schema:** [`src/data/vocabulary.schema.json`](../src/data/vocabulary.schema.json), referenced
+  via `$schema`, gives autocompletion and validation in the editor.
+- **Validator:** [`src/domain/vocabulary.ts`](../src/domain/vocabulary.ts) (`parseVocabulary`) is
+  the authoritative check. It runs when the app starts and in `yarn test`, so an invalid file
+  fails CI before it is deployed. It also checks things the schema can't, such as unique ids.
+- The file is bundled into the app at build time. The app never writes to it.
 
 ```json
 {
   "$schema": "./vocabulary.schema.json",
-  "lessons": [
+  "words": [
     {
-      "id": "l01",
-      "title": "Lektion 1",
-      "words": [
-        { "id": "kuca", "hr": "kuća", "de": "das Haus", "pos": "noun", "gender": "f" },
-        { "id": "pisati", "hr": "pisati", "de": "schreiben", "pos": "verb", "aspect": "ipf" },
-        {
-          "id": "dobar-dan",
-          "hr": "dobar dan",
-          "de": ["guten Tag", "Guten Tag"],
-          "pos": "phrase",
-          "note": "Formelle Begrüßung tagsüber"
-        }
-      ]
+      "id": "28cb71a9-51d9-4166-a528-fdbcff856e9b",
+      "hr": "kuća",
+      "de": "das Haus",
+      "pos": "noun",
+      "gender": "f",
+      "example": { "hr": "Ovo je moja kuća.", "de": "Das ist mein Haus." },
+      "tags": ["L01"]
+    },
+    {
+      "id": "3ccf1885-9ae7-4cf8-91ef-1bb2cb3ab09f",
+      "hr": "pisati",
+      "de": ["schreiben", "aufschreiben"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Perfektiv: napisati",
+      "tags": ["L01", "Verben"]
     }
   ]
 }
@@ -33,24 +37,32 @@ Proposed location: `src/data/vocabulary.json`
 
 ## Fields
 
-| Field     | Required | Meaning                                                                             |
-| --------- | -------- | ----------------------------------------------------------------------------------- |
-| `id`      | yes      | Stable identifier, unique across the whole file (see below).                        |
-| `hr`      | yes      | Croatian term. A string, or an array of accepted variants (the first one is shown). |
-| `de`      | yes      | German term. A string, or an array of accepted variants (the first one is shown).   |
-| `pos`     | no       | Part of speech: `noun`, `verb`, `adj`, `adv`, `phrase`, `other`.                    |
-| `gender`  | no       | Nouns: `m`, `f`, `n`.                                                               |
-| `aspect`  | no       | Verbs: `ipf` (imperfective) or `pf` (perfective).                                   |
-| `note`    | no       | Free-text hint shown after answering.                                               |
-| `example` | no       | `{ "hr": "...", "de": "..." }`, an example sentence (for a later cloze mode).       |
+| Field     | Required | Meaning                                                                                 |
+| --------- | -------- | --------------------------------------------------------------------------------------- |
+| `id`      | yes      | UUID, unique across the file (see below).                                               |
+| `hr`      | yes      | Croatian term. A string, or an array of accepted variants (the first one is shown).     |
+| `de`      | yes      | German term. A string, or an array of accepted variants (the first one is shown).       |
+| `pos`     | no       | Part of speech: `noun`, `verb`, `adj`, `adv`, `phrase`, `other`.                        |
+| `gender`  | no       | `m`, `f` or `n`. Only allowed when `pos` is `noun`.                                     |
+| `aspect`  | no       | `ipf` (imperfective) or `pf` (perfective). Only allowed when `pos` is `verb`.           |
+| `note`    | no       | Free-text hint shown after answering.                                                   |
+| `example` | no       | Example sentence: `{ "hr": "...", "de": "..." }`.                                       |
+| `tags`    | no       | Free-form labels for filtering, e.g. a lesson (`"L05"`) or a topic (`"Essen"`). Unique. |
 
-### Why ids must stay stable
+Unknown properties are rejected, so a typo like `"gendre"` doesn't go unnoticed. Strings are
+trimmed and must not be empty.
 
-Learning progress is stored per `id`. **Never change the id** of a word you have already
-learned, or its progress is lost. To fix a typo, edit `hr`/`de` and keep the id.
+## Rules
 
-## Open questions
+- **Ids are stable.** Learning progress is stored per `id`. Never change the id of a word you have
+  already learned, or its progress is lost. To fix a typo, edit `hr`/`de` and keep the id.
+  Generate new ids with `node -e 'console.log(crypto.randomUUID())'`.
+- **Order matters.** New words are introduced in file order, so append new words at the end.
+- **Removing a word** hides it in the app. Its progress stays stored, so it comes back if the word
+  is re-added with the same id.
 
-- Is `id` written by hand (readable) or generated (e.g. a short random string)? A test can check
-  that all ids are unique either way.
-- Should a JSON Schema file provide autocompletion and validation in the editor?
+## Changing the format
+
+Update the validator, the types, the schema and this document together.
+`src/data/vocabulary.test.ts` fails if the schema and the validator disagree on the allowed
+properties or enum values.

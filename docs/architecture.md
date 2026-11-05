@@ -30,7 +30,8 @@ src/
   main.tsx            entry point, mounts <App/>
   app/                app shell: layout, header, top-level navigation
   features/<name>/    one folder per feature (home, learn, words, …): components + CSS modules
-  domain/             pure TypeScript logic, no React, no browser APIs → unit tested   (planned)
+  domain/             pure TypeScript logic, no React, no browser APIs → unit tested
+  data/               vocabulary.json (hand-maintained), its JSON schema, and the loader
   storage/            IndexedDB access (thin wrapper around the native API)             (planned)
   i18n/               UI translations (de = source of truth, en) and `useTranslation`
   settings/           Zustand store for user preferences
@@ -40,7 +41,7 @@ scripts/              small Node scripts used during development
 docs/                 this documentation
 ```
 
-Dependency direction: `app → features → (domain, storage, i18n, settings)`. `domain` imports
+Dependency direction: `app → features → (data, domain, storage, i18n, settings)`. `domain` imports
 nothing from the others.
 
 ## Navigation
