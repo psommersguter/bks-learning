@@ -691,7 +691,7 @@
       "de": ["lieben", "mögen"],
       "pos": "verb",
       "aspect": "ipf",
-      "note": "Präsens: volim, voliš …",
+      "note": "Präsens: volim, voliš … voljeti koga/što (+ Akkusativ) = jemanden/etwas lieben.",
       "example": {
         "bks": "Volim te.",
         "de": "Ich liebe dich."
@@ -1914,6 +1914,1067 @@
         "de": "Gib mir einen Kuss!"
       },
       "tags": ["L02"]
+    },
+    {
+      "id": "7f01ca5c-49eb-4532-b656-690aab08dda1",
+      "bks": [
+        {
+          "term": "udata",
+          "regions": ["bs", "sr"]
+        },
+        {
+          "term": "udana",
+          "regions": ["hr"]
+        }
+      ],
+      "de": "verheiratet (Frau)",
+      "pos": "adj",
+      "note": "Nur für Frauen (von udati se). Männer: oženjen; ein Paar: vjenčani.",
+      "example": {
+        "bks": "Ja sam udata žena.",
+        "de": "Ich bin eine verheiratete Frau."
+      },
+      "tags": ["2026-10-05", "Familie"]
+    },
+    {
+      "id": "155994bc-863f-4db3-9d98-20ca0397d387",
+      "bks": "oženjen",
+      "de": "verheiratet (Mann)",
+      "pos": "adj",
+      "note": "Nur für Männer (von oženiti se). Frauen: udata/udana; ein Paar: vjenčani.",
+      "example": {
+        "bks": "Ja sam oženjen muškarac.",
+        "de": "Ich bin ein verheirateter Mann."
+      },
+      "tags": ["2026-10-05", "Familie"]
+    },
+    {
+      "id": "3a33d6d2-4676-4f52-95ed-3920d0b6c5dd",
+      "bks": [
+        {
+          "term": "vjenčani",
+          "regions": ["hr", "bs"]
+        },
+        {
+          "term": "venčani",
+          "regions": ["sr"]
+        }
+      ],
+      "de": "verheiratet (Paar)",
+      "pos": "adj",
+      "note": "Plural von vjenčan (getraut).",
+      "example": {
+        "bks": "Mi smo vjenčani.",
+        "de": "Wir sind verheiratet."
+      },
+      "tags": ["2026-10-05", "Familie"]
+    },
+    {
+      "id": "27880d6a-fce4-4a26-a8ef-5636f4365656",
+      "bks": [
+        {
+          "term": "ćejf",
+          "regions": ["bs"]
+        }
+      ],
+      "de": ["der Genuss", "das Wohlbehagen"],
+      "pos": "noun",
+      "gender": "m",
+      "note": "Ausgesprochen „tschejf“: tiefes Wohlbehagen, innere Zufriedenheit, bewusster Genuss kleiner Momente ohne Zeitdruck. Aus dem Türkischen (keyif).",
+      "example": {
+        "bks": "Ovo je pravi ćejf!",
+        "de": "Das ist echter Genuss!"
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "e7cfd756-4d8c-4915-ae17-bcfad97594da",
+      "bks": [
+        {
+          "term": "mlijeko",
+          "regions": ["hr", "bs"]
+        },
+        {
+          "term": "mleko",
+          "regions": ["sr"]
+        }
+      ],
+      "de": "die Milch",
+      "pos": "noun",
+      "gender": "n",
+      "example": {
+        "bks": "Pijem kavu s mlijekom.",
+        "de": "Ich trinke Kaffee mit Milch."
+      },
+      "tags": ["2026-10-05", "Essen"]
+    },
+    {
+      "id": "7119457b-6c47-44f1-b84a-1c191e2c6bbe",
+      "bks": "ljubav",
+      "de": "die Liebe",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Vokativ als Anrede: ljubavi! = (meine) Liebe! Feminin, obwohl auf Konsonant endend.",
+      "example": {
+        "bks": "Volim te, ljubavi moja!",
+        "de": "Ich liebe dich, meine Liebe!"
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "7749888d-cfbc-4dbe-8ec9-fa33818092ca",
+      "bks": "kikiriki",
+      "de": ["die Erdnüsse", "die Erdnuss"],
+      "pos": "noun",
+      "gender": "m",
+      "note": "Achtung: Der Hahn (pijetao) kräht auf BKS „kukuriku“.",
+      "example": {
+        "bks": "Volim slani kikiriki.",
+        "de": "Ich mag gesalzene Erdnüsse."
+      },
+      "tags": ["2026-10-05", "Essen"]
+    },
+    {
+      "id": "0ce0533a-ebfc-429b-935d-453a3e271b9a",
+      "bks": "novine",
+      "de": "die Zeitung",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Nur Plural (Mehrzahlwort): novine su …",
+      "example": {
+        "bks": "Čitam novine svako jutro.",
+        "de": "Ich lese jeden Morgen die Zeitung."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "886807c9-8b91-454a-aec2-86d239475937",
+      "bks": "časopis",
+      "de": "die Zeitschrift",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Kupila sam novi časopis.",
+        "de": "Ich habe eine neue Zeitschrift gekauft."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "43b4bd4c-b6a4-4b51-943b-0ed2f496dbe9",
+      "bks": "sin",
+      "de": "der Sohn",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Vokativ: sine! (siehe eigener Eintrag).",
+      "example": {
+        "bks": "Moj sin ide u školu.",
+        "de": "Mein Sohn geht in die Schule."
+      },
+      "tags": ["2026-10-05", "Familie"]
+    },
+    {
+      "id": "96655100-09dc-4413-8c59-15a87b130b95",
+      "bks": "sine!",
+      "de": ["mein Kind!", "Sohn!"],
+      "pos": "phrase",
+      "note": "Vokativ von sin. Wird liebevoll für Töchter und Söhne gebraucht, oft auch für Erwachsene: „mein Kind!“",
+      "example": {
+        "bks": "Sine, dođi na ručak!",
+        "de": "Mein Kind, komm zum Mittagessen!"
+      },
+      "tags": ["2026-10-05", "Familie"]
+    },
+    {
+      "id": "a03c37fa-aa72-4c65-b777-77c20a2bedec",
+      "bks": "odmor",
+      "de": ["der Urlaub", "die Erholung", "die Pause"],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Ljeti idemo na odmor.",
+        "de": "Im Sommer fahren wir auf Urlaub."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "16b0fbf3-76f8-42d6-ba7c-75ae43505902",
+      "bks": "odmorište",
+      "de": ["die Raststätte", "der Rastplatz"],
+      "pos": "noun",
+      "gender": "n",
+      "example": {
+        "bks": "Stanimo na sljedećem odmorištu.",
+        "de": "Halten wir bei der nächsten Raststätte."
+      },
+      "tags": ["2026-10-05", "Verkehr"]
+    },
+    {
+      "id": "9d1532bc-e0d5-4a34-972c-a3fc774d031e",
+      "bks": "Može.",
+      "de": ["Geht.", "Passt.", "Ok.", "In Ordnung."],
+      "pos": "phrase",
+      "example": {
+        "bks": "Idemo na kavu? – Može!",
+        "de": "Gehen wir auf einen Kaffee? – Passt!"
+      },
+      "tags": ["2026-10-05", "Redewendungen"]
+    },
+    {
+      "id": "72705cf0-79b7-4b58-8e0d-2a1962e16bb2",
+      "bks": "Molim.",
+      "de": ["Bitte.", "Wie bitte?"],
+      "pos": "phrase",
+      "note": "Auch als Antwort auf hvala (= bitte sehr) und zum Nachfragen (= wie bitte?).",
+      "example": {
+        "bks": "Hvala! – Molim.",
+        "de": "Danke! – Bitte."
+      },
+      "tags": ["2026-10-05", "Redewendungen"]
+    },
+    {
+      "id": "8b5fd682-bba0-414f-aa1c-5188c10ca0b7",
+      "bks": "moliti",
+      "de": ["bitten", "beten"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: molim, moliš … Perfektiv (bitten): zamoliti.",
+      "example": {
+        "bks": "Molim te, pomozi mi.",
+        "de": "Ich bitte dich, hilf mir."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "bbf317b3-b66b-431d-a9b2-349214b4f9a5",
+      "bks": "pušpauza",
+      "de": "die Rauchpause",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Umgangssprachlich: pušiti + pauza.",
+      "example": {
+        "bks": "Idemo na pušpauzu?",
+        "de": "Machen wir eine Rauchpause?"
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "eb31a60f-15f1-40eb-8678-f244aaaf6ece",
+      "bks": "pušiti",
+      "de": "rauchen",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: pušim, pušiš …",
+      "example": {
+        "bks": "Ne pušim.",
+        "de": "Ich rauche nicht."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "6aac45d6-c32f-461e-b889-17edef1e8b33",
+      "bks": [
+        {
+          "term": "krompir",
+          "regions": ["bs", "sr"]
+        },
+        {
+          "term": "krumpir",
+          "regions": ["hr"]
+        }
+      ],
+      "de": [
+        "die Kartoffel",
+        {
+          "term": "der Erdapfel",
+          "regions": ["at"]
+        }
+      ],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Volim pečeni krompir.",
+        "de": "Ich mag Bratkartoffeln."
+      },
+      "tags": ["2026-10-05", "Essen"]
+    },
+    {
+      "id": "5873980d-8c74-45e3-b608-cbe4719a6ff6",
+      "bks": "šteta",
+      "de": ["schade", "der Schaden", "der Verlust"],
+      "pos": "noun",
+      "gender": "f",
+      "note": "Šteta! = Schade! Scherzhaft: šteta-pašteta = Schade-Marmelade.",
+      "example": {
+        "bks": "Šteta što ne možeš doći.",
+        "de": "Schade, dass du nicht kommen kannst."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "19f73bac-9c29-4462-aad4-9d4830730b7e",
+      "bks": "čekati",
+      "de": "warten",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: čekam, čekaš … Čekaj! = Warte!",
+      "example": {
+        "bks": "Čekaj me ispred kina.",
+        "de": "Warte vor dem Kino auf mich."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "77a575db-09de-40a8-ab49-ea7933271c74",
+      "bks": "Ne znam.",
+      "de": "Ich weiß nicht.",
+      "pos": "phrase",
+      "note": "Von znati (wissen).",
+      "example": {
+        "bks": "Ne znam gdje je.",
+        "de": "Ich weiß nicht, wo er ist."
+      },
+      "tags": ["2026-10-05", "Redewendungen"]
+    },
+    {
+      "id": "aaf8a296-e83f-4c62-be6d-912cd0ca84f5",
+      "bks": "znati",
+      "de": ["wissen", "können"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: znam, znaš … „können“ im Sinne einer Fähigkeit: Znaš li plivati?",
+      "example": {
+        "bks": "Znaš li hrvatski?",
+        "de": "Kannst du Kroatisch?"
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "17bc16e6-0143-4d49-a318-bd221f7f2185",
+      "bks": [
+        {
+          "term": "Ne razumijem.",
+          "regions": ["hr", "bs"]
+        },
+        {
+          "term": "Ne razumem.",
+          "regions": ["sr"]
+        }
+      ],
+      "de": "Ich verstehe nicht.",
+      "pos": "phrase",
+      "note": "Von razumjeti (verstehen).",
+      "example": {
+        "bks": "Oprostite, ne razumijem.",
+        "de": "Entschuldigung, ich verstehe nicht."
+      },
+      "tags": ["2026-10-05", "Redewendungen"]
+    },
+    {
+      "id": "214f1b94-61f1-420d-aeca-5371faef6fca",
+      "bks": [
+        {
+          "term": "razumjeti",
+          "regions": ["hr", "bs"]
+        },
+        {
+          "term": "razumeti",
+          "regions": ["sr"]
+        }
+      ],
+      "de": "verstehen",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: razumijem, razumiješ … (serbisch: razumem, razumeš …)",
+      "example": {
+        "bks": "Razumiješ li me?",
+        "de": "Verstehst du mich?"
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "66c41d17-ff46-4965-aed8-8fbd7fbcc232",
+      "bks": [
+        {
+          "term": "kruh",
+          "regions": ["hr"]
+        },
+        {
+          "term": "hljeb",
+          "regions": ["bs"]
+        },
+        {
+          "term": "hleb",
+          "regions": ["sr"]
+        }
+      ],
+      "de": "das Brot",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Kupi kruh, molim te.",
+        "de": "Kauf bitte Brot."
+      },
+      "tags": ["2026-10-05", "Essen"]
+    },
+    {
+      "id": "c3ee4ca4-c035-4432-bf7b-8e9c13dbc9da",
+      "bks": ["šarafciger", "odvijač"],
+      "de": "der Schraubenzieher",
+      "pos": "noun",
+      "gender": "m",
+      "note": "šarafciger ist umgangssprachlich (aus dem Deutschen); Standard: odvijač.",
+      "example": {
+        "bks": "Daj mi šarafciger.",
+        "de": "Gib mir den Schraubenzieher."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "7e8974be-b9dc-488a-b5c6-329f4bf19691",
+      "bks": [
+        {
+          "term": "Šta radiš?",
+          "regions": ["bs", "sr"]
+        },
+        {
+          "term": "Što radiš?",
+          "regions": ["hr"]
+        }
+      ],
+      "de": "Was machst du?",
+      "pos": "phrase",
+      "note": "Von raditi (machen, arbeiten).",
+      "example": {
+        "bks": "Šta radiš večeras?",
+        "de": "Was machst du heute Abend?"
+      },
+      "tags": ["2026-10-05", "Redewendungen"]
+    },
+    {
+      "id": "647d02ee-d2e8-44c6-8718-9025b165514c",
+      "bks": "raditi",
+      "de": ["machen", "arbeiten", "tun"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: radim, radiš …",
+      "example": {
+        "bks": "Radim u bolnici.",
+        "de": "Ich arbeite im Krankenhaus."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "9c7024bd-82ce-4e02-892c-e3c47bac9551",
+      "bks": "Idemo!",
+      "de": [
+        {
+          "term": "Gemma!",
+          "regions": ["at"]
+        },
+        "Gehen wir!",
+        "Los geht's!"
+      ],
+      "pos": "phrase",
+      "note": "Von ići (gehen).",
+      "example": {
+        "bks": "Idemo kući!",
+        "de": "Gehen wir nach Hause!"
+      },
+      "tags": ["2026-10-05", "Redewendungen"]
+    },
+    {
+      "id": "cefc9110-d4b7-49f6-8025-04208c57b8ac",
+      "bks": "ići",
+      "de": ["gehen", "fahren"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Unregelmäßig. Präsens: idem, ideš, ide, idemo, idete, idu.",
+      "example": {
+        "bks": "Idem u školu.",
+        "de": "Ich gehe in die Schule."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "91a5cd36-7bd2-4781-b60f-84d86cf21440",
+      "bks": ["hajde!", "ajde!"],
+      "de": [
+        "Komm!",
+        "Na los!",
+        {
+          "term": "Gemma!",
+          "regions": ["at"]
+        }
+      ],
+      "pos": "phrase",
+      "note": "Aufforderung, auch zum Weitermachen. Für mehrere: hajdemo!",
+      "example": {
+        "bks": "Hajde, požuri!",
+        "de": "Komm, beeil dich!"
+      },
+      "tags": ["2026-10-05", "Redewendungen"]
+    },
+    {
+      "id": "f37aee7b-5bef-4695-a524-e2d4afbd9e0c",
+      "bks": "vozilo",
+      "de": "das Fahrzeug",
+      "pos": "noun",
+      "gender": "n",
+      "example": {
+        "bks": "Vozilo je parkirano ispred kuće.",
+        "de": "Das Fahrzeug ist vor dem Haus geparkt."
+      },
+      "tags": ["2026-10-05", "Verkehr"]
+    },
+    {
+      "id": "3718e490-24a6-42b2-9a59-d54ba077792f",
+      "bks": "Koja boja?",
+      "de": "Welche Farbe?",
+      "pos": "phrase",
+      "example": {
+        "bks": "Koja boja ti se sviđa?",
+        "de": "Welche Farbe gefällt dir?"
+      },
+      "tags": ["2026-10-05", "Farben"]
+    },
+    {
+      "id": "d6f5f742-537f-4be1-ab7c-d0b400f1d279",
+      "bks": ["plav", "plava", "plavo"],
+      "de": ["blau", "blond"],
+      "pos": "adj",
+      "note": "Bei Haaren: blond. plavuša = Blondine.",
+      "example": {
+        "bks": "Nebo je plavo.",
+        "de": "Der Himmel ist blau."
+      },
+      "tags": ["2026-10-05", "Farben"]
+    },
+    {
+      "id": "6e3ced1b-9e8a-468a-8b06-ae150ee76955",
+      "bks": "plavuša",
+      "de": "die Blondine",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "bks": "Njegova djevojka je plavuša.",
+        "de": "Seine Freundin ist eine Blondine."
+      },
+      "tags": ["2026-10-05"]
+    },
+    {
+      "id": "1776a648-1a88-4c23-aba8-2a120fd9d0f3",
+      "bks": ["zelen", "zelena", "zeleno"],
+      "de": "grün",
+      "pos": "adj",
+      "example": {
+        "bks": "Trava je zelena.",
+        "de": "Das Gras ist grün."
+      },
+      "tags": ["2026-10-05", "Farben"]
+    },
+    {
+      "id": "d80c9245-4eba-4c60-9f64-ca0033417966",
+      "bks": ["žut", "žuta", "žuto"],
+      "de": "gelb",
+      "pos": "adj",
+      "example": {
+        "bks": "Limun je žut.",
+        "de": "Die Zitrone ist gelb."
+      },
+      "tags": ["2026-10-05", "Farben"]
+    },
+    {
+      "id": "fdc05a5b-b3ce-43a7-9ca4-a0cdbc71b0be",
+      "bks": "varati",
+      "de": ["schummeln", "betrügen", "fremdgehen"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Auch im Sinne einer Affäre. Perfektiv: prevariti.",
+      "example": {
+        "bks": "Ne varaj u igri!",
+        "de": "Schummle nicht beim Spiel!"
+      },
+      "tags": ["2026-10-12"]
+    },
+    {
+      "id": "90a89020-c6ed-4b79-bfa2-f7690f09f03d",
+      "bks": "neseser",
+      "de": [
+        {
+          "term": "das Toilettetascherl",
+          "regions": ["at"]
+        },
+        {
+          "term": "der Kulturbeutel",
+          "regions": ["de"]
+        },
+        "die Kosmetiktasche"
+      ],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Zaboravio sam neseser kod kuće.",
+        "de": "Ich habe das Toilettetascherl zu Hause vergessen."
+      },
+      "tags": ["2026-10-12"]
+    },
+    {
+      "id": "429ed7f2-ce80-4e24-bd58-28404b7290de",
+      "bks": "Rado!",
+      "de": "Gerne!",
+      "pos": "phrase",
+      "example": {
+        "bks": "Hoćeš li kavu? – Rado!",
+        "de": "Willst du einen Kaffee? – Gerne!"
+      },
+      "tags": ["2026-10-12", "Redewendungen"]
+    },
+    {
+      "id": "b153fae9-bd00-4072-b839-75b11249afca",
+      "bks": "jagoda",
+      "de": "die Erdbeere",
+      "pos": "noun",
+      "gender": "f",
+      "note": "sok od jagode = Erdbeersaft",
+      "example": {
+        "bks": "Volim sok od jagode.",
+        "de": "Ich mag Erdbeersaft."
+      },
+      "tags": ["2026-10-12", "Essen"]
+    },
+    {
+      "id": "4a28dad7-8963-4e08-80e8-10a56b483179",
+      "bks": ["ljut", "ljuta", "ljuto"],
+      "de": ["böse", "wütend", "scharf"],
+      "pos": "adj",
+      "note": "Bei Personen: böse, wütend (Mama je ljuta). Bei Essen: scharf (ljuta paprika).",
+      "example": {
+        "bks": "Mama je ljuta.",
+        "de": "Die Mama ist böse."
+      },
+      "tags": ["2026-10-12"]
+    },
+    {
+      "id": "8d296c5f-3795-4b13-b50f-b7217db7af7d",
+      "bks": [
+        {
+          "term": "ćutjeti",
+          "regions": ["bs"]
+        },
+        {
+          "term": "ćutati",
+          "regions": ["sr"]
+        },
+        {
+          "term": "šutjeti",
+          "regions": ["hr"]
+        }
+      ],
+      "de": ["still sein", "schweigen"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: ćutim, ćutiš … (kroatisch: šutim, šutiš …)",
+      "example": {
+        "bks": "Zašto ćutiš?",
+        "de": "Warum schweigst du?"
+      },
+      "tags": ["2026-10-12"]
+    },
+    {
+      "id": "aea39c3c-da5e-4522-8bbc-c2356a482c18",
+      "bks": "čuti",
+      "de": "hören",
+      "pos": "verb",
+      "note": "Etwas hören, wahrnehmen (auch: hören können). Präsens: čujem, čuješ … Zuhören, sich anhören = slušati. Zweiaspektig.",
+      "example": {
+        "bks": "Jesi li i ti to čuo?",
+        "de": "Hast du das auch gehört?"
+      },
+      "tags": ["2026-10-12"]
+    },
+    {
+      "id": "f135f8c0-b821-4aa4-b601-665e38af7d4d",
+      "bks": "slušati",
+      "de": ["zuhören", "hören", "gehorchen"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Musik hören: slušati muziku. Dijete sluša roditelje = Das Kind hört auf die Eltern. Perfektiv: poslušati.",
+      "example": {
+        "bks": "Slušam muziku.",
+        "de": "Ich höre Musik."
+      },
+      "tags": ["2026-10-12"]
+    },
+    {
+      "id": "5d4e3b8a-5c35-446c-9e84-a4a9d6c0982b",
+      "bks": "prezime",
+      "de": "der Nachname",
+      "pos": "noun",
+      "gender": "n",
+      "note": "Prezime i ime = Nachname und Vorname.",
+      "example": {
+        "bks": "Moje prezime je Horvat.",
+        "de": "Mein Nachname ist Horvat."
+      },
+      "tags": ["2026-10-12"]
+    },
+    {
+      "id": "ba47a9ec-c4bc-48b6-bea3-aa97036fbc84",
+      "bks": "ime",
+      "de": ["der Name", "der Vorname"],
+      "pos": "noun",
+      "gender": "n",
+      "note": "Genitiv: imena; Plural: imena.",
+      "example": {
+        "bks": "Kako ti je ime?",
+        "de": "Wie heißt du?"
+      },
+      "tags": ["2026-10-12"]
+    },
+    {
+      "id": "462693cc-b4bc-4400-b107-d1573febcb39",
+      "bks": ["brz", "brza", "brzo"],
+      "de": "schnell",
+      "pos": "adj",
+      "note": "Komparativ: brži, brža, brže (brže = schneller, auch als Adverb).",
+      "example": {
+        "bks": "Ovaj vlak je jako brz.",
+        "de": "Dieser Zug ist sehr schnell."
+      },
+      "tags": ["2026-10-12"]
+    },
+    {
+      "id": "e451447b-9391-47e5-81bf-b2b82abe5933",
+      "bks": "Mrš!",
+      "de": [
+        "Hau ab!",
+        {
+          "term": "Schleich dich!",
+          "regions": ["at"]
+        },
+        "Geh weg!"
+      ],
+      "pos": "phrase",
+      "note": "Grob, z. B. zu einem Tier.",
+      "example": {
+        "bks": "Mrš odavde!",
+        "de": "Schleich dich!"
+      },
+      "tags": ["2026-10-12", "Redewendungen"]
+    },
+    {
+      "id": "5413e18e-423c-47e3-b5dc-0358a319a074",
+      "bks": "zarez",
+      "de": "das Komma",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Ovdje nedostaje zarez.",
+        "de": "Hier fehlt ein Komma."
+      },
+      "tags": ["2026-10-12", "Grammatik"]
+    },
+    {
+      "id": "f302bf4d-2739-494a-966e-9ef37aecef08",
+      "bks": [
+        {
+          "term": "tačka",
+          "regions": ["bs", "sr"]
+        },
+        {
+          "term": "točka",
+          "regions": ["hr"]
+        }
+      ],
+      "de": "der Punkt",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "bks": "Na kraju rečenice stoji tačka.",
+        "de": "Am Satzende steht ein Punkt."
+      },
+      "tags": ["2026-10-12", "Grammatik"]
+    },
+    {
+      "id": "a674361a-c6c1-42ef-8cc9-32400041c766",
+      "bks": ["upitni znak", "upitnik"],
+      "de": "das Fragezeichen",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Na kraju pitanja stoji upitni znak.",
+        "de": "Am Ende einer Frage steht ein Fragezeichen."
+      },
+      "tags": ["2026-10-12", "Grammatik"]
+    },
+    {
+      "id": "19a47844-e1e9-4049-b0ac-ab97e5318bd5",
+      "bks": [
+        {
+          "term": "uzvični znak",
+          "regions": ["bs", "sr"]
+        },
+        {
+          "term": "uzvičnik",
+          "regions": ["bs", "sr"]
+        },
+        {
+          "term": "uskličnik",
+          "regions": ["hr"]
+        }
+      ],
+      "de": [
+        {
+          "term": "das Rufzeichen",
+          "regions": ["at"]
+        },
+        {
+          "term": "das Ausrufezeichen",
+          "regions": ["de", "ch"]
+        }
+      ],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Ova rečenica završava uzvičnim znakom.",
+        "de": "Dieser Satz endet mit einem Rufzeichen."
+      },
+      "tags": ["2026-10-12", "Grammatik"]
+    },
+    {
+      "id": "cd6e64a4-b0a9-4bd4-940a-a5a9e9954eee",
+      "bks": [
+        {
+          "term": "zadušnice",
+          "regions": ["bs", "sr"]
+        },
+        {
+          "term": "Dušni dan",
+          "regions": ["hr"]
+        }
+      ],
+      "de": "Allerseelen",
+      "pos": "noun",
+      "gender": "f",
+      "note": "zadušnice: nur Plural; in der Orthodoxie mehrere Totengedenktage im Jahr. In Kroatien heißt Allerseelen meist Dušni dan (m). Allerheiligen: Svi sveti.",
+      "example": {
+        "bks": "Na zadušnice idemo na groblje.",
+        "de": "Zu Allerseelen gehen wir auf den Friedhof."
+      },
+      "tags": ["2026-10-19"]
+    },
+    {
+      "id": "33575c9c-242f-44d6-9d12-3931dc6a9244",
+      "bks": "duša",
+      "de": "die Seele",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "bks": "On ima dobru dušu.",
+        "de": "Er hat eine gute Seele."
+      },
+      "tags": ["2026-10-19"]
+    },
+    {
+      "id": "a31b68e0-21fe-4890-b03b-f85301712b8b",
+      "bks": [
+        {
+          "term": "loše vijesti",
+          "regions": ["hr", "bs"]
+        },
+        {
+          "term": "loše vesti",
+          "regions": ["sr"]
+        }
+      ],
+      "de": "schlechte Neuigkeiten",
+      "pos": "phrase",
+      "note": "vijest (f) = Nachricht, Neuigkeit.",
+      "example": {
+        "bks": "Imam loše vijesti.",
+        "de": "Ich habe schlechte Neuigkeiten."
+      },
+      "tags": ["2026-10-19"]
+    },
+    {
+      "id": "0f2c0bb4-4dfa-4d85-97af-f790b374d5b5",
+      "bks": [
+        {
+          "term": "Šta ima?",
+          "regions": ["bs", "sr"]
+        },
+        {
+          "term": "Što ima?",
+          "regions": ["hr"]
+        }
+      ],
+      "de": ["Was gibt's?", "Was geht?"],
+      "pos": "phrase",
+      "example": {
+        "bks": "Ćao, šta ima? – Ništa posebno.",
+        "de": "Hallo, was gibt's? – Nichts Besonderes."
+      },
+      "tags": ["2026-10-19", "Begrüßung"]
+    },
+    {
+      "id": "4a29fa33-3204-4c23-aff8-45f2b585e432",
+      "bks": [
+        {
+          "term": "nježan",
+          "regions": ["hr", "bs"]
+        },
+        {
+          "term": "nežan",
+          "regions": ["sr"]
+        }
+      ],
+      "de": ["zart", "sanft", "fein"],
+      "pos": "adj",
+      "note": "nježan (m), nježna (f), nježno (n). In den Unterlagen „niježan“ – richtig ist nježan.",
+      "example": {
+        "bks": "Ona ima nježan glas.",
+        "de": "Sie hat eine sanfte Stimme."
+      },
+      "tags": ["2026-10-19"]
+    },
+    {
+      "id": "58f8e3be-af9b-4b4e-b340-885c2c22245c",
+      "bks": "danima",
+      "de": "tagelang",
+      "pos": "adv",
+      "note": "Instrumental Plural von dan.",
+      "example": {
+        "bks": "Danima nije izlazio iz kuće.",
+        "de": "Er ging tagelang nicht aus dem Haus."
+      },
+      "tags": ["2026-10-19", "Zeit"]
+    },
+    {
+      "id": "aef3232c-5a31-4952-abbf-64fce39288ea",
+      "bks": "noćima",
+      "de": "nächtelang",
+      "pos": "adv",
+      "note": "Instrumental Plural von noć.",
+      "example": {
+        "bks": "Noćima nije spavala.",
+        "de": "Sie hat nächtelang nicht geschlafen."
+      },
+      "tags": ["2026-10-19", "Zeit"]
+    },
+    {
+      "id": "48b91fa5-dc89-474a-9b1e-4886aa51d8cd",
+      "bks": "mir",
+      "de": ["der Frieden", "die Ruhe"],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Pusti me na miru!",
+        "de": "Lass mich in Ruhe!"
+      },
+      "tags": ["2026-10-19"]
+    },
+    {
+      "id": "2cf7f631-1db8-4865-8be1-1319e6f12d8e",
+      "bks": ["miran", "mirna", "mirno"],
+      "de": ["ruhig", "friedlich"],
+      "pos": "adj",
+      "example": {
+        "bks": "More je danas mirno.",
+        "de": "Das Meer ist heute ruhig."
+      },
+      "tags": ["2026-10-19"]
+    },
+    {
+      "id": "433a50e0-dca0-499b-be78-686f1fcc6b41",
+      "bks": "broj",
+      "de": ["die Nummer", "die Telefonnummer", "die Zahl"],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "bks": "Koji je tvoj broj telefona?",
+        "de": "Wie ist deine Telefonnummer?"
+      },
+      "tags": ["2026-10-19"]
+    },
+    {
+      "id": "9511b07b-f97b-4b06-9770-3db5840f850e",
+      "bks": "Nazdravlje!",
+      "de": "Gesundheit!",
+      "pos": "phrase",
+      "note": "Wörtlich: Auf die Gesundheit! Nach dem Niesen und beim Anstoßen.",
+      "example": {
+        "bks": "Nazdravlje! – Hvala.",
+        "de": "Gesundheit! – Danke."
+      },
+      "tags": ["2026-10-19", "Redewendungen"]
+    },
+    {
+      "id": "c6965dc2-daeb-47d9-a8c3-59a80eebc04c",
+      "bks": "zdravlje",
+      "de": "die Gesundheit",
+      "pos": "noun",
+      "gender": "n",
+      "example": {
+        "bks": "Zdravlje je najvažnije.",
+        "de": "Gesundheit ist das Wichtigste."
+      },
+      "tags": ["2026-10-19", "Körper"]
+    },
+    {
+      "id": "1da01726-88dd-4b92-8d9c-c832202d3057",
+      "bks": ["zdrav", "zdrava", "zdravo"],
+      "de": "gesund",
+      "pos": "adj",
+      "note": "Zdravo! (Gruß) = Hallo!",
+      "example": {
+        "bks": "Opet sam zdrav.",
+        "de": "Ich bin wieder gesund."
+      },
+      "tags": ["2026-10-19", "Körper"]
+    },
+    {
+      "id": "c8093bee-4ea0-4052-94c0-5871467c6d22",
+      "bks": ["bolestan", "bolesna", "bolesno"],
+      "de": "krank",
+      "pos": "adj",
+      "example": {
+        "bks": "Danas sam bolestan.",
+        "de": "Heute bin ich krank."
+      },
+      "tags": ["2026-10-19", "Körper"]
+    },
+    {
+      "id": "34102ffd-ca81-4a7a-8bb6-69e5fba76b6e",
+      "bks": ["umoran", "umorna", "umorno"],
+      "de": "müde",
+      "pos": "adj",
+      "example": {
+        "bks": "Jako sam umorna.",
+        "de": "Ich bin sehr müde."
+      },
+      "tags": ["2026-10-19"]
+    },
+    {
+      "id": "2247d6ee-1254-4958-92e7-2276cf0bf06b",
+      "bks": [
+        {
+          "term": "Selam!",
+          "regions": ["bs"]
+        },
+        {
+          "term": "Bok!",
+          "regions": ["hr"]
+        },
+        "Zdravo!"
+      ],
+      "de": "Hallo!",
+      "pos": "phrase",
+      "note": "Selam: v. a. unter Bosniaken (aus dem Arabischen). Bok: kroatisch, auch für Tschüss. Zdravo: überall gebräuchlich.",
+      "example": {
+        "bks": "Bok, kako si?",
+        "de": "Hallo, wie geht's?"
+      },
+      "tags": ["2026-10-19", "Begrüßung"]
     }
   ]
 }
