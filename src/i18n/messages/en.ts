@@ -30,6 +30,14 @@ export const en: Messages = {
       hint: "Reviewing ahead counts towards your schedule, Free practice isn't saved.",
     },
   },
+  regions: {
+    hr: "used in Croatia",
+    bs: "used in Bosnia and Herzegovina",
+    sr: "used in Serbia",
+    at: "used in Austria",
+    de: "used in Germany",
+    ch: "used in Switzerland",
+  },
   settings: {
     heading: "Settings",
     theme: {
@@ -65,7 +73,7 @@ export const en: Messages = {
     },
     yourAnswer: "Your answer:",
     correctAnswer: "Correct would be:",
-    alsoCorrect: "Also correct: {{terms}}",
+    alsoCorrect: "Also correct:",
     rating: {
       again: "Again",
       hard: "Hard",

@@ -2,6 +2,19 @@
 
 Newest first. One short entry per decision: what was decided, and why.
 
+## 2026-11-05: Regional variants in the vocabulary
+
+- **The course is BKS and mixes Croatian, Bosnian, Serbian and Austrian-influenced words on
+  purpose.** The app shows and explains the differences instead of "correcting" them.
+- **Terms can carry regions:** a plain string is used everywhere; `{ term, regions }` marks a
+  regional form (`hr`/`bs`/`sr` for BKS, `at`/`de`/`ch` for German). All forms are accepted
+  answers; the first one is the course's main form.
+- **Shown as small labels** (`HR`, `BS`, `AT`, …) wherever terms appear: the prompt, the answer
+  and "Auch richtig". Hovering shows where the form is used.
+- **The field is called `bks`** (renamed from `hr`, also in example sentences), because it holds
+  BKS terms, not only Croatian ones. Card directions stay `hr-de`/`de-hr`: they are part of the
+  stored progress keys, and renaming them would need a database migration.
+
 ## 2026-11-05: Keep learning after a session
 
 - **Two extra modes**, both chosen by the owner: _Vorlernen_ (review ahead: the cards due

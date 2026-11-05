@@ -28,7 +28,12 @@ beforeAll(async () => {
 });
 
 function word(id: string, hr = `hr-${id}`): Word {
-  return { id, hr: [hr], de: [`de-${id}`], tags: [] };
+  return {
+    id,
+    bks: [{ text: hr, regions: [] }],
+    de: [{ text: `de-${id}`, regions: [] }],
+    tags: [],
+  };
 }
 
 function item(w: Word, direction: Direction): StudyItem {

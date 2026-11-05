@@ -19,7 +19,7 @@ export function WordDetails({ word }: { word: Word }) {
       {word.note && <p className={styles.note}>{word.note}</p>}
       {word.example && (
         <figure className={styles.example}>
-          <p lang="hr">{word.example.hr}</p>
+          <p lang="hr">{word.example.bks}</p>
           <p lang="de" className={styles.translation}>
             {word.example.de}
           </p>

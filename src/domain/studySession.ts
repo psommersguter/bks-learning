@@ -14,6 +14,7 @@ import {
   type StudyItem,
   type StudyQueue,
 } from "./scheduling";
+import { termTexts } from "./vocabulary";
 
 /**
  * - `regular`: everything due now plus all new words. Answers are saved.
@@ -116,7 +117,7 @@ export function sessionReducer(state: SessionState, action: SessionAction): Sess
     }
     case "submit": {
       if (state.phase.kind !== "question" || card.direction !== "de-hr") return state;
-      const check = checkAnswer(action.input, card.word.hr);
+      const check = checkAnswer(action.input, termTexts(card.word.bks));
       return { ...state, phase: { kind: "checked", input: action.input, check } };
     }
     case "answered": {

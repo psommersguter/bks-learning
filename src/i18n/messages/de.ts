@@ -35,6 +35,14 @@ export const de = {
       hint: "Vorlernen zählt für deinen Lernplan, Freies Üben wird nicht gespeichert.",
     },
   },
+  regions: {
+    hr: "gebräuchlich in Kroatien",
+    bs: "gebräuchlich in Bosnien und Herzegowina",
+    sr: "gebräuchlich in Serbien",
+    at: "gebräuchlich in Österreich",
+    de: "gebräuchlich in Deutschland",
+    ch: "gebräuchlich in der Schweiz",
+  },
   settings: {
     heading: "Einstellungen",
     theme: {
@@ -70,7 +78,7 @@ export const de = {
     },
     yourAnswer: "Deine Antwort:",
     correctAnswer: "Richtig wäre:",
-    alsoCorrect: "Auch richtig: {{terms}}",
+    alsoCorrect: "Auch richtig:",
     rating: {
       again: "Nochmal",
       hard: "Schwer",

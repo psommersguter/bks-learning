@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "vocabulary.schema.json",
   "title": "BKS vocabulary",
-  "description": "Hand-maintained Croatian/German vocabulary. See docs/vocabulary-format.md. Keep in sync with src/domain/vocabulary.ts.",
+  "description": "Hand-maintained BKS/German vocabulary. See docs/vocabulary-format.md. Keep in sync with src/domain/vocabulary.ts.",
   "type": "object",
   "required": ["words"],
   "additionalProperties": false,
@@ -19,19 +19,75 @@
       "type": "string",
       "pattern": "\\S"
     },
-    "terms": {
+    "bksRegion": {
+      "description": "hr = Croatia, bs = Bosnia and Herzegovina, sr = Serbia.",
+      "enum": ["hr", "bs", "sr"]
+    },
+    "germanRegion": {
+      "description": "at = Austria, de = Germany, ch = Switzerland.",
+      "enum": ["at", "de", "ch"]
+    },
+    "bksTerms": {
       "oneOf": [
         { "$ref": "#/definitions/text" },
         {
           "type": "array",
           "minItems": 1,
-          "items": { "$ref": "#/definitions/text" }
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/text" },
+              {
+                "description": "A form only used in some regions.",
+                "type": "object",
+                "required": ["term", "regions"],
+                "additionalProperties": false,
+                "properties": {
+                  "term": { "$ref": "#/definitions/text" },
+                  "regions": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": { "$ref": "#/definitions/bksRegion" }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "germanTerms": {
+      "oneOf": [
+        { "$ref": "#/definitions/text" },
+        {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/text" },
+              {
+                "description": "A form only used in some regions.",
+                "type": "object",
+                "required": ["term", "regions"],
+                "additionalProperties": false,
+                "properties": {
+                  "term": { "$ref": "#/definitions/text" },
+                  "regions": {
+                    "type": "array",
+                    "minItems": 1,
+                    "uniqueItems": true,
+                    "items": { "$ref": "#/definitions/germanRegion" }
+                  }
+                }
+              }
+            ]
+          }
         }
       ]
     },
     "word": {
       "type": "object",
-      "required": ["id", "hr", "de"],
+      "required": ["id", "bks", "de"],
       "additionalProperties": false,
       "properties": {
         "id": {
@@ -39,13 +95,13 @@
           "type": "string",
           "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
         },
-        "hr": {
-          "description": "Croatian term, or several accepted variants (the first one is shown).",
-          "$ref": "#/definitions/terms"
+        "bks": {
+          "description": "BKS (Bosnian/Croatian/Serbian) term, or several accepted forms (the first one is the main form). Plain strings are used everywhere; { term, regions } marks regional forms.",
+          "$ref": "#/definitions/bksTerms"
         },
         "de": {
-          "description": "German term, or several accepted variants (the first one is shown).",
-          "$ref": "#/definitions/terms"
+          "description": "German term, or several accepted forms (the first one is the main form). Plain strings are used everywhere; { term, regions } marks regional forms.",
+          "$ref": "#/definitions/germanTerms"
         },
         "pos": {
           "description": "Part of speech.",
@@ -66,10 +122,10 @@
         "example": {
           "description": "Example sentence.",
           "type": "object",
-          "required": ["hr", "de"],
+          "required": ["bks", "de"],
           "additionalProperties": false,
           "properties": {
-            "hr": { "$ref": "#/definitions/text" },
+            "bks": { "$ref": "#/definitions/text" },
             "de": { "$ref": "#/definitions/text" }
           }
         },

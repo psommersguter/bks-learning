@@ -14,19 +14,35 @@ export type PartOfSpeech = (typeof PARTS_OF_SPEECH)[number];
 export type Gender = (typeof GENDERS)[number];
 export type Aspect = (typeof ASPECTS)[number];
 
-/** One or more accepted forms of a term. The first entry is the canonical form shown in the UI. */
-export type Terms = readonly [string, ...string[]];
+/** Where a BKS term is used: Croatia, Bosnia and Herzegovina, Serbia. */
+export const BKS_REGIONS = ["hr", "bs", "sr"] as const;
+/** Where a German term is used: Austria, Germany, Switzerland. */
+export const GERMAN_REGIONS = ["at", "de", "ch"] as const;
+
+export type BksRegion = (typeof BKS_REGIONS)[number];
+export type GermanRegion = (typeof GERMAN_REGIONS)[number];
+
+/** One accepted form of a word. */
+export interface Term<Region extends string = string> {
+  text: string;
+  /** Regions where this form is used. Empty: used everywhere (no regional difference). */
+  regions: readonly Region[];
+}
+
+/** One or more accepted forms. The first one is the main form (the one the course teaches). */
+export type Terms<Region extends string = string> = readonly [Term<Region>, ...Term<Region>[]];
 
 export interface ExampleSentence {
-  hr: string;
+  bks: string;
   de: string;
 }
 
 export interface Word {
   /** Lower-case UUID. Learning progress is stored under this id, so it must never change. */
   id: string;
-  hr: Terms;
-  de: Terms;
+  /** The BKS (Bosnian/Croatian/Serbian) forms. */
+  bks: Terms<BksRegion>;
+  de: Terms<GermanRegion>;
   pos?: PartOfSpeech;
   /** Only set for nouns. */
   gender?: Gender;
@@ -52,7 +68,7 @@ const ROOT_KEYS: ReadonlySet<string> = new Set(["$schema", "words"]);
 /** All properties a word may have in the vocabulary file. */
 export const WORD_PROPERTIES: ReadonlySet<string> = new Set([
   "id",
-  "hr",
+  "bks",
   "de",
   "pos",
   "gender",
@@ -61,7 +77,17 @@ export const WORD_PROPERTIES: ReadonlySet<string> = new Set([
   "example",
   "tags",
 ]);
-const EXAMPLE_KEYS: ReadonlySet<string> = new Set(["hr", "de"]);
+const EXAMPLE_KEYS: ReadonlySet<string> = new Set(["bks", "de"]);
+/** Properties of a term written as an object (`{ "term": "juha", "regions": ["hr"] }`). */
+export const TERM_PROPERTIES: ReadonlySet<string> = new Set(["term", "regions"]);
+
+/** The texts of all forms, in order. */
+export function termTexts<Region extends string>(
+  terms: Terms<Region>,
+): readonly [string, ...string[]] {
+  const [first, ...rest] = terms;
+  return [first.text, ...rest.map((term) => term.text)];
+}
 
 type JsonObject = Record<string, unknown>;
 
@@ -117,8 +143,8 @@ function parseWord(raw: unknown, path: string, issues: string[]): Word | undefin
   reportUnknownKeys(raw, WORD_PROPERTIES, path, issues);
 
   const id = parseId(raw.id, `${path}.id`, issues);
-  const hr = parseTerms(raw.hr, `${path}.hr`, issues);
-  const de = parseTerms(raw.de, `${path}.de`, issues);
+  const bks = parseTerms(raw.bks, BKS_REGIONS, `${path}.bks`, issues);
+  const de = parseTerms(raw.de, GERMAN_REGIONS, `${path}.de`, issues);
   const pos = parseOptionalEnum(raw.pos, PARTS_OF_SPEECH, `${path}.pos`, issues);
   const gender = parseOptionalEnum(raw.gender, GENDERS, `${path}.gender`, issues);
   const aspect = parseOptionalEnum(raw.aspect, ASPECTS, `${path}.aspect`, issues);
@@ -133,13 +159,13 @@ function parseWord(raw: unknown, path: string, issues: string[]): Word | undefin
     issues.push(`${path}.aspect: only allowed when pos is "verb"`);
   }
 
-  if (issues.length > issueCountBefore || !id || !hr || !de) {
+  if (issues.length > issueCountBefore || !id || !bks || !de) {
     return undefined;
   }
 
   return {
     id,
-    hr,
+    bks,
     de,
     tags,
     ...(pos !== undefined && { pos }),
@@ -158,24 +184,89 @@ function parseId(value: unknown, path: string, issues: string[]): string | undef
   return value.toLowerCase();
 }
 
-function parseTerms(value: unknown, path: string, issues: string[]): Terms | undefined {
+/**
+ * A single string, or an array whose items are strings (used everywhere) or
+ * `{ "term": "…", "regions": [...] }` objects.
+ */
+function parseTerms<Region extends string>(
+  value: unknown,
+  allowedRegions: readonly Region[],
+  path: string,
+  issues: string[],
+): Terms<Region> | undefined {
   if (typeof value === "string") {
-    const term = parseText(value, path, issues);
-    return term === undefined ? undefined : [term];
+    const text = parseText(value, path, issues);
+    return text === undefined ? undefined : [{ text, regions: [] }];
   }
   if (!Array.isArray(value) || value.length === 0) {
-    issues.push(`${path}: expected a non-empty string or a non-empty array of strings`);
+    issues.push(`${path}: expected a non-empty string or a non-empty array of terms`);
     return undefined;
   }
 
-  const terms: string[] = [];
+  const terms: Term<Region>[] = [];
   value.forEach((item: unknown, index) => {
-    const term = parseText(item, `${path}[${index}]`, issues);
-    if (term !== undefined) terms.push(term);
+    const term = parseTerm(item, allowedRegions, `${path}[${index}]`, issues);
+    if (term === undefined) return;
+    if (terms.some((existing) => existing.text === term.text)) {
+      issues.push(`${path}[${index}]: duplicate term "${term.text}"`);
+      return;
+    }
+    terms.push(term);
   });
 
   const [first, ...rest] = terms;
   return first !== undefined && terms.length === value.length ? [first, ...rest] : undefined;
+}
+
+function parseTerm<Region extends string>(
+  value: unknown,
+  allowedRegions: readonly Region[],
+  path: string,
+  issues: string[],
+): Term<Region> | undefined {
+  if (typeof value === "string") {
+    const text = parseText(value, path, issues);
+    return text === undefined ? undefined : { text, regions: [] };
+  }
+  if (!isJsonObject(value)) {
+    issues.push(`${path}: expected a string or an object with "term" and "regions"`);
+    return undefined;
+  }
+
+  reportUnknownKeys(value, TERM_PROPERTIES, path, issues);
+  const text = parseText(value.term, `${path}.term`, issues);
+  const regions = parseRegions(value.regions, allowedRegions, `${path}.regions`, issues);
+  return text !== undefined && regions !== undefined ? { text, regions } : undefined;
+}
+
+/** A non-empty list of distinct regions (a term used everywhere is written as a plain string). */
+function parseRegions<Region extends string>(
+  value: unknown,
+  allowedRegions: readonly Region[],
+  path: string,
+  issues: string[],
+): Region[] | undefined {
+  if (!Array.isArray(value) || value.length === 0) {
+    issues.push(
+      `${path}: expected a non-empty array (write terms used everywhere as plain strings)`,
+    );
+    return undefined;
+  }
+
+  const regions: Region[] = [];
+  value.forEach((item: unknown, index) => {
+    const region = parseOptionalEnum(item, allowedRegions, `${path}[${index}]`, issues);
+    if (region === undefined) {
+      if (item === undefined) issues.push(`${path}[${index}]: expected a region`);
+      return;
+    }
+    if (regions.includes(region)) {
+      issues.push(`${path}[${index}]: duplicate region "${region}"`);
+      return;
+    }
+    regions.push(region);
+  });
+  return regions.length === value.length ? regions : undefined;
 }
 
 function parseTags(value: unknown, path: string, issues: string[]): string[] {
@@ -205,14 +296,14 @@ function parseOptionalExample(
 ): ExampleSentence | undefined {
   if (value === undefined) return undefined;
   if (!isJsonObject(value)) {
-    issues.push(`${path}: expected an object with "hr" and "de"`);
+    issues.push(`${path}: expected an object with "bks" and "de"`);
     return undefined;
   }
 
   reportUnknownKeys(value, EXAMPLE_KEYS, path, issues);
-  const hr = parseText(value.hr, `${path}.hr`, issues);
+  const bks = parseText(value.bks, `${path}.bks`, issues);
   const de = parseText(value.de, `${path}.de`, issues);
-  return hr !== undefined && de !== undefined ? { hr, de } : undefined;
+  return bks !== undefined && de !== undefined ? { bks, de } : undefined;
 }
 
 function parseOptionalEnum<T extends string>(
@@ -256,12 +347,13 @@ function reportUnknownKeys(
   }
 }
 
-/** `words[3]` plus the Croatian term if available, so issues are easy to find in the file. */
+/** `words[3]` plus the main BKS term if available, so issues are easy to find in the file. */
 function describeWordPath(rawWord: unknown, index: number): string {
   const path = `words[${index}]`;
   if (!isJsonObject(rawWord)) return path;
-  const hr = Array.isArray(rawWord.hr) ? rawWord.hr[0] : rawWord.hr;
-  return typeof hr === "string" && hr.trim() !== "" ? `${path} ("${hr.trim()}")` : path;
+  const first: unknown = Array.isArray(rawWord.bks) ? rawWord.bks[0] : rawWord.bks;
+  const term = isJsonObject(first) ? first.term : first;
+  return typeof term === "string" && term.trim() !== "" ? `${path} ("${term.trim()}")` : path;
 }
 
 function isJsonObject(value: unknown): value is JsonObject {

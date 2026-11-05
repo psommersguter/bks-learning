@@ -1,18 +1,20 @@
 import { useTranslation } from "react-i18next";
 import { type AnswerCheck, diffDiacritics } from "../../domain/answerCheck";
-import type { Terms } from "../../domain/vocabulary";
+import type { BksRegion, Terms } from "../../domain/vocabulary";
 import styles from "./AnswerFeedback.module.css";
+import { RegionBadge, TermList } from "./TermList";
 
 interface AnswerFeedbackProps {
   input: string;
   check: AnswerCheck;
-  accepted: Terms;
+  accepted: Terms<BksRegion>;
 }
 
-/** Result of a typed answer: verdict, the correct form and other accepted variants. */
+/** Result of a typed answer: verdict, the correct form and other accepted forms with regions. */
 export function AnswerFeedback({ input, check, accepted }: AnswerFeedbackProps) {
   const { t } = useTranslation();
-  const otherTerms = accepted.filter((term) => term !== check.expected);
+  const expectedRegions = accepted.find((term) => term.text === check.expected)?.regions ?? [];
+  const otherTerms = accepted.filter((term) => term.text !== check.expected);
   const typed = input.trim();
 
   return (
@@ -35,11 +37,14 @@ export function AnswerFeedback({ input, check, accepted }: AnswerFeedbackProps) 
         ) : (
           check.expected
         )}
+        {expectedRegions.map((region) => (
+          <RegionBadge key={region} region={region} />
+        ))}
       </p>
 
       {otherTerms.length > 0 && (
-        <p className={styles.label} lang="hr">
-          {t("learn.alsoCorrect", { terms: otherTerms.join(", ") })}
+        <p className={styles.label}>
+          {t("learn.alsoCorrect")} <TermList terms={otherTerms} lang="hr" />
         </p>
       )}
     </div>

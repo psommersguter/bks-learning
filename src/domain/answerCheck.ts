@@ -4,7 +4,8 @@
  * Deliberately strict: the only tolerated mistake is a wrong or missing diacritic
  * (č ć đ š ž). Case, surrounding/multiple spaces and sentence punctuation are ignored.
  */
-import type { Terms } from "./vocabulary";
+/** The accepted answers; the first one is reported as expected when nothing matches. */
+export type AcceptedAnswers = readonly [string, ...string[]];
 
 export type AnswerVerdict = "correct" | "diacritics" | "wrong";
 
@@ -14,7 +15,7 @@ export interface AnswerCheck {
   expected: string;
 }
 
-export function checkAnswer(input: string, accepted: Terms): AnswerCheck {
+export function checkAnswer(input: string, accepted: AcceptedAnswers): AnswerCheck {
   const answer = normalize(input);
 
   const exact = accepted.find((term) => normalize(term) === answer);

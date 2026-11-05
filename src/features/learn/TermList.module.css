@@ -1,0 +1,20 @@
+.term {
+  white-space: nowrap;
+}
+
+.region {
+  display: inline-block;
+  margin-left: 0.3em;
+  padding: 0.1rem 0.35rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-muted);
+  /* Fixed size, so the label stays small even inside the large prompt text. */
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: help;
+}

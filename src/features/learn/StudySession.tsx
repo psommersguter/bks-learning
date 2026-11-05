@@ -18,6 +18,7 @@ import { practiceAnswer, recordAnswer } from "./learningService";
 import { RatingButtons } from "./RatingButtons";
 import { SessionSummary } from "./SessionSummary";
 import styles from "./StudySession.module.css";
+import { TermList } from "./TermList";
 import { WordDetails } from "./WordDetails";
 
 interface StudySessionProps {
@@ -97,7 +98,6 @@ export function StudySession({ mode, queue, onContinue }: StudySessionProps) {
   }
 
   const isRecognition = card.direction === "hr-de";
-  const promptTerms = isRecognition ? card.word.hr : card.word.de;
 
   return (
     <section className={styles.session}>
@@ -118,8 +118,12 @@ export function StudySession({ mode, queue, onContinue }: StudySessionProps) {
         className={styles.card}
       >
         <p className={styles.direction}>{t(`learn.direction.${card.direction}`)}</p>
-        <p className={styles.prompt} lang={isRecognition ? "hr" : "de"}>
-          {promptTerms.join(" / ")}
+        <p className={styles.prompt}>
+          {isRecognition ? (
+            <TermList terms={card.word.bks} lang="hr" />
+          ) : (
+            <TermList terms={card.word.de} lang="de" />
+          )}
         </p>
 
         {state.phase.kind === "question" &&
@@ -132,8 +136,8 @@ export function StudySession({ mode, queue, onContinue }: StudySessionProps) {
           ))}
 
         {state.phase.kind === "revealed" && (
-          <p className={styles.answer} lang="de">
-            {card.word.de.join(" / ")}
+          <p className={styles.answer}>
+            <TermList terms={card.word.de} lang="de" />
           </p>
         )}
 
@@ -141,7 +145,7 @@ export function StudySession({ mode, queue, onContinue }: StudySessionProps) {
           <AnswerFeedback
             input={state.phase.input}
             check={state.phase.check}
-            accepted={card.word.hr}
+            accepted={card.word.bks}
           />
         )}
 

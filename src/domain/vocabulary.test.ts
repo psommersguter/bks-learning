@@ -25,9 +25,86 @@ describe("parseVocabulary", () => {
   });
 
   it("normalises a minimal word", () => {
-    expect(parseVocabulary({ words: [{ id: ID_1, hr: " kuća ", de: "das Haus" }] })).toEqual([
-      { id: ID_1, hr: ["kuća"], de: ["das Haus"], tags: [] },
+    expect(parseVocabulary({ words: [{ id: ID_1, bks: " kuća ", de: "das Haus" }] })).toEqual([
+      {
+        id: ID_1,
+        bks: [{ text: "kuća", regions: [] }],
+        de: [{ text: "das Haus", regions: [] }],
+        tags: [],
+      },
     ]);
+  });
+
+  describe("regional terms", () => {
+    it("reads terms with regions next to plain terms (used everywhere)", () => {
+      const [word] = parseVocabulary({
+        words: [
+          {
+            id: ID_1,
+            bks: [
+              { term: "supa", regions: ["bs", "sr"] },
+              { term: "juha", regions: ["hr"] },
+            ],
+            de: ["die Tomate", { term: "der Paradeiser", regions: ["at"] }],
+          },
+        ],
+      });
+
+      expect(word?.bks).toEqual([
+        { text: "supa", regions: ["bs", "sr"] },
+        { text: "juha", regions: ["hr"] },
+      ]);
+      expect(word?.de).toEqual([
+        { text: "die Tomate", regions: [] },
+        { text: "der Paradeiser", regions: ["at"] },
+      ]);
+    });
+
+    it("only allows BKS regions for BKS terms and German regions for German terms", () => {
+      expect(
+        issuesOf({
+          words: [
+            {
+              id: ID_1,
+              bks: [{ term: "supa", regions: ["at"] }],
+              de: [{ term: "die Suppe", regions: ["hr"] }],
+            },
+          ],
+        }),
+      ).toEqual([
+        'words[0] ("supa").bks[0].regions[0]: expected one of "hr", "bs", "sr"',
+        'words[0] ("supa").de[0].regions[0]: expected one of "at", "de", "ch"',
+      ]);
+    });
+
+    it("rejects empty or duplicate regions and unknown properties", () => {
+      expect(
+        issuesOf({
+          words: [
+            {
+              id: ID_1,
+              bks: [
+                { term: "supa", regions: [] },
+                { term: "juha", regions: ["hr", "hr"], region: "hr" },
+              ],
+              de: "die Suppe",
+            },
+          ],
+        }),
+      ).toEqual([
+        'words[0] ("supa").bks[0].regions: expected a non-empty array (write terms used everywhere as plain strings)',
+        'words[0] ("supa").bks[1]: unknown property "region"',
+        'words[0] ("supa").bks[1].regions[1]: duplicate region "hr"',
+      ]);
+    });
+
+    it("rejects the same term twice", () => {
+      expect(
+        issuesOf({
+          words: [{ id: ID_1, bks: ["juha", { term: "juha", regions: ["hr"] }], de: "die Suppe" }],
+        }),
+      ).toEqual(['words[0] ("juha").bks[1]: duplicate term "juha"']);
+    });
   });
 
   it("keeps all optional fields", () => {
@@ -35,12 +112,12 @@ describe("parseVocabulary", () => {
       words: [
         {
           id: ID_1.toUpperCase(),
-          hr: ["pisati"],
+          bks: ["pisati"],
           de: ["schreiben", "aufschreiben"],
           pos: "verb",
           aspect: "ipf",
           note: "pf: napisati",
-          example: { hr: "Pišem pismo.", de: "Ich schreibe einen Brief." },
+          example: { bks: "Pišem pismo.", de: "Ich schreibe einen Brief." },
           tags: ["L01", "Alltag"],
         },
       ],
@@ -48,12 +125,15 @@ describe("parseVocabulary", () => {
 
     expect(word).toEqual({
       id: ID_1,
-      hr: ["pisati"],
-      de: ["schreiben", "aufschreiben"],
+      bks: [{ text: "pisati", regions: [] }],
+      de: [
+        { text: "schreiben", regions: [] },
+        { text: "aufschreiben", regions: [] },
+      ],
       pos: "verb",
       aspect: "ipf",
       note: "pf: napisati",
-      example: { hr: "Pišem pismo.", de: "Ich schreibe einen Brief." },
+      example: { bks: "Pišem pismo.", de: "Ich schreibe einen Brief." },
       tags: ["L01", "Alltag"],
     });
   });
@@ -61,8 +141,8 @@ describe("parseVocabulary", () => {
   it("preserves the order of words in the file", () => {
     const words = parseVocabulary({
       words: [
-        { id: ID_2, hr: "b", de: "b" },
-        { id: ID_1, hr: "a", de: "a" },
+        { id: ID_2, bks: "b", de: "b" },
+        { id: ID_1, bks: "a", de: "a" },
       ],
     });
     expect(words.map((word) => word.id)).toEqual([ID_2, ID_1]);
@@ -77,7 +157,7 @@ describe("parseVocabulary", () => {
   });
 
   it("rejects ids that are not UUIDs", () => {
-    expect(issuesOf({ words: [{ id: "kuca", hr: "kuća", de: "das Haus" }] })).toEqual([
+    expect(issuesOf({ words: [{ id: "kuca", bks: "kuća", de: "das Haus" }] })).toEqual([
       'words[0] ("kuća").id: expected a UUID like "3f2b8c1e-4d5a-4b6c-8d7e-9f0a1b2c3d4e"',
     ]);
   });
@@ -86,28 +166,28 @@ describe("parseVocabulary", () => {
     expect(
       issuesOf({
         words: [
-          { id: ID_1, hr: "kuća", de: "das Haus" },
-          { id: ID_1.toUpperCase(), hr: "jabuka", de: "der Apfel" },
+          { id: ID_1, bks: "kuća", de: "das Haus" },
+          { id: ID_1.toUpperCase(), bks: "jabuka", de: "der Apfel" },
         ],
       }),
     ).toEqual(['words[1] ("jabuka").id: duplicate id, already used by words[0] ("kuća")']);
   });
 
   it("rejects unknown properties, e.g. typos", () => {
-    expect(issuesOf({ words: [{ id: ID_1, hr: "kuća", de: "das Haus", gendre: "f" }] })).toEqual([
+    expect(issuesOf({ words: [{ id: ID_1, bks: "kuća", de: "das Haus", gendre: "f" }] })).toEqual([
       'words[0] ("kuća"): unknown property "gendre"',
     ]);
   });
 
   it("rejects empty terms", () => {
-    expect(issuesOf({ words: [{ id: ID_1, hr: "  ", de: [] }] })).toEqual([
-      "words[0].hr: expected a non-empty string",
-      "words[0].de: expected a non-empty string or a non-empty array of strings",
+    expect(issuesOf({ words: [{ id: ID_1, bks: "  ", de: [] }] })).toEqual([
+      "words[0].bks: expected a non-empty string",
+      "words[0].de: expected a non-empty string or a non-empty array of terms",
     ]);
   });
 
   it("rejects values outside the allowed enums", () => {
-    expect(issuesOf({ words: [{ id: ID_1, hr: "kuća", de: "das Haus", pos: "Nomen" }] })).toEqual([
+    expect(issuesOf({ words: [{ id: ID_1, bks: "kuća", de: "das Haus", pos: "Nomen" }] })).toEqual([
       'words[0] ("kuća").pos: expected one of "noun", "verb", "adj", "adv", "phrase", "other"',
     ]);
   });
@@ -116,8 +196,8 @@ describe("parseVocabulary", () => {
     expect(
       issuesOf({
         words: [
-          { id: ID_1, hr: "pisati", de: "schreiben", pos: "verb", gender: "m" },
-          { id: ID_2, hr: "kuća", de: "das Haus", aspect: "pf" },
+          { id: ID_1, bks: "pisati", de: "schreiben", pos: "verb", gender: "m" },
+          { id: ID_2, bks: "kuća", de: "das Haus", aspect: "pf" },
         ],
       }),
     ).toEqual([
@@ -128,7 +208,7 @@ describe("parseVocabulary", () => {
 
   it("rejects duplicate and empty tags", () => {
     expect(
-      issuesOf({ words: [{ id: ID_1, hr: "kuća", de: "das Haus", tags: ["L01", "", "L01"] }] }),
+      issuesOf({ words: [{ id: ID_1, bks: "kuća", de: "das Haus", tags: ["L01", "", "L01"] }] }),
     ).toEqual([
       'words[0] ("kuća").tags[1]: expected a non-empty string',
       'words[0] ("kuća").tags[2]: duplicate tag "L01"',
@@ -138,14 +218,14 @@ describe("parseVocabulary", () => {
   it("rejects incomplete example sentences", () => {
     expect(
       issuesOf({
-        words: [{ id: ID_1, hr: "kuća", de: "das Haus", example: { hr: "Moja kuća." } }],
+        words: [{ id: ID_1, bks: "kuća", de: "das Haus", example: { bks: "Moja kuća." } }],
       }),
     ).toEqual(['words[0] ("kuća").example.de: expected a non-empty string']);
   });
 
   it("reports all issues at once", () => {
     const issues = issuesOf({
-      words: [{ id: "x", hr: "a", de: "a" }, "not a word", { id: ID_2, hr: "b" }],
+      words: [{ id: "x", bks: "a", de: "a" }, "not a word", { id: ID_2, bks: "b" }],
     });
     expect(issues).toHaveLength(3);
   });

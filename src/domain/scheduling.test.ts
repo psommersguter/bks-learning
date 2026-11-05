@@ -13,8 +13,18 @@ const NOW = new Date("2026-11-05T10:00:00Z");
 const MINUTE = 60_000;
 const DAY = 24 * 60 * MINUTE;
 
-const kuca: Word = { id: "id-kuca", hr: ["kuća"], de: ["das Haus"], tags: [] };
-const pas: Word = { id: "id-pas", hr: ["pas"], de: ["der Hund"], tags: [] };
+const kuca: Word = {
+  id: "id-kuca",
+  bks: [{ text: "kuća", regions: [] }],
+  de: [{ text: "das Haus", regions: [] }],
+  tags: [],
+};
+const pas: Word = {
+  id: "id-pas",
+  bks: [{ text: "pas", regions: [] }],
+  de: [{ text: "der Hund", regions: [] }],
+  tags: [],
+};
 
 let scheduler: Scheduler;
 
