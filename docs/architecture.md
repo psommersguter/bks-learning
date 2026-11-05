@@ -21,7 +21,10 @@ moving progress between devices                ──►  manual JSON export / i
   from the vocabulary file. It must survive vocabulary edits: a renamed translation keeps its
   progress, while a removed word's progress is ignored (not deleted, in case the word comes back).
 - **Preferences** (UI language etc.) are tiny and live in localStorage through Zustand's
-  `persist` middleware. Never put progress into localStorage.
+  `persist` middleware. Never put progress into localStorage. They're per device on purpose,
+  e.g. the special-character bar: `diacriticsBar` is `null` until the user chooses, and
+  `useDiacriticsBarEnabled()` then falls back to the device default (on for desktop, off for
+  touch devices, detected once via `(hover: none) and (pointer: coarse)`).
 
 ## Scheduling and progress
 
@@ -55,6 +58,13 @@ moving progress between devices                ──►  manual JSON export / i
 - `src/domain/answerCheck.ts` checks typed answers strictly: only wrong/missing diacritics count
   as "almost" (verdict `diacritics`). Case, extra spaces and sentence punctuation are ignored.
 - Every answer is saved before the next card is shown, so leaving mid-session loses nothing.
+- `DiacriticsBar` (č ć đ š ž) below the typed-answer field inserts at the caret. Its buttons
+  prevent `mousedown` so the field keeps focus, and `AnswerForm` uses `flushSync` to place the
+  caret after the inserted letter.
+- **Alt+.** (Option+. on macOS) in the answer field toggles the letter before the caret:
+  c → č → ć → c, s ↔ š, z ↔ ž, d ↔ đ (`toggleDiacritic` in `src/domain/diacritics.ts`). It
+  works whether or not the bar is shown. Matched by `event.code === "Period"` (layout
+  independent) with `event.key === "."` as a fallback. AltGr is excluded.
 - Keyboard (desktop): Space/Enter reveals, 1–n picks a rating, Enter picks the default. Handled
   in `StudySession` with `useEffectEvent`. Enter/Space on a focused button or link is left to the
   browser.
@@ -87,10 +97,11 @@ Routing uses **wouter** with `useHashLocation` (URLs like `#/learn`), because Gi
 serve an SPA fallback for path URLs. Real history entries make the phone's back button work.
 Paths live in `src/app/routes.ts`; the routes are declared in `App.tsx`.
 
-| Route    | Screen                                     |
-| -------- | ------------------------------------------ |
-| `/`      | Home: due/new counts, start button         |
-| `/learn` | Study session (`features/learn/LearnPage`) |
+| Route       | Screen                                      |
+| ----------- | ------------------------------------------- |
+| `/`         | Home: due/new counts, start button          |
+| `/learn`    | Study session (`features/learn/LearnPage`)  |
+| `/settings` | Settings (`features/settings/SettingsPage`) |
 
 Leaving a session ("Beenden", "Zur Startseite") uses `replace`, so going back from the start
 page doesn't return to an ended session.

@@ -15,6 +15,12 @@ Read [docs/README.md](docs/README.md), especially [docs/coding-guidelines.md](do
 - `yarn lint:fix`: format the code and apply safe lint fixes (Biome)
 - `yarn build`: production build into `dist/`
 
+## Troubleshooting
+
+- **Dev server serves an empty/broken module** ("does not provide an export named …") after an
+  edit: Vite read the file while it was being rewritten and cached the empty version. `touch`
+  the file and reload. Prefer the Edit tool over scripts that truncate and rewrite files.
+
 ## Working with the owner
 
 - **Build vs. library: ask.** Whenever something could be written by hand or taken from a

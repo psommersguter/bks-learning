@@ -4,4 +4,5 @@
 export const ROUTES = {
   home: "/",
   learn: "/learn",
+  settings: "/settings",
 } as const;

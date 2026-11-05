@@ -5,6 +5,9 @@
 - [x] Project scaffold: Vite, React, TypeScript (strict), Biome, Vitest, PWA, CI + GitHub Pages
   deploy, i18n (de/en), design tokens, docs.
 
+- [x] Special-character bar for typed answers (on by default on desktop, optional on phones),
+  a settings page, and the Alt+. shortcut to toggle c/s/z/d into č/ć/š/ž/đ.
+
 ## Next (Phase 1)
 
 1. [x] Vocabulary format: `src/data/vocabulary.json`, JSON schema, types, validator and tests.

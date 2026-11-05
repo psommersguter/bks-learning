@@ -6,6 +6,7 @@ export const en: Messages = {
     languageSwitch: {
       label: "Language",
     },
+    settingsLink: "Settings",
   },
   common: {
     loading: "Loading …",
@@ -21,6 +22,14 @@ export const en: Messages = {
     start: "Start learning",
     nothingToStudy: "There's nothing to study right now.",
   },
+  settings: {
+    heading: "Settings",
+    diacriticsBar: {
+      label: "Show special-character bar when typing",
+      hint: "Buttons for č, ć, đ, š and ž below the input field. Default: on for computers, off for phones. Applies to this device only.",
+    },
+    back: "Back to start",
+  },
   learn: {
     direction: {
       "hr-de": "Croatian → German",
@@ -31,6 +40,10 @@ export const en: Messages = {
     reveal: "Reveal",
     answerLabel: "Your answer in Croatian",
     check: "Check",
+    diacritics: {
+      label: "Special characters",
+      insert: "Insert {{letter}}",
+    },
     verdict: {
       correct: "Correct!",
       diacritics: "Almost – watch the special characters:",
@@ -47,7 +60,8 @@ export const en: Messages = {
       override: "I was right",
     },
     ratingHint: "How well did you know it?",
-    keyboardHint: "Keyboard: Space/Enter to reveal, 1–4 to rate, Enter = suggestion",
+    keyboardHint:
+      "Keyboard: Space/Enter to reveal, 1–4 to rate, Enter = suggestion, Alt+. turns c/s/z/d into a special letter (c → č → ć)",
     gender: {
       m: "masculine",
       f: "feminine",

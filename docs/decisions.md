@@ -2,6 +2,27 @@
 
 Newest first. One short entry per decision: what was decided, and why.
 
+## 2026-11-05: Keyboard shortcut for special letters
+
+- **One toggle shortcut, Alt+.**, instead of one shortcut per letter. You type the base letter
+  and press Alt+. to cycle it (c → č → ć → c, s ↔ š, z ↔ ž, d ↔ đ).
+- Why not Alt+letter: on Windows/Linux, Alt+D focuses the address bar in Chrome, Edge and
+  Firefox. Firefox opens menus with Alt+letter, including locale-specific ones (Alt+S History,
+  German Alt+C "Chronik", Alt+A "Ansicht"). Ctrl+… and Alt+digit are taken by browser and tab
+  shortcuts. Alt+. has no browser or OS meaning on Windows, Linux or macOS (where Option+.
+  would only type "≥").
+- AltGr is excluded so typing characters on layouts that use it is never intercepted.
+
+## 2026-11-05: Special-character bar and settings page
+
+- **A bar with č ć đ š ž below typed answers.** On by default on desktop. On phones it's off by
+  default, because their keyboards usually make these letters easy, and can be enabled in the
+  settings. The setting is per device (localStorage).
+- **Device detection** is a one-off `matchMedia("(hover: none) and (pointer: coarse)")` check:
+  a plain browser API, no library needed.
+- **Settings page** at `#/settings`, reachable via a gear icon in the header (Feather Icons'
+  "settings" path, MIT, inlined as SVG instead of adding an icon library).
+
 ## 2026-11-05: Learning session
 
 - **`wouter`** with hash routing instead of view state, mainly so the phone's back button works.

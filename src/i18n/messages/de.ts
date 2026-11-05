@@ -11,6 +11,7 @@ export const de = {
     languageSwitch: {
       label: "Sprache",
     },
+    settingsLink: "Einstellungen",
   },
   common: {
     loading: "Lädt …",
@@ -26,6 +27,14 @@ export const de = {
     start: "Lernen starten",
     nothingToStudy: "Gerade gibt es nichts zu lernen.",
   },
+  settings: {
+    heading: "Einstellungen",
+    diacriticsBar: {
+      label: "Sonderzeichen-Leiste beim Tippen anzeigen",
+      hint: "Knöpfe für č, ć, đ, š und ž unter dem Eingabefeld. Standard: am Computer an, am Handy aus. Gilt nur für dieses Gerät.",
+    },
+    back: "Zur Startseite",
+  },
   learn: {
     direction: {
       "hr-de": "Kroatisch → Deutsch",
@@ -36,6 +45,10 @@ export const de = {
     reveal: "Aufdecken",
     answerLabel: "Deine Antwort auf Kroatisch",
     check: "Prüfen",
+    diacritics: {
+      label: "Sonderzeichen",
+      insert: "{{letter}} einfügen",
+    },
     verdict: {
       correct: "Richtig!",
       diacritics: "Fast – achte auf die Sonderzeichen:",
@@ -52,7 +65,8 @@ export const de = {
       override: "Ich lag richtig",
     },
     ratingHint: "Wie gut wusstest du es?",
-    keyboardHint: "Tastatur: Leertaste/Enter zum Aufdecken, 1–4 zum Bewerten, Enter = Vorschlag",
+    keyboardHint:
+      "Tastatur: Leertaste/Enter zum Aufdecken, 1–4 zum Bewerten, Enter = Vorschlag, Alt+. macht aus c/s/z/d ein Sonderzeichen (c → č → ć)",
     gender: {
       m: "maskulin",
       f: "feminin",
