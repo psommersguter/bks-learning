@@ -16,6 +16,8 @@
   --color-accent-hover: #a50d26;
   --color-on-accent: #ffffff;
   --color-success: #1e7d45;
+  --color-warning: #9a5b00;
+  --color-warning-surface: #fdecc8;
   --color-danger: #b42318;
 
   /* Typography */
@@ -54,6 +56,8 @@
     --color-accent: #e5384f;
     --color-accent-hover: #f05a6e;
     --color-success: #4cc27e;
+    --color-warning: #f0b84c;
+    --color-warning-surface: #4a3510;
     --color-danger: #f0705f;
     --shadow-sm: none;
   }

@@ -11,7 +11,7 @@ These apply to humans and coding agents alike.
   `crypto.randomUUID`, …) where they fit. Record every decision in [decisions.md](decisions.md).
 - **No Tailwind, no CSS-in-JS, no UI component libraries.** Styling is plain CSS Modules plus the
   tokens in `src/styles/global.css`.
-- **No router library** for now (see [architecture.md](architecture.md#navigation)).
+- **Routing via `wouter` with hash URLs** only (see [architecture.md](architecture.md#navigation)).
 - **No backend.** The app must keep working as a static site on GitHub Pages, including offline.
 - **Never modify the vocabulary file from app code.** It is user-maintained content.
 - **Don't break stored progress.** Changes to the IndexedDB schema or the export format need a

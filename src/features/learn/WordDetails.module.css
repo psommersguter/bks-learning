@@ -1,0 +1,32 @@
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-self: stretch;
+}
+
+.details p {
+  margin: 0;
+}
+
+.facts {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-style: italic;
+}
+
+.note {
+  font-size: var(--font-size-sm);
+}
+
+.example {
+  margin: var(--space-2) 0 0;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-background);
+}
+
+.translation {
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+}

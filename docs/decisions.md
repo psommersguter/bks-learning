@@ -2,6 +2,18 @@
 
 Newest first. One short entry per decision: what was decided, and why.
 
+## 2026-11-05: Learning session
+
+- **`wouter`** with hash routing instead of view state, mainly so the phone's back button works.
+- **Strict answer checking**, no typo tolerance: only diacritic mistakes count as "almost".
+- **A wrong typed answer defaults to _Again_**, with an "I was right" override (rates _Good_).
+- **New words in groups of 5** (hr-de first, then de-hr), so a word isn't typed right after
+  it was first seen.
+- **Cards due within 20 minutes are repeated in the same session** (Anki's default learn-ahead
+  limit).
+- **No component tests for now.** Domain logic is unit-tested and the UI is checked by hand.
+  React Testing Library would need the owner's approval.
+
 ## 2026-11-05: Scheduling and progress storage
 
 - **ts-fsrs 6 with FSRS-7** and its default settings: 90% desired retention, fuzz on, learning

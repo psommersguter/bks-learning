@@ -12,8 +12,9 @@ The techniques the app is built on, in rough order of importance.
 3. **Both directions as separate cards.** Croatian → German (recognition) is easier than
    German → Croatian (production), so each direction is scheduled independently.
 4. **Typed answers for production.** Typing the Croatian word trains spelling, including the
-   diacritics č ć đ š ž. Answer checking should treat a missing diacritic as "almost right" and
-   show the correct form, rather than counting it as a plain error.
+   diacritics č ć đ š ž. The check is strict: only a wrong or missing diacritic counts as
+   "almost" (highlighted, default rating _Hard_). Anything else is wrong (_Again_), with an
+   "I was right" override for valid answers that aren't in the vocabulary file.
 5. **The learner sets the pace.** There's no daily limit for new words: due reviews come first,
    then new words in file order (roughly the order they came up in class), for as long as the
    learner wants. Both directions of a new word may come up on the same day.

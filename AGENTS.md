@@ -25,7 +25,7 @@ Read [docs/README.md](docs/README.md), especially [docs/coding-guidelines.md](do
 ## Hard rules
 
 - Don't add dependencies without the owner's explicit approval.
-- No Tailwind, CSS-in-JS, UI kits or router libraries.
+- No Tailwind, CSS-in-JS or UI kits. Routing is `wouter` with hash URLs.
 - All UI strings go through i18n (`src/i18n/messages/de.ts` + `en.ts`).
 - Never write to the vocabulary file (`src/data/vocabulary.json`, see docs/vocabulary-format.md) from
   app code, and never change existing word ids. Never break stored progress without a migration.

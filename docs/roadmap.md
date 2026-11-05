@@ -11,9 +11,9 @@
 2. [ ] Vocabulary list screen: browse and filter by tag.
 3. [x] Decide on the scheduling algorithm → `ts-fsrs` (FSRS), approved by the owner.
 4. [x] Scheduling with `ts-fsrs` and progress storage in IndexedDB (`src/storage/`, via `idb`).
-5. [ ] Learning session: flip cards (HR → DE) and typed answers (DE → HR), with lenient
-   diacritic checking.
-6. [ ] Home dashboard: due today, new words available, optional tag filter.
+5. [x] Learning session: flip cards (HR → DE) and typed answers (DE → HR), strict checking with
+   diacritic hints, keyboard shortcuts, `wouter` routing.
+6. [ ] Home dashboard: ~~due today, new words available~~ (done), optional tag filter.
 7. [ ] Export / import of progress as a JSON file.
 
 ## Later / ideas
