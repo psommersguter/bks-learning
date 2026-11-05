@@ -6,28 +6,1762 @@
       "hr": "dobar dan",
       "de": "guten Tag",
       "pos": "phrase",
-      "tags": ["Beispiel"]
+      "note": "Gruß tagsüber, passt formell und informell.",
+      "example": {
+        "hr": "Dobar dan, kako ste?",
+        "de": "Guten Tag, wie geht es Ihnen?"
+      },
+      "tags": ["L01", "Begrüßung"]
     },
     {
-      "id": "28cb71a9-51d9-4166-a528-fdbcff856e9b",
-      "hr": "kuća",
-      "de": "das Haus",
+      "id": "bdd49dd4-6c58-4c70-89af-421fa8b098d6",
+      "hr": "nema problema",
+      "de": "kein Problem",
+      "pos": "phrase",
+      "example": {
+        "hr": "Hvala! – Nema problema.",
+        "de": "Danke! – Kein Problem."
+      },
+      "tags": ["L01", "Redewendungen"]
+    },
+    {
+      "id": "7b7ff998-c436-4e9a-9877-efc532726cd6",
+      "hr": "Živjeli!",
+      "de": ["Prost!", "Zum Wohl!"],
+      "pos": "phrase",
+      "note": "Trinkspruch, wörtlich etwa „Mögen wir leben!“",
+      "example": {
+        "hr": "Podignimo čaše. Živjeli!",
+        "de": "Erheben wir die Gläser. Prost!"
+      },
+      "tags": ["L01", "Redewendungen"]
+    },
+    {
+      "id": "41da54b4-a699-41de-beef-3b3fe8ebd058",
+      "hr": ["dobra večer", "dobro veče"],
+      "de": "guten Abend",
+      "pos": "phrase",
+      "note": "dobra večer: kroatisch; dobro veče: bosnisch/serbisch.",
+      "example": {
+        "hr": "Dobra večer, gospođo Horvat!",
+        "de": "Guten Abend, Frau Horvat!"
+      },
+      "tags": ["L01", "Begrüßung"]
+    },
+    {
+      "id": "a56753e8-bc89-4342-b3e5-983665c49ab1",
+      "hr": "hvala",
+      "de": "danke",
+      "pos": "other",
+      "note": "hvala lijepa = danke schön",
+      "example": {
+        "hr": "Hvala lijepa!",
+        "de": "Vielen Dank!"
+      },
+      "tags": ["L01", "Redewendungen"]
+    },
+    {
+      "id": "e617d17f-37f1-4078-a5f2-5adde3fdf232",
+      "hr": "laku noć",
+      "de": "gute Nacht",
+      "pos": "phrase",
+      "note": "Akkusativ: (Želim ti) laku noć.",
+      "example": {
+        "hr": "Laku noć i lijepo spavaj!",
+        "de": "Gute Nacht und schlaf schön!"
+      },
+      "tags": ["L01", "Begrüßung"]
+    },
+    {
+      "id": "2bfd5d28-cc72-4853-8d6b-2421fda22a17",
+      "hr": "brod",
+      "de": "das Schiff",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Brod plovi prema Splitu.",
+        "de": "Das Schiff fährt nach Split."
+      },
+      "tags": ["L01", "Verkehr"]
+    },
+    {
+      "id": "dcc809f5-2d3e-4d09-a0df-6a63a0596ca4",
+      "hr": "cipela",
+      "de": "der Schuh",
       "pos": "noun",
       "gender": "f",
       "example": {
-        "hr": "Ovo je moja kuća.",
-        "de": "Das ist mein Haus."
+        "hr": "Ova cipela mi je premala.",
+        "de": "Dieser Schuh ist mir zu klein."
       },
-      "tags": ["Beispiel"]
+      "tags": ["L01", "Kleidung"]
     },
     {
-      "id": "3ccf1885-9ae7-4cf8-91ef-1bb2cb3ab09f",
-      "hr": "pisati",
-      "de": "schreiben",
+      "id": "736b4dbc-1b2f-4d40-ba26-df2fd7421712",
+      "hr": "gaće",
+      "de": "die Unterhose",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Nur Plural: gaće su …",
+      "example": {
+        "hr": "Gaće su u ormaru.",
+        "de": "Die Unterhose liegt im Schrank."
+      },
+      "tags": ["L01", "Kleidung"]
+    },
+    {
+      "id": "1d749ce8-c6e3-49bf-99be-b77a80b95f37",
+      "hr": "dvorac",
+      "de": "das Schloss",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Schloss als Gebäude. Türschloss = brava.",
+      "example": {
+        "hr": "Dvorac Trakošćan je vrlo poznat.",
+        "de": "Das Schloss Trakošćan ist sehr bekannt."
+      },
+      "tags": ["L01", "Orte"]
+    },
+    {
+      "id": "83d59f01-a23d-495f-bac3-c049f84ce09b",
+      "hr": "džamija",
+      "de": "die Moschee",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "U Sarajevu ima mnogo džamija.",
+        "de": "In Sarajevo gibt es viele Moscheen."
+      },
+      "tags": ["L01", "Orte"]
+    },
+    {
+      "id": "6f3663ff-4ba0-4f1a-ac3e-27c42b91f8fd",
+      "hr": "anđeo",
+      "de": "der Engel",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Genitiv: anđela; Plural: anđeli.",
+      "example": {
+        "hr": "Ona pjeva kao anđeo.",
+        "de": "Sie singt wie ein Engel."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "9563d770-3b11-45d8-b015-48695946d1b2",
+      "hr": "Engleska",
+      "de": "England",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "London je glavni grad Engleske.",
+        "de": "London ist die Hauptstadt Englands."
+      },
+      "tags": ["L01", "Länder"]
+    },
+    {
+      "id": "241f516e-ac85-4fee-854d-340474114d7f",
+      "hr": "flauta",
+      "de": "die Flöte",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Ana svira flautu.",
+        "de": "Ana spielt Flöte."
+      },
+      "tags": ["L01", "Musik"]
+    },
+    {
+      "id": "eb2065a8-bb1b-4836-ad69-91c57c61f466",
+      "hr": "gitara",
+      "de": "die Gitarre",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Moj brat svira gitaru.",
+        "de": "Mein Bruder spielt Gitarre."
+      },
+      "tags": ["L01", "Musik"]
+    },
+    {
+      "id": "8d8a2a39-4dec-446c-a7ad-7f7c3016dcc4",
+      "hr": "helikopter",
+      "de": ["der Hubschrauber", "der Helikopter"],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Helikopter leti iznad grada.",
+        "de": "Der Hubschrauber fliegt über der Stadt."
+      },
+      "tags": ["L01", "Verkehr"]
+    },
+    {
+      "id": "878a430a-48ce-482e-bf9b-f9e8232464c2",
+      "hr": "ikona",
+      "de": "die Ikone",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "U crkvi visi stara ikona.",
+        "de": "In der Kirche hängt eine alte Ikone."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "52955d3a-c2e5-4c3c-9b5e-74ba72991ba8",
+      "hr": "jaje",
+      "de": "das Ei",
+      "pos": "noun",
+      "gender": "n",
+      "note": "Plural: jaja.",
+      "example": {
+        "hr": "Za doručak jedem jaje.",
+        "de": "Zum Frühstück esse ich ein Ei."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "3a3e9280-28e7-4ec2-ae27-1c32f54232c9",
+      "hr": "kravata",
+      "de": "die Krawatte",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Das Wort „Krawatte“ kommt von „Kroate“: kroatische Soldaten trugen im 17. Jh. Halstücher.",
+      "example": {
+        "hr": "Otac nosi plavu kravatu.",
+        "de": "Der Vater trägt eine blaue Krawatte."
+      },
+      "tags": ["L01", "Kleidung"]
+    },
+    {
+      "id": "07838476-5123-483a-ac44-82f334bcd16d",
+      "hr": "luster",
+      "de": ["der Luster", "der Kronleuchter"],
+      "pos": "noun",
+      "gender": "m",
+      "note": "Luster = Kronleuchter (österr. auch „Luster“). Allgemein „Lampe“: svjetiljka, lampa.",
+      "example": {
+        "hr": "Iznad stola visi veliki luster.",
+        "de": "Über dem Tisch hängt ein großer Luster."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "b1623e01-c1b7-4370-8d1a-a5fa5f3cee33",
+      "hr": ["ljulja", "ljuljačka"],
+      "de": "die Schaukel",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Standardkroatisch meist: ljuljačka.",
+      "example": {
+        "hr": "Dijete sjedi na ljulji.",
+        "de": "Das Kind sitzt auf der Schaukel."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "d5f69f80-7049-402a-9fdc-641d7f3963d2",
+      "hr": "noga",
+      "de": ["der Fuß", "das Bein"],
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Boli me noga.",
+        "de": "Mir tut das Bein weh."
+      },
+      "tags": ["L01", "Körper"]
+    },
+    {
+      "id": "3b2967e2-ff4d-4ccf-8da2-bbcdb68d380c",
+      "hr": "konj",
+      "de": "das Pferd",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Konj trči po livadi.",
+        "de": "Das Pferd läuft über die Wiese."
+      },
+      "tags": ["L01", "Tiere"]
+    },
+    {
+      "id": "81b3848f-c296-4644-a6c3-a16549207bc8",
+      "hr": "oko",
+      "de": "das Auge",
+      "pos": "noun",
+      "gender": "n",
+      "note": "Plural unregelmäßig: oči (feminin).",
+      "example": {
+        "hr": "Ona ima plave oči.",
+        "de": "Sie hat blaue Augen."
+      },
+      "tags": ["L01", "Körper"]
+    },
+    {
+      "id": "9e87a076-6f79-4d5b-bbcd-0da895d5074d",
+      "hr": "papiga",
+      "de": "der Papagei",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Naša papiga zna govoriti.",
+        "de": "Unser Papagei kann sprechen."
+      },
+      "tags": ["L01", "Tiere"]
+    },
+    {
+      "id": "d34e4393-7004-4840-b4c9-1a8c3ca0cb37",
+      "hr": "riba",
+      "de": "der Fisch",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Petkom jedemo ribu.",
+        "de": "Freitags essen wir Fisch."
+      },
+      "tags": ["L01", "Tiere", "Essen"]
+    },
+    {
+      "id": "71ce6209-cd6f-4927-b70a-e27b41d9404d",
+      "hr": "sok",
+      "de": "der Saft",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Mogu li dobiti sok od naranče?",
+        "de": "Kann ich einen Orangensaft bekommen?"
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "640aae2a-af1f-4ac2-86de-ce55a74c58b7",
+      "hr": "šal",
+      "de": "der Schal",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Zimi nosim topli šal.",
+        "de": "Im Winter trage ich einen warmen Schal."
+      },
+      "tags": ["L01", "Kleidung"]
+    },
+    {
+      "id": "55a0fa25-70fe-4a6a-a46b-132270d37a82",
+      "hr": "tramvaj",
+      "de": "die Straßenbahn",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Idem tramvajem na posao.",
+        "de": "Ich fahre mit der Straßenbahn zur Arbeit."
+      },
+      "tags": ["L01", "Verkehr"]
+    },
+    {
+      "id": "4e95c972-787c-48fa-bc81-19d286b59571",
+      "hr": ["veš", "rublje"],
+      "de": "die Wäsche",
+      "pos": "noun",
+      "gender": "m",
+      "note": "veš ist umgangssprachlich; standardkroatisch: rublje (n).",
+      "example": {
+        "hr": "Moram oprati veš.",
+        "de": "Ich muss die Wäsche waschen."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "8b7cc4b3-5410-42fa-8dcc-08e7a78bfecd",
+      "hr": "zub",
+      "de": "der Zahn",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Plural: zubi.",
+      "example": {
+        "hr": "Boli me zub.",
+        "de": "Mir tut ein Zahn weh."
+      },
+      "tags": ["L01", "Körper"]
+    },
+    {
+      "id": "2306f581-b22c-43e3-bf2c-98948133d64c",
+      "hr": "žaba",
+      "de": "der Frosch",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Žaba skače u vodu.",
+        "de": "Der Frosch springt ins Wasser."
+      },
+      "tags": ["L01", "Tiere"]
+    },
+    {
+      "id": "7c74130a-5433-4d2f-b1fb-a4c08e6b5be5",
+      "hr": "gristi",
+      "de": "beißen",
       "pos": "verb",
       "aspect": "ipf",
-      "note": "Perfektiv: napisati",
-      "tags": ["Beispiel"]
+      "note": "Präsens: grizem, grizeš … Perfektiv: ugristi.",
+      "example": {
+        "hr": "Pas ne grize.",
+        "de": "Der Hund beißt nicht."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "604eaef9-ced9-4827-a00f-ed181067e289",
+      "hr": "rep",
+      "de": "der Schwanz",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Schwanz eines Tieres.",
+      "example": {
+        "hr": "Pas maše repom.",
+        "de": "Der Hund wedelt mit dem Schwanz."
+      },
+      "tags": ["L01", "Tiere"]
+    },
+    {
+      "id": "ccbe9c3f-baf4-4b56-b8db-1cdb1eed1ca8",
+      "hr": "vrh",
+      "de": ["die Spitze", "der Gipfel", "der Höhepunkt"],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Popeli smo se na vrh brda.",
+        "de": "Wir sind auf den Gipfel des Berges gestiegen."
+      },
+      "tags": ["L01", "Natur"]
+    },
+    {
+      "id": "bcfebf11-fc5a-48d5-9447-2887fb83e00d",
+      "hr": "brdo",
+      "de": ["der Berg", "der Hügel"],
+      "pos": "noun",
+      "gender": "n",
+      "note": "Hoher Berg / Gebirge: planina.",
+      "example": {
+        "hr": "Kuća je na brdu.",
+        "de": "Das Haus steht auf dem Hügel."
+      },
+      "tags": ["L01", "Natur"]
+    },
+    {
+      "id": "b4289074-6e94-407c-a313-f652399f38f3",
+      "hr": "vrba",
+      "de": "die Weide",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Der Baum. Viehweide = pašnjak.",
+      "example": {
+        "hr": "Uz rijeku raste vrba.",
+        "de": "Am Fluss wächst eine Weide."
+      },
+      "tags": ["L01", "Natur"]
+    },
+    {
+      "id": "1b0a527e-2ec8-4b8b-9d99-990327179aea",
+      "hr": "mrdati",
+      "de": ["wackeln", "sich bewegen"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Umgangssprachlich. Perfektiv: mrdnuti.",
+      "example": {
+        "hr": "Ne mrdaj!",
+        "de": "Beweg dich nicht!"
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "b96bc827-7216-420c-959b-59f312330612",
+      "hr": "cvrčati",
+      "de": "zirpen",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Auch: brutzeln (in der Pfanne). Präsens: cvrčim, cvrčiš …",
+      "example": {
+        "hr": "Ljeti cvrčci cvrče cijelu noć.",
+        "de": "Im Sommer zirpen die Zikaden die ganze Nacht."
+      },
+      "tags": ["L01", "Tiere"]
+    },
+    {
+      "id": "6584ec0e-1d7b-4c02-9c39-45cb8db7398f",
+      "hr": "cvrčak",
+      "de": ["die Zikade", "die Grille"],
+      "pos": "noun",
+      "gender": "m",
+      "note": "Plural: cvrčci.",
+      "example": {
+        "hr": "Čuješ li cvrčka?",
+        "de": "Hörst du die Zikade?"
+      },
+      "tags": ["L01", "Tiere"]
+    },
+    {
+      "id": "a56c8df2-4f33-462d-b00e-559b5e46a8f3",
+      "hr": "čvor",
+      "de": "der Knoten",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Auch: Knotenpunkt, Astknoten im Holz. „Zweig“ heißt grana.",
+      "example": {
+        "hr": "Zaveži čvor.",
+        "de": "Mach einen Knoten."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "db849804-1b70-4f17-8c7a-7679948fa3a8",
+      "hr": ["crn", "crna", "crno"],
+      "de": "schwarz",
+      "pos": "adj",
+      "note": "crn (m), crna (f), crno (n).",
+      "example": {
+        "hr": "Pijem crnu kavu.",
+        "de": "Ich trinke schwarzen Kaffee."
+      },
+      "tags": ["L01", "Farben"]
+    },
+    {
+      "id": "aeb88f38-b893-449b-8a51-8cea565d96b8",
+      "hr": "smrča",
+      "de": "die Fichte",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Pinie = pinija, Kiefer = bor, Tanne = jela.",
+      "example": {
+        "hr": "U šumi rastu smrče i jele.",
+        "de": "Im Wald wachsen Fichten und Tannen."
+      },
+      "tags": ["L01", "Natur"]
+    },
+    {
+      "id": "10189278-dd84-4d8e-a67b-9efb60321f6b",
+      "hr": "kralj",
+      "de": "der König",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Kralj živi u dvorcu.",
+        "de": "Der König lebt im Schloss."
+      },
+      "tags": ["L01", "Personen"]
+    },
+    {
+      "id": "5e6b0348-321c-4cfb-9d9a-8a3c198bc661",
+      "hr": "kraljica",
+      "de": "die Königin",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Kraljica nosi krunu.",
+        "de": "Die Königin trägt eine Krone."
+      },
+      "tags": ["L01", "Personen"]
+    },
+    {
+      "id": "868efe53-65d0-41ca-a29c-7ff16c15fcf4",
+      "hr": "krasti",
+      "de": "stehlen",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: kradem, kradeš … Perfektiv: ukrasti.",
+      "example": {
+        "hr": "Tko krade moje olovke?",
+        "de": "Wer stiehlt meine Stifte?"
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "16b670dc-6726-4d18-b514-a66a6540137f",
+      "hr": "klarinet",
+      "de": "die Klarinette",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "On svira klarinet u orkestru.",
+        "de": "Er spielt Klarinette im Orchester."
+      },
+      "tags": ["L01", "Musik"]
+    },
+    {
+      "id": "a3552b15-cfc4-40b8-bbaf-6b693ece90d1",
+      "hr": ["slovkati", "sricati"],
+      "de": "buchstabieren",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Gleichbedeutend: sricati.",
+      "example": {
+        "hr": "Možete li slovkati svoje ime?",
+        "de": "Können Sie Ihren Namen buchstabieren?"
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "8ae3875d-3e23-4de4-adf4-6e494323a7e9",
+      "hr": "potapati",
+      "de": ["versenken", "eintauchen"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Perfektiv: potopiti.",
+      "example": {
+        "hr": "Potapa keks u mlijeko.",
+        "de": "Er tunkt den Keks in die Milch."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "afcab27e-2a00-477d-b158-6cc9e3352617",
+      "hr": "živjeti",
+      "de": ["leben", "wohnen"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: živim, živiš …",
+      "example": {
+        "hr": "Živim u Beču.",
+        "de": "Ich wohne in Wien."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "29db0676-abf0-4756-bfd8-8077f66d6201",
+      "hr": "Hrvatska",
+      "de": "Kroatien",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Zagreb je glavni grad Hrvatske.",
+        "de": "Zagreb ist die Hauptstadt Kroatiens."
+      },
+      "tags": ["L01", "Länder"]
+    },
+    {
+      "id": "f42bb08c-f80c-42d1-b7af-37961ed0245d",
+      "hr": ["muzičar", "glazbenik"],
+      "de": "der Musiker",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Standardkroatisch: glazbenik; muzičar ist bosnisch/serbisch und umgangssprachlich.",
+      "example": {
+        "hr": "Moj susjed je muzičar.",
+        "de": "Mein Nachbar ist Musiker."
+      },
+      "tags": ["L01", "Musik", "Berufe"]
+    },
+    {
+      "id": "2808d551-030d-4a4a-a5b7-b6ce99f8ce51",
+      "hr": "voljeti",
+      "de": ["lieben", "mögen"],
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: volim, voliš …",
+      "example": {
+        "hr": "Volim te.",
+        "de": "Ich liebe dich."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "a75aa47c-9356-481f-a1a6-91a611b10237",
+      "hr": ["džez muzika", "jazz glazba"],
+      "de": "die Jazzmusik",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Kroatisch meist: jazz glazba; džez muzika: bosnisch/serbisch.",
+      "example": {
+        "hr": "Slušam džez muziku.",
+        "de": "Ich höre Jazzmusik."
+      },
+      "tags": ["L01", "Musik"]
+    },
+    {
+      "id": "f66386fb-6601-4eb6-9248-ff1e0ef3cfc1",
+      "hr": "kuharica",
+      "de": ["die Köchin", "das Kochbuch"],
+      "pos": "noun",
+      "gender": "f",
+      "note": "Koch = kuhar.",
+      "example": {
+        "hr": "Moja baka je odlična kuharica.",
+        "de": "Meine Oma ist eine ausgezeichnete Köchin."
+      },
+      "tags": ["L01", "Berufe", "Essen"]
+    },
+    {
+      "id": "d344ccf9-16ed-4c9a-9661-66375ca23e36",
+      "hr": "kuhati",
+      "de": "kochen",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Perfektiv: skuhati.",
+      "example": {
+        "hr": "Danas kuham ručak.",
+        "de": "Heute koche ich das Mittagessen."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "c277fee9-d8c9-400c-8105-d02913c0b769",
+      "hr": ["omiljen", "omiljena", "omiljeno"],
+      "de": ["Lieblings-", "beliebt"],
+      "pos": "adj",
+      "note": "omiljen (m), omiljena (f), omiljeno (n).",
+      "example": {
+        "hr": "Moje omiljeno jelo je pizza.",
+        "de": "Mein Lieblingsessen ist Pizza."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "c8c1053c-56e4-442f-b426-e92ed23356a6",
+      "hr": "jelo",
+      "de": ["das Essen", "das Gericht", "die Speise"],
+      "pos": "noun",
+      "gender": "n",
+      "example": {
+        "hr": "Ovo jelo je jako ukusno.",
+        "de": "Dieses Gericht ist sehr lecker."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "58eec268-b1a5-4a55-ae80-e4a192ab1e38",
+      "hr": ["supa", "juha"],
+      "de": "die Suppe",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Standardkroatisch: juha; supa: bosnisch/serbisch.",
+      "example": {
+        "hr": "Supa je još vruća.",
+        "de": "Die Suppe ist noch heiß."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "d69f748a-6b2d-42b6-b487-c56fd93ba187",
+      "hr": ["paradajz", "rajčica"],
+      "de": ["die Tomate", "der Paradeiser"],
+      "pos": "noun",
+      "gender": "m",
+      "note": "Standardkroatisch: rajčica (f); paradajz: bosnisch/serbisch, regional auch in Kroatien.",
+      "example": {
+        "hr": "Kupi kilogram paradajza.",
+        "de": "Kauf ein Kilo Paradeiser."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "8eeb98f1-bdc0-49c9-abd5-3d8dea7565fd",
+      "hr": ["faširano meso", "mljeveno meso"],
+      "de": ["das Faschierte", "das Hackfleisch"],
+      "pos": "noun",
+      "gender": "n",
+      "note": "Standardkroatisch: mljeveno meso.",
+      "example": {
+        "hr": "Za ćevapčiće trebam faširano meso.",
+        "de": "Für Ćevapčići brauche ich Faschiertes."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "7c0549a8-ad8d-479e-ae44-c4d987dd548a",
+      "hr": ["šnicla", "odrezak"],
+      "de": "das Schnitzel",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Standardkroatisch: odrezak (m).",
+      "example": {
+        "hr": "Za ručak jedemo šniclu s krumpirom.",
+        "de": "Zum Mittagessen essen wir Schnitzel mit Kartoffeln."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "3839544b-863a-4405-9d7a-4301f997df86",
+      "hr": "kečap",
+      "de": "der Ketchup",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Daj mi kečap, molim te.",
+        "de": "Gib mir bitte den Ketchup."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "ec2e1d25-6114-46ce-ac97-d922b0c747ab",
+      "hr": "šlag",
+      "de": ["das Schlagobers", "der Schlag", "die Schlagsahne"],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Kavu sa šlagom, molim.",
+        "de": "Einen Kaffee mit Schlag, bitte."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "461a7238-211f-4b29-aa44-ddc79bf09f44",
+      "hr": "čokolada",
+      "de": "die Schokolade",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Djeca vole čokoladu.",
+        "de": "Kinder lieben Schokolade."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "451ca77a-dda5-4dc5-a914-515cd56540fa",
+      "hr": ["ćevapčići", "ćevapi"],
+      "de": "die Ćevapčići",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Nur Plural; auch kurz: ćevapi.",
+      "example": {
+        "hr": "Naručio sam ćevapčiće s lukom.",
+        "de": "Ich habe Ćevapčići mit Zwiebeln bestellt."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "e096043e-34fc-4a77-92c7-a242d637ed1d",
+      "hr": "centar",
+      "de": "das Zentrum",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Genitiv: centra.",
+      "example": {
+        "hr": "Stanujem u centru grada.",
+        "de": "Ich wohne im Stadtzentrum."
+      },
+      "tags": ["L01", "Orte"]
+    },
+    {
+      "id": "215417da-aa8b-4f8e-94bd-2eedda2c6bb4",
+      "hr": ["univerzitet", "sveučilište"],
+      "de": "die Universität",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Standardkroatisch: sveučilište (n); univerzitet: bosnisch/serbisch.",
+      "example": {
+        "hr": "Studiram na univerzitetu.",
+        "de": "Ich studiere an der Universität."
+      },
+      "tags": ["L01", "Orte"]
+    },
+    {
+      "id": "b15895ad-4a58-418e-8ff7-0ab37f1480e9",
+      "hr": "torta",
+      "de": "die Torte",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Mama peče tortu za rođendan.",
+        "de": "Mama backt eine Torte zum Geburtstag."
+      },
+      "tags": ["L01", "Essen"]
+    },
+    {
+      "id": "29b64607-4d99-40fb-af41-5d2792062541",
+      "hr": "ćirilica",
+      "de": ["die kyrillische Schrift", "das kyrillische Alphabet"],
+      "pos": "noun",
+      "gender": "f",
+      "note": "Lateinische Schrift = latinica.",
+      "example": {
+        "hr": "Srpski se piše ćirilicom i latinicom.",
+        "de": "Serbisch wird in kyrillischer und lateinischer Schrift geschrieben."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "4928d89e-f246-41eb-a53b-aadc0081deb1",
+      "hr": "dan",
+      "de": "der Tag",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Plural: dani; nach Zahlen ab 5: dana.",
+      "example": {
+        "hr": "Danas je lijep dan.",
+        "de": "Heute ist ein schöner Tag."
+      },
+      "tags": ["L01", "Zeit"]
+    },
+    {
+      "id": "772ccac8-5328-474d-a93b-f8852f3b83e1",
+      "hr": "jezik",
+      "de": ["die Sprache", "die Zunge"],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Hrvatski jezik nije lagan.",
+        "de": "Die kroatische Sprache ist nicht leicht."
+      },
+      "tags": ["L01"]
+    },
+    {
+      "id": "1dacf99f-3964-47c7-8619-8c8665d6f186",
+      "hr": "more",
+      "de": "das Meer",
+      "pos": "noun",
+      "gender": "n",
+      "example": {
+        "hr": "Ljeti idemo na more.",
+        "de": "Im Sommer fahren wir ans Meer."
+      },
+      "tags": ["L01", "Natur"]
+    },
+    {
+      "id": "1dcf0b9c-bac9-49ad-8410-a9b25d752d28",
+      "hr": "kino",
+      "de": "das Kino",
+      "pos": "noun",
+      "gender": "n",
+      "example": {
+        "hr": "Idemo li večeras u kino?",
+        "de": "Gehen wir heute Abend ins Kino?"
+      },
+      "tags": ["L01", "Orte"]
+    },
+    {
+      "id": "3d79bad7-ccff-4aca-8656-78997a35962f",
+      "hr": "taksi",
+      "de": "das Taxi",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Zovem taksi.",
+        "de": "Ich rufe ein Taxi."
+      },
+      "tags": ["L01", "Verkehr"]
+    },
+    {
+      "id": "ac0e9d52-4db9-4033-8724-b85741f65860",
+      "hr": "nula",
+      "de": "null",
+      "pos": "other",
+      "example": {
+        "hr": "Temperatura je nula stupnjeva.",
+        "de": "Die Temperatur beträgt null Grad."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "6f278b00-9f92-47d2-bcd8-1b8ab8374a12",
+      "hr": ["jedan", "jedna", "jedno"],
+      "de": ["eins", "ein"],
+      "pos": "other",
+      "note": "jedan (m), jedna (f), jedno (n).",
+      "example": {
+        "hr": "Treba mi jedan dan.",
+        "de": "Ich brauche einen Tag."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "c0be16c2-33d7-410a-b0b2-824da15ca81f",
+      "hr": ["dva", "dvije"],
+      "de": "zwei",
+      "pos": "other",
+      "note": "dva (m/n), dvije (f); danach Genitiv Singular.",
+      "example": {
+        "hr": "Imam dva psa.",
+        "de": "Ich habe zwei Hunde."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "96068a9b-227f-49d7-b030-556761887396",
+      "hr": "tri",
+      "de": "drei",
+      "pos": "other",
+      "note": "Danach Genitiv Singular: tri kave.",
+      "example": {
+        "hr": "Tri kave, molim.",
+        "de": "Drei Kaffee, bitte."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "608e67d8-8c33-4f69-ba65-162e2984b5af",
+      "hr": "četiri",
+      "de": "vier",
+      "pos": "other",
+      "example": {
+        "hr": "Soba ima četiri prozora.",
+        "de": "Das Zimmer hat vier Fenster."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "60928536-39fd-4a3f-bb1c-f5ae34b6150c",
+      "hr": "pet",
+      "de": "fünf",
+      "pos": "other",
+      "note": "Ab fünf folgt der Genitiv Plural: pet minuta.",
+      "example": {
+        "hr": "Čekaj pet minuta.",
+        "de": "Warte fünf Minuten."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "b683d707-bdb9-4c7a-9680-b77ff00cd286",
+      "hr": "šest",
+      "de": "sechs",
+      "pos": "other",
+      "example": {
+        "hr": "Ustajem u šest sati.",
+        "de": "Ich stehe um sechs Uhr auf."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "29cc7a40-b99e-419b-8bfa-b5fc085cac34",
+      "hr": "sedam",
+      "de": "sieben",
+      "pos": "other",
+      "example": {
+        "hr": "Tjedan ima sedam dana.",
+        "de": "Eine Woche hat sieben Tage."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "051c3ade-a6bd-4829-af3c-a677a2592bc0",
+      "hr": "osam",
+      "de": "acht",
+      "pos": "other",
+      "example": {
+        "hr": "Radim osam sati dnevno.",
+        "de": "Ich arbeite acht Stunden am Tag."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "4d9dc8f2-8edf-47b0-9888-bfda40c4d75c",
+      "hr": "devet",
+      "de": "neun",
+      "pos": "other",
+      "example": {
+        "hr": "Predavanje počinje u devet.",
+        "de": "Die Vorlesung beginnt um neun."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "7d21434c-9a23-4edd-8614-561fdede51fe",
+      "hr": "deset",
+      "de": "zehn",
+      "pos": "other",
+      "example": {
+        "hr": "To košta deset eura.",
+        "de": "Das kostet zehn Euro."
+      },
+      "tags": ["L01", "Zahlen"]
+    },
+    {
+      "id": "30d7fb7b-798c-4751-b1a2-7ce1986a4b28",
+      "hr": "početi",
+      "de": ["anfangen", "beginnen"],
+      "pos": "verb",
+      "aspect": "pf",
+      "note": "Präsens: počnem, počneš … Imperfektiv: počinjati.",
+      "example": {
+        "hr": "Kada ćeš početi učiti?",
+        "de": "Wann wirst du anfangen zu lernen?"
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "e1fc4882-4261-4f87-be48-dd452af13437",
+      "hr": "predavanje",
+      "de": ["die Vorlesung", "die Lehrveranstaltung"],
+      "pos": "noun",
+      "gender": "n",
+      "example": {
+        "hr": "Predavanje počinje u deset sati.",
+        "de": "Die Vorlesung beginnt um zehn Uhr."
+      },
+      "tags": ["L02", "Universität"]
+    },
+    {
+      "id": "9d0e663e-f364-4f1c-9e2b-6af0e6a81009",
+      "hr": "dobro jutro",
+      "de": "guten Morgen",
+      "pos": "phrase",
+      "example": {
+        "hr": "Dobro jutro! Jesi li dobro spavao?",
+        "de": "Guten Morgen! Hast du gut geschlafen?"
+      },
+      "tags": ["L02", "Begrüßung"]
+    },
+    {
+      "id": "fccaf3d3-057c-4217-81af-3b321ccf4ecd",
+      "hr": ["doviđenja", "do viđenja"],
+      "de": "auf Wiedersehen",
+      "pos": "phrase",
+      "example": {
+        "hr": "Doviđenja i hvala!",
+        "de": "Auf Wiedersehen und danke!"
+      },
+      "tags": ["L02", "Begrüßung"]
+    },
+    {
+      "id": "c750799a-a1fc-44d0-93b9-c3e9030a193b",
+      "hr": ["ujutro", "ujutru"],
+      "de": ["am Morgen", "morgens"],
+      "pos": "adv",
+      "note": "Wird zusammengeschrieben (in den Unterlagen: „u jutro“). ujutru: bosnisch/serbisch.",
+      "example": {
+        "hr": "Ujutro pijem kavu.",
+        "de": "Am Morgen trinke ich Kaffee."
+      },
+      "tags": ["L02", "Zeit"]
+    },
+    {
+      "id": "f27466f8-8701-4429-8735-2c4e79363680",
+      "hr": "u podne",
+      "de": ["zu Mittag", "mittags"],
+      "pos": "adv",
+      "example": {
+        "hr": "Vidimo se u podne.",
+        "de": "Wir sehen uns zu Mittag."
+      },
+      "tags": ["L02", "Zeit"]
+    },
+    {
+      "id": "6244a377-552f-4396-b6a4-75513c6573a8",
+      "hr": "poslije",
+      "de": ["nach", "nachher", "danach"],
+      "pos": "other",
+      "note": "Als Präposition mit Genitiv: poslije predavanja.",
+      "example": {
+        "hr": "Poslije predavanja idemo na kavu.",
+        "de": "Nach der Vorlesung gehen wir auf einen Kaffee."
+      },
+      "tags": ["L02", "Zeit"]
+    },
+    {
+      "id": "b0b6d203-694e-4d38-b65e-61ee9c415bda",
+      "hr": "sat",
+      "de": ["die Stunde", "die Uhr"],
+      "pos": "noun",
+      "gender": "m",
+      "note": "Koliko je sati? = Wie spät ist es?",
+      "example": {
+        "hr": "Koliko je sati?",
+        "de": "Wie spät ist es?"
+      },
+      "tags": ["L02", "Zeit"]
+    },
+    {
+      "id": "c5b6abe7-484d-4591-9cb8-1c9545ec3a55",
+      "hr": "navečer",
+      "de": ["am Abend", "abends"],
+      "pos": "adv",
+      "example": {
+        "hr": "Navečer gledam televiziju.",
+        "de": "Am Abend sehe ich fern."
+      },
+      "tags": ["L02", "Zeit"]
+    },
+    {
+      "id": "bcb92134-1bcd-4cce-b420-566eb9612fb4",
+      "hr": ["odlično", "izvrsno"],
+      "de": "ausgezeichnet",
+      "pos": "adv",
+      "example": {
+        "hr": "Kako si? – Odlično!",
+        "de": "Wie geht's dir? – Ausgezeichnet!"
+      },
+      "tags": ["L02", "Befinden"]
+    },
+    {
+      "id": "65b93495-894e-444d-8a95-820e9dfbac10",
+      "hr": "jako dobro",
+      "de": "sehr gut",
+      "pos": "phrase",
+      "example": {
+        "hr": "Govoriš jako dobro hrvatski.",
+        "de": "Du sprichst sehr gut Kroatisch."
+      },
+      "tags": ["L02", "Befinden"]
+    },
+    {
+      "id": "cd88ee64-9c85-4451-9b03-c9178395b115",
+      "hr": "dobro",
+      "de": "gut",
+      "pos": "adv",
+      "example": {
+        "hr": "Dobro sam, hvala.",
+        "de": "Mir geht es gut, danke."
+      },
+      "tags": ["L02", "Befinden"]
+    },
+    {
+      "id": "655f2ea7-4824-4ac4-b38b-c39f5659d1a5",
+      "hr": ["tako-tako", "onako"],
+      "de": ["so lala", "mittelmäßig"],
+      "pos": "phrase",
+      "example": {
+        "hr": "Kako si? – Tako-tako.",
+        "de": "Wie geht's dir? – So lala."
+      },
+      "tags": ["L02", "Befinden"]
+    },
+    {
+      "id": "0c8f3337-420c-4473-a32d-7ab7018a8159",
+      "hr": "Nisam baš dobro.",
+      "de": "Mir geht es nicht so gut.",
+      "pos": "phrase",
+      "note": "Wörtlich: Ich bin nicht gerade gut.",
+      "example": {
+        "hr": "Nisam baš dobro, boli me glava.",
+        "de": "Mir geht es nicht so gut, ich habe Kopfweh."
+      },
+      "tags": ["L02", "Befinden"]
+    },
+    {
+      "id": "087cd763-0b51-4949-ac8d-0633c23faca5",
+      "hr": "loše",
+      "de": "schlecht",
+      "pos": "adv",
+      "note": "Loše mi je. = Mir ist schlecht.",
+      "example": {
+        "hr": "Danas mi je loše.",
+        "de": "Heute ist mir schlecht."
+      },
+      "tags": ["L02", "Befinden"]
+    },
+    {
+      "id": "88e2649b-398c-45ea-88ed-64b0ff36a45b",
+      "hr": "poslušati",
+      "de": ["anhören", "zuhören"],
+      "pos": "verb",
+      "aspect": "pf",
+      "note": "Auch: gehorchen. Imperfektiv: slušati.",
+      "example": {
+        "hr": "Poslušajte dijalog.",
+        "de": "Hören Sie sich den Dialog an."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "72a36d0f-62c7-4df8-87f0-0db9b01da668",
+      "hr": "dijalog",
+      "de": "der Dialog",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Pročitajte dijalog.",
+        "de": "Lesen Sie den Dialog."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "6fcab7f3-5787-496a-89c6-1d3d022d0454",
+      "hr": "upitna zamjenica",
+      "de": ["das Fragewort", "das Fragepronomen"],
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "„Tko“ je upitna zamjenica.",
+        "de": "„Wer“ ist ein Fragewort."
+      },
+      "tags": ["L02", "Grammatik"]
+    },
+    {
+      "id": "9085e5c1-ce9b-4328-b938-3c808cdddff4",
+      "hr": "pitanje",
+      "de": "die Frage",
+      "pos": "noun",
+      "gender": "n",
+      "example": {
+        "hr": "To je dobro pitanje.",
+        "de": "Das ist eine gute Frage."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "1e915dc0-1b3b-4da8-97ca-8165859e9e7c",
+      "hr": "odgovor",
+      "de": "die Antwort",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Znaš li odgovor?",
+        "de": "Weißt du die Antwort?"
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "57353350-ccf0-4324-a283-9daf77cd3956",
+      "hr": ["tko", "ko"],
+      "de": "wer",
+      "pos": "other",
+      "note": "tko: kroatisch; ko: bosnisch/serbisch.",
+      "example": {
+        "hr": "Tko je to?",
+        "de": "Wer ist das?"
+      },
+      "tags": ["L02", "Grammatik"]
+    },
+    {
+      "id": "0f61c1bc-52b1-43f7-928e-2dfe3e796860",
+      "hr": "zar ne",
+      "de": ["nicht wahr?", "oder?"],
+      "pos": "phrase",
+      "example": {
+        "hr": "Ti si Ana, zar ne?",
+        "de": "Du bist Ana, oder?"
+      },
+      "tags": ["L02", "Redewendungen"]
+    },
+    {
+      "id": "dbb1d58a-24c6-4303-a3e8-5f61bbe63ac1",
+      "hr": "biti",
+      "de": "sein",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens (Kurzform): sam, si, je, smo, ste, su.",
+      "example": {
+        "hr": "Ja sam student.",
+        "de": "Ich bin Student."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "05c679f4-ca85-46eb-a467-0d6004d712c5",
+      "hr": "Drago mi je.",
+      "de": ["Sehr erfreut.", "Freut mich."],
+      "pos": "phrase",
+      "example": {
+        "hr": "Ja sam Marko. – Drago mi je, Ana.",
+        "de": "Ich bin Marko. – Freut mich, Ana."
+      },
+      "tags": ["L02", "Begrüßung"]
+    },
+    {
+      "id": "bc2e9a86-23ab-4c90-b4ec-d97052d21869",
+      "hr": "studentica",
+      "de": "die Studentin",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Ana je studentica medicine.",
+        "de": "Ana ist Medizinstudentin."
+      },
+      "tags": ["L02", "Personen", "Universität"]
+    },
+    {
+      "id": "c2b65400-ff5d-45c8-8b04-9957bc30e49c",
+      "hr": "student",
+      "de": "der Student",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Marko je student prava.",
+        "de": "Marko ist Jusstudent."
+      },
+      "tags": ["L02", "Personen", "Universität"]
+    },
+    {
+      "id": "7a317233-b6fb-43c3-801f-2b173eb76b96",
+      "hr": "Bog",
+      "de": "Gott",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Großgeschrieben. Nicht verwechseln: „Bok!“ (mit k) = Hallo! / Tschüss!",
+      "example": {
+        "hr": "Vjeruješ li u Boga?",
+        "de": "Glaubst du an Gott?"
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "24d0a73f-8b40-4f42-8248-d2617c7313f6",
+      "hr": "Bože!",
+      "de": ["Oh (mein) Gott!", "Mein Gott!"],
+      "pos": "phrase",
+      "note": "Vokativ von Bog.",
+      "example": {
+        "hr": "Bože, kako je kasno!",
+        "de": "Mein Gott, wie spät es ist!"
+      },
+      "tags": ["L02", "Redewendungen"]
+    },
+    {
+      "id": "4dafa08d-43cc-4c42-acaa-eba18c2ed684",
+      "hr": "studirati",
+      "de": "studieren",
+      "pos": "verb",
+      "aspect": "ipf",
+      "note": "Präsens: studiram, studiraš …",
+      "example": {
+        "hr": "Studiram kroatistiku u Beču.",
+        "de": "Ich studiere Kroatistik in Wien."
+      },
+      "tags": ["L02", "Universität"]
+    },
+    {
+      "id": "33ac9dee-ba66-48dd-8172-760dedf3b326",
+      "hr": "više",
+      "de": "mehr",
+      "pos": "adv",
+      "note": "više ne = nicht mehr.",
+      "example": {
+        "hr": "Trebam više vremena.",
+        "de": "Ich brauche mehr Zeit."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "67e5aa09-e843-442f-a14d-2e681e967260",
+      "hr": ["sad", "sada"],
+      "de": "jetzt",
+      "pos": "adv",
+      "example": {
+        "hr": "Sad nemam vremena.",
+        "de": "Jetzt habe ich keine Zeit."
+      },
+      "tags": ["L02", "Zeit"]
+    },
+    {
+      "id": "abbb4e1a-a26d-435f-ab4d-c0a0f23353a9",
+      "hr": "semestar",
+      "de": "das Semester",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Genitiv: semestra.",
+      "example": {
+        "hr": "Ovo je moj prvi semestar.",
+        "de": "Das ist mein erstes Semester."
+      },
+      "tags": ["L02", "Universität"]
+    },
+    {
+      "id": "ca639500-ec65-4bd5-9a24-8c02bee88334",
+      "hr": "to",
+      "de": "das",
+      "pos": "other",
+      "note": "Hinweisend: das (da). Što je to? = Was ist das?",
+      "example": {
+        "hr": "Što je to?",
+        "de": "Was ist das?"
+      },
+      "tags": ["L02", "Grammatik"]
+    },
+    {
+      "id": "cf51d4ae-6c2f-48ef-8dd9-4a6d58e7537a",
+      "hr": "baš",
+      "de": ["wirklich", "genau", "gerade"],
+      "pos": "adv",
+      "note": "Verstärkt: baš lijepo = wirklich schön; nisam baš … = ich bin nicht gerade …",
+      "example": {
+        "hr": "To je baš lijepo.",
+        "de": "Das ist wirklich schön."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "e23c16c9-db2d-4f40-8e7b-2f1e766b60ec",
+      "hr": "zanimljivo",
+      "de": "interessant",
+      "pos": "adv",
+      "note": "Adjektiv: zanimljiv, zanimljiva, zanimljivo.",
+      "example": {
+        "hr": "To je jako zanimljivo!",
+        "de": "Das ist sehr interessant!"
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "0570ee40-2fd1-41e5-94bf-0e4cfc46a7d7",
+      "hr": "vidjeti se",
+      "de": "sich sehen",
+      "pos": "verb",
+      "note": "Vidimo se! = Bis bald! / Wir sehen uns! (vidjeti ist zweiaspektig)",
+      "example": {
+        "hr": "Vidimo se sutra!",
+        "de": "Wir sehen uns morgen!"
+      },
+      "tags": ["L02", "Begrüßung"]
+    },
+    {
+      "id": "75153d6f-b83d-4b9e-a6c9-4db502c94907",
+      "hr": "onda",
+      "de": "dann",
+      "pos": "adv",
+      "example": {
+        "hr": "Prvo učim, onda idem van.",
+        "de": "Zuerst lerne ich, dann gehe ich aus."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "3dea5e90-2db8-45d1-ad14-509bd0d1b65e",
+      "hr": "sigurno",
+      "de": "sicher",
+      "pos": "adv",
+      "example": {
+        "hr": "On će sigurno doći.",
+        "de": "Er wird sicher kommen."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "64b00484-fe1e-43ef-ae18-453d63c28e7a",
+      "hr": "učiteljica",
+      "de": "die Lehrerin",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Učiteljica objašnjava gramatiku.",
+        "de": "Die Lehrerin erklärt die Grammatik."
+      },
+      "tags": ["L02", "Personen", "Berufe"]
+    },
+    {
+      "id": "a06eb00e-95ab-452a-af63-a4093ae3be2a",
+      "hr": "učitelj",
+      "de": "der Lehrer",
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Moj otac je učitelj.",
+        "de": "Mein Vater ist Lehrer."
+      },
+      "tags": ["L02", "Personen", "Berufe"]
+    },
+    {
+      "id": "96fbe10a-8554-496c-bd9e-7f9ed4463f32",
+      "hr": ["prijateljica", "drugarica"],
+      "de": "die Freundin",
+      "pos": "noun",
+      "gender": "f",
+      "note": "drugarica: eher bosnisch/serbisch. Feste Freundin: djevojka (ugs. cura).",
+      "example": {
+        "hr": "Ovo je moja prijateljica Ivana.",
+        "de": "Das ist meine Freundin Ivana."
+      },
+      "tags": ["L02", "Personen"]
+    },
+    {
+      "id": "20dc41fe-57bf-4b01-8cc0-6bf747224dc2",
+      "hr": "dijete",
+      "de": "das Kind",
+      "pos": "noun",
+      "gender": "n",
+      "note": "Plural: djeca (Sammelwort, feminin).",
+      "example": {
+        "hr": "Dijete se igra u vrtu.",
+        "de": "Das Kind spielt im Garten."
+      },
+      "tags": ["L02", "Personen"]
+    },
+    {
+      "id": "cc52bdf1-afe4-45ea-a35c-5c801736fcde",
+      "hr": "Austrijanac",
+      "de": "der Österreicher",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Genitiv: Austrijanca.",
+      "example": {
+        "hr": "Ja sam Austrijanac iz Graza.",
+        "de": "Ich bin Österreicher aus Graz."
+      },
+      "tags": ["L02", "Personen", "Länder"]
+    },
+    {
+      "id": "65758572-c42a-4f1d-b9df-e04c998118a5",
+      "hr": "Austrijanka",
+      "de": "die Österreicherin",
+      "pos": "noun",
+      "gender": "f",
+      "example": {
+        "hr": "Ona je Austrijanka.",
+        "de": "Sie ist Österreicherin."
+      },
+      "tags": ["L02", "Personen", "Länder"]
+    },
+    {
+      "id": "1e3c3ba2-99d1-4810-842f-19ef91ab7f56",
+      "hr": "par",
+      "de": ["das Paar", "ein paar"],
+      "pos": "noun",
+      "gender": "m",
+      "example": {
+        "hr": "Oni su lijep par.",
+        "de": "Sie sind ein schönes Paar."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "be8659a7-0ff1-46c0-8fc4-a4129bc83e29",
+      "hr": ["doktor", "liječnik"],
+      "de": ["der Arzt", "der Doktor"],
+      "pos": "noun",
+      "gender": "m",
+      "note": "Standardkroatisch für Arzt: liječnik; Ärztin: liječnica / doktorica.",
+      "example": {
+        "hr": "Moram ići doktoru.",
+        "de": "Ich muss zum Arzt gehen."
+      },
+      "tags": ["L02", "Personen", "Berufe"]
+    },
+    {
+      "id": "c8011241-1a2d-48b4-812e-b2ba43be2ed2",
+      "hr": "otac",
+      "de": "der Vater",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Genitiv: oca; Vokativ: oče.",
+      "example": {
+        "hr": "Moj otac radi u Zagrebu.",
+        "de": "Mein Vater arbeitet in Zagreb."
+      },
+      "tags": ["L02", "Familie"]
+    },
+    {
+      "id": "4f0de6c7-03a3-44c3-adb1-f7a823bb647c",
+      "hr": ["tata", "babo"],
+      "de": "der Papa",
+      "pos": "noun",
+      "gender": "m",
+      "note": "babo: bosnisch. tata ist maskulin, wird aber wie ein Femininum auf -a dekliniert.",
+      "example": {
+        "hr": "Tata, gdje si?",
+        "de": "Papa, wo bist du?"
+      },
+      "tags": ["L02", "Familie"]
+    },
+    {
+      "id": "f6b5e05f-9e66-431a-9972-4229ddc9b284",
+      "hr": "profesor",
+      "de": "der Professor",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Auch: Gymnasiallehrer.",
+      "example": {
+        "hr": "Profesor drži predavanje.",
+        "de": "Der Professor hält eine Vorlesung."
+      },
+      "tags": ["L02", "Personen", "Berufe", "Universität"]
+    },
+    {
+      "id": "4f805f2f-65ad-48a3-8035-8bef241387d3",
+      "hr": "profesorica",
+      "de": "die Professorin",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Auch: Gymnasiallehrerin.",
+      "example": {
+        "hr": "Profesorica je jako stroga.",
+        "de": "Die Professorin ist sehr streng."
+      },
+      "tags": ["L02", "Personen", "Berufe", "Universität"]
+    },
+    {
+      "id": "19433a74-93eb-4970-b453-d0e220390ef0",
+      "hr": ["nov", "nova", "novo"],
+      "de": "neu",
+      "pos": "adj",
+      "note": "nov (m), nova (f), novo (n); bestimmte Form: novi.",
+      "example": {
+        "hr": "Imam novi mobitel.",
+        "de": "Ich habe ein neues Handy."
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "ba989def-ae78-4b42-a958-098ce9041b81",
+      "hr": "gospodin",
+      "de": "der Herr",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Vokativ: gospodine.",
+      "example": {
+        "hr": "Dobar dan, gospodine Horvat!",
+        "de": "Guten Tag, Herr Horvat!"
+      },
+      "tags": ["L02", "Personen"]
+    },
+    {
+      "id": "9113db8c-585c-4456-a0e5-b6d2877f1afc",
+      "hr": "gospođica",
+      "de": "das Fräulein",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Veraltend, wie im Deutschen.",
+      "example": {
+        "hr": "Gospođica Marić je nova studentica.",
+        "de": "Fräulein Marić ist eine neue Studentin."
+      },
+      "tags": ["L02", "Personen"]
+    },
+    {
+      "id": "8a3f6ac4-e4bf-4db1-a70a-9003d992ba6d",
+      "hr": "gospođa",
+      "de": "die Frau",
+      "pos": "noun",
+      "gender": "f",
+      "note": "Als Anrede (Frau …). Vokativ: gospođo.",
+      "example": {
+        "hr": "Gospođa Kovač je moja profesorica.",
+        "de": "Frau Kovač ist meine Professorin."
+      },
+      "tags": ["L02", "Personen"]
+    },
+    {
+      "id": "5ae18190-26f3-4b12-8cc5-9ebd55f729ac",
+      "hr": ["ugodan", "ugodna", "ugodno"],
+      "de": "angenehm",
+      "pos": "adj",
+      "note": "ugodan (m), ugodna (f), ugodno (n).",
+      "example": {
+        "hr": "Želim vam ugodan dan!",
+        "de": "Ich wünsche Ihnen einen angenehmen Tag!"
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "2b715810-aa5a-4858-b0bb-b2b1fa3c5db7",
+      "hr": "također",
+      "de": ["ebenso", "auch", "gleichfalls"],
+      "pos": "adv",
+      "example": {
+        "hr": "Ugodan dan! – Također!",
+        "de": "Einen angenehmen Tag! – Gleichfalls!"
+      },
+      "tags": ["L02"]
+    },
+    {
+      "id": "a41257e2-e6a2-4e49-aa8a-7e8ff190d6a2",
+      "hr": "rukovati se",
+      "de": ["sich die Hände schütteln", "sich die Hand geben"],
+      "pos": "verb",
+      "note": "Zweiaspektig. Präsens: rukujem se, rukuješ se …",
+      "example": {
+        "hr": "Rukovali smo se pri upoznavanju.",
+        "de": "Wir haben uns beim Kennenlernen die Hände geschüttelt."
+      },
+      "tags": ["L02", "Begrüßung"]
+    },
+    {
+      "id": "61e4c98c-48b7-4ddf-86de-b00d3184df4c",
+      "hr": "poljubac",
+      "de": "der Kuss",
+      "pos": "noun",
+      "gender": "m",
+      "note": "Genitiv: poljupca.",
+      "example": {
+        "hr": "Daj mi poljubac!",
+        "de": "Gib mir einen Kuss!"
+      },
+      "tags": ["L02"]
     }
   ]
 }
